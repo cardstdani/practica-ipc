@@ -1,20 +1,25 @@
+package uva.ipc.numberadditionvista;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author danie
  */
-public class NumberAddition extends javax.swing.JFrame {
-    double a, b;
+public class VistaNA extends javax.swing.JFrame {
+
+    private ControladorNA miControlador;
+
     /**
      * Creates new form NumberAddition
      */
-    public NumberAddition() {
+    public VistaNA() {
         initComponents();
-        limpiar();
+        this.miControlador = new ControladorNA(this);
+        this.limpiar();
+        this.limpiarError();
     }
 
     /**
@@ -55,9 +60,9 @@ public class NumberAddition extends javax.swing.JFrame {
         jPanel5.setLayout(new java.awt.GridLayout(5, 1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        java.awt.FlowLayout flowLayout2 = new java.awt.FlowLayout(0);
-        flowLayout2.setAlignOnBaseline(true);
-        jPanel1.setLayout(flowLayout2);
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
+        flowLayout1.setAlignOnBaseline(true);
+        jPanel1.setLayout(flowLayout1);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -65,7 +70,7 @@ public class NumberAddition extends javax.swing.JFrame {
         jLabel1.setText("Primer Número:");
         jPanel1.add(jLabel1);
 
-        primerNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        primerNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         primerNumeroTextField.setMinimumSize(new java.awt.Dimension(264, 52));
         primerNumeroTextField.setPreferredSize(new java.awt.Dimension(264, 22));
         jPanel1.add(primerNumeroTextField);
@@ -73,7 +78,7 @@ public class NumberAddition extends javax.swing.JFrame {
         jPanel5.add(jPanel1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new java.awt.FlowLayout(0));
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -81,7 +86,7 @@ public class NumberAddition extends javax.swing.JFrame {
         jLabel2.setText("Segundo Número:");
         jPanel3.add(jLabel2);
 
-        segundoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        segundoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         segundoNumeroTextField.setMinimumSize(new java.awt.Dimension(264, 52));
         segundoNumeroTextField.setPreferredSize(new java.awt.Dimension(264, 22));
         jPanel3.add(segundoNumeroTextField);
@@ -89,9 +94,9 @@ public class NumberAddition extends javax.swing.JFrame {
         jPanel5.add(jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(0);
-        flowLayout1.setAlignOnBaseline(true);
-        jPanel4.setLayout(flowLayout1);
+        java.awt.FlowLayout flowLayout2 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT);
+        flowLayout2.setAlignOnBaseline(true);
+        jPanel4.setLayout(flowLayout2);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -100,7 +105,7 @@ public class NumberAddition extends javax.swing.JFrame {
         jPanel4.add(jLabel3);
 
         resultadoNumeroTextField.setEditable(false);
-        resultadoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        resultadoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         resultadoNumeroTextField.setMinimumSize(new java.awt.Dimension(264, 52));
         resultadoNumeroTextField.setPreferredSize(new java.awt.Dimension(264, 22));
         jPanel4.add(resultadoNumeroTextField);
@@ -156,62 +161,30 @@ public class NumberAddition extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sumarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumarButtonActionPerformed
-        try {
-            a =  Double.valueOf(primerNumeroTextField.getText());
-        } catch (Exception e) {
-            errorLabel.setText(e.getMessage());
-        }
-        try {
-            b =  Double.valueOf(primerNumeroTextField.getText());
-        } catch (Exception e) {
-            errorLabel.setText(e.getMessage());
-        }
-        String res = Double.toString(a+b);
-        resultadoNumeroTextField.setText(res);
-        textArea1.append(Double.toString(a)+"+"+Double.toString(b)+"="+res+"\n");
+        miControlador.eventoSumar();
     }//GEN-LAST:event_sumarButtonActionPerformed
 
+
     private void limpiarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarButtonActionPerformed
-        limpiar();
+        miControlador.limpiar();
     }//GEN-LAST:event_limpiarButtonActionPerformed
 
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
-        System.exit(33);
+        miControlador.salir();
     }//GEN-LAST:event_salirButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NumberAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NumberAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NumberAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NumberAddition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public void escribirError(String error) {
+        errorLabel.setText(error);
+    }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NumberAddition().setVisible(true);
-            }
-        });
+    void limpiar() {
+        primerNumeroTextField.setText("");
+        segundoNumeroTextField.setText("");
+        resultadoNumeroTextField.setText("");
+    }
+
+    void limpiarError() {
+        errorLabel.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -235,10 +208,19 @@ public class NumberAddition extends javax.swing.JFrame {
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 
-    private void limpiar() {
-        primerNumeroTextField.setText("");
-        segundoNumeroTextField.setText("");
-        resultadoNumeroTextField.setText("");
-        errorLabel.setText("");
+    String getPrimerNumeroText() {
+        return primerNumeroTextField.getText();
+    }
+
+    String getSegundoNumeroText() {
+        return segundoNumeroTextField.getText();
+    }
+
+    void setResultadoText(String res) {
+        resultadoNumeroTextField.setText(res);
+    }
+
+    void setHistorialText(String newHistorial) {
+       textArea1.setText(newHistorial);
     }
 }
