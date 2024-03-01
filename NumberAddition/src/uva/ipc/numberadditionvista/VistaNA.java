@@ -70,9 +70,9 @@ public class VistaNA extends javax.swing.JFrame {
         jLabel1.setText("Primer Número:");
         jPanel1.add(jLabel1);
 
-        primerNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        primerNumeroTextField.setColumns(20);
+        primerNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         primerNumeroTextField.setMinimumSize(new java.awt.Dimension(264, 52));
-        primerNumeroTextField.setPreferredSize(new java.awt.Dimension(264, 22));
         jPanel1.add(primerNumeroTextField);
 
         jPanel5.add(jPanel1);
@@ -86,9 +86,9 @@ public class VistaNA extends javax.swing.JFrame {
         jLabel2.setText("Segundo Número:");
         jPanel3.add(jLabel2);
 
-        segundoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        segundoNumeroTextField.setColumns(20);
+        segundoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         segundoNumeroTextField.setMinimumSize(new java.awt.Dimension(264, 52));
-        segundoNumeroTextField.setPreferredSize(new java.awt.Dimension(264, 22));
         jPanel3.add(segundoNumeroTextField);
 
         jPanel5.add(jPanel3);
@@ -105,9 +105,9 @@ public class VistaNA extends javax.swing.JFrame {
         jPanel4.add(jLabel3);
 
         resultadoNumeroTextField.setEditable(false);
-        resultadoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        resultadoNumeroTextField.setColumns(20);
+        resultadoNumeroTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         resultadoNumeroTextField.setMinimumSize(new java.awt.Dimension(264, 52));
-        resultadoNumeroTextField.setPreferredSize(new java.awt.Dimension(264, 22));
         jPanel4.add(resultadoNumeroTextField);
 
         jPanel5.add(jPanel4);
