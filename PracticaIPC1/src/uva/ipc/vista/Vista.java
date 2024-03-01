@@ -15,9 +15,9 @@ public class Vista extends javax.swing.JFrame {
      */
     public Vista() {
         initComponents();
-        Paso3Panel.setVisible(false);
-        Paso2Panel.setVisible(true);
-        Paso1Panel.setVisible(false);
+        paso3Panel.setVisible(false);
+        paso2Panel.setVisible(true);
+        paso1Panel.setVisible(false);
     }
 
     /**
@@ -29,53 +29,63 @@ public class Vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Paso1Panel = new javax.swing.JPanel();
+        paso1Panel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        Paso1jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        paso1Label = new javax.swing.JLabel();
+        seleccioneEstacionLabel = new javax.swing.JLabel();
+        trenLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        bicicletaComboBox = new javax.swing.JComboBox<>();
+        mascotaComboBox = new javax.swing.JComboBox<>();
+        intercambiarEstacionesButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jSpinner1 = new javax.swing.JSpinner();
+        fechaSpinner = new javax.swing.JSpinner();
+        fechaImagenLabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        Paso2Panel = new javax.swing.JPanel();
+        continuar1Button = new javax.swing.JButton();
+        errores1TextField = new javax.swing.JTextField();
+        paso2Panel = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        Paso1jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        paso2Label = new javax.swing.JLabel();
+        seleccioneEstacion2Label = new javax.swing.JLabel();
+        tren2Label = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        listaTrenesDisponiblesjTextArea = new javax.swing.JTextArea();
         jPanel8 = new javax.swing.JPanel();
-        checkbox1 = new java.awt.Checkbox();
-        checkbox2 = new java.awt.Checkbox();
+        bicicletacheckbox1 = new java.awt.Checkbox();
+        mascotacheckbox2 = new java.awt.Checkbox();
+        bicicletaImagenjLabel = new javax.swing.JLabel();
+        mascotajLabel = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        Paso3Panel = new javax.swing.JPanel();
+        volver2Button = new javax.swing.JButton();
+        continuar2Button = new javax.swing.JButton();
+        errores2TextField = new javax.swing.JTextField();
+        paso3Panel = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        Paso1jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        paso3Label = new javax.swing.JLabel();
+        seleccioneEstacion3Label = new javax.swing.JLabel();
+        tren3Label = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jButton3 = new javax.swing.JButton();
+        RadioButton = new javax.swing.JRadioButton();
+        volver3Button = new javax.swing.JButton();
+        errores3TextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        Paso1Panel.setEnabled(false);
-        Paso1Panel.setMaximumSize(new java.awt.Dimension(700, 700));
-        Paso1Panel.setMinimumSize(new java.awt.Dimension(600, 600));
-        Paso1Panel.setPreferredSize(new java.awt.Dimension(600, 600));
-        Paso1Panel.setLayout(new java.awt.GridLayout(4, 1));
+        paso1Panel.setEnabled(false);
+        paso1Panel.setMaximumSize(new java.awt.Dimension(700, 700));
+        paso1Panel.setMinimumSize(new java.awt.Dimension(600, 600));
+        paso1Panel.setPreferredSize(new java.awt.Dimension(600, 600));
+        paso1Panel.setLayout(new java.awt.GridLayout(4, 1));
 
-        Paso1jLabel1.setText("Paso 1");
+        paso1Label.setText("Paso 1");
 
-        jLabel2.setText("Seleccione las estaciones");
+        seleccioneEstacionLabel.setText("Seleccione las estaciones");
+
+        trenLabel.setText("Tren Castilla y León");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -84,34 +94,39 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(184, 184, 184)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(seleccioneEstacionLabel)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(Paso1jLabel1)
+                        .addComponent(paso1Label)
                         .addGap(66, 66, 66)))
                 .addContainerGap(285, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(trenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(Paso1jLabel1)
+                .addComponent(trenLabel)
+                .addGap(1, 1, 1)
+                .addComponent(paso1Label)
                 .addGap(31, 31, 31)
-                .addComponent(jLabel2)
+                .addComponent(seleccioneEstacionLabel)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        Paso1Panel.add(jPanel2);
+        paso1Panel.add(jPanel2);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        bicicletaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        bicicletaComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                bicicletaComboBoxActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        mascotaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton2.setText("jButton2");
+        intercambiarEstacionesButton.setText("Intercambiar Estaciones");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -120,10 +135,10 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                    .addComponent(mascotaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bicicletaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addComponent(intercambiarEstacionesButton)
                 .addGap(36, 36, 36))
         );
         jPanel3Layout.setVerticalGroup(
@@ -132,17 +147,19 @@ public class Vista extends javax.swing.JFrame {
                 .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bicicletaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(mascotaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(intercambiarEstacionesButton)
                         .addGap(20, 20, 20))))
         );
 
-        Paso1Panel.add(jPanel3);
+        paso1Panel.add(jPanel3);
 
-        jSpinner1.setModel(new javax.swing.SpinnerDateModel());
+        fechaSpinner.setModel(new javax.swing.SpinnerDateModel());
+
+        fechaImagenLabel.setText("fechaImagen");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -150,85 +167,107 @@ public class Vista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addComponent(fechaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(fechaImagenLabel)
+                .addContainerGap(323, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(99, Short.MAX_VALUE)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fechaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fechaImagenLabel))
                 .addGap(29, 29, 29))
         );
 
-        Paso1Panel.add(jPanel4);
+        paso1Panel.add(jPanel4);
 
-        jButton1.setText("CONTINUAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        continuar1Button.setText("Continuar");
+        continuar1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                continuar1ButtonActionPerformed(evt);
             }
         });
+
+        errores1TextField.setText("Comprobacion Errores");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jButton1)
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(continuar1Button))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(errores1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGap(29, 29, 29)
+                .addComponent(errores1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(continuar1Button)
                 .addGap(23, 23, 23))
         );
 
-        Paso1Panel.add(jPanel5);
+        paso1Panel.add(jPanel5);
 
-        getContentPane().add(Paso1Panel, "card2");
+        getContentPane().add(paso1Panel, "card2");
 
-        Paso2Panel.setEnabled(false);
-        Paso2Panel.setMaximumSize(new java.awt.Dimension(700, 700));
-        Paso2Panel.setMinimumSize(new java.awt.Dimension(600, 600));
-        Paso2Panel.setPreferredSize(new java.awt.Dimension(600, 600));
-        Paso2Panel.setLayout(new java.awt.GridLayout(4, 1));
+        paso2Panel.setEnabled(false);
+        paso2Panel.setMaximumSize(new java.awt.Dimension(700, 700));
+        paso2Panel.setMinimumSize(new java.awt.Dimension(600, 600));
+        paso2Panel.setPreferredSize(new java.awt.Dimension(600, 600));
+        paso2Panel.setLayout(new java.awt.GridLayout(4, 1));
 
-        Paso1jLabel2.setText("Paso 2");
+        paso2Label.setText("Paso 2");
 
-        jLabel3.setText("Seleccione las estaciones");
+        seleccioneEstacion2Label.setText("Seleccione las estaciones");
+
+        tren2Label.setText("Tren Castilla y León");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(184, 184, 184)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(Paso1jLabel2)
-                        .addGap(66, 66, 66)))
-                .addContainerGap(285, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(seleccioneEstacion2Label)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(paso2Label)
+                                .addGap(66, 66, 66))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tren2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(Paso1jLabel2)
+                .addComponent(tren2Label)
+                .addGap(1, 1, 1)
+                .addComponent(paso2Label)
                 .addGap(31, 31, 31)
-                .addComponent(jLabel3)
+                .addComponent(seleccioneEstacion2Label)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        Paso2Panel.add(jPanel6);
+        paso2Panel.add(jPanel6);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        listaTrenesDisponiblesjTextArea.setEditable(false);
+        listaTrenesDisponiblesjTextArea.setColumns(20);
+        listaTrenesDisponiblesjTextArea.setRows(5);
+        jScrollPane1.setViewportView(listaTrenesDisponiblesjTextArea);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -247,11 +286,15 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        Paso2Panel.add(jPanel7);
+        paso2Panel.add(jPanel7);
 
-        checkbox1.setLabel("checkbox1");
+        bicicletacheckbox1.setLabel("checkbox1");
 
-        checkbox2.setLabel("checkbox2");
+        mascotacheckbox2.setLabel("checkbox2");
+
+        bicicletaImagenjLabel.setText("bicicletaImagen");
+
+        mascotajLabel.setText("mascotaImagen");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -260,35 +303,43 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(436, Short.MAX_VALUE))
+                    .addComponent(bicicletacheckbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mascotacheckbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mascotajLabel)
+                    .addComponent(bicicletaImagenjLabel))
+                .addContainerGap(323, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(72, Short.MAX_VALUE)
-                .addComponent(checkbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bicicletacheckbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bicicletaImagenjLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mascotacheckbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mascotajLabel))
                 .addGap(28, 28, 28))
         );
 
-        Paso2Panel.add(jPanel8);
+        paso2Panel.add(jPanel8);
 
-        jButton4.setText("CONTINUAR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        volver2Button.setText("Volver");
+
+        continuar2Button.setText("Continuar");
+        continuar2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                continuar2ButtonActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Volver");
-
-        jButton6.setText("Continuar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        errores2TextField.setText("Comprobacion Errores");
+        errores2TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                errores2TextFieldActionPerformed(evt);
             }
         });
 
@@ -297,50 +348,93 @@ public class Vista extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
-                .addComponent(jButton6)
-                .addGap(40, 40, 40))
+                .addGap(40, 40, 40)
+                .addComponent(volver2Button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 384, Short.MAX_VALUE)
+                .addComponent(continuar2Button)
+                .addGap(30, 30, 30))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(errores2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(25, 25, 25)
+                .addComponent(errores2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(23, 23, 23))
+                    .addComponent(volver2Button)
+                    .addComponent(continuar2Button))
+                .addGap(31, 31, 31))
         );
 
-        Paso2Panel.add(jPanel9);
+        paso2Panel.add(jPanel9);
 
-        getContentPane().add(Paso2Panel, "card3");
+        getContentPane().add(paso2Panel, "card3");
 
-        Paso3Panel.setEnabled(false);
-        Paso3Panel.setMaximumSize(new java.awt.Dimension(700, 700));
-        Paso3Panel.setMinimumSize(new java.awt.Dimension(600, 600));
-        Paso3Panel.setPreferredSize(new java.awt.Dimension(600, 600));
-        Paso3Panel.setLayout(new java.awt.GridLayout(2, 1));
+        paso3Panel.setEnabled(false);
+        paso3Panel.setMaximumSize(new java.awt.Dimension(700, 700));
+        paso3Panel.setMinimumSize(new java.awt.Dimension(600, 600));
+        paso3Panel.setPreferredSize(new java.awt.Dimension(600, 600));
+        paso3Panel.setLayout(new java.awt.GridLayout(2, 1));
 
-        Paso1jLabel3.setText("Paso 3");
-        jPanel10.add(Paso1jLabel3);
+        paso3Label.setText("Paso 3");
 
-        jLabel4.setText("Seleccione las estaciones");
-        jPanel10.add(jLabel4);
+        seleccioneEstacion3Label.setText("Seleccione las estaciones");
 
-        Paso3Panel.add(jPanel10);
+        tren3Label.setText("Tren Castilla y León");
 
-        jRadioButton1.setText("jRadioButton1");
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(seleccioneEstacion3Label)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(paso3Label))))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tren3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addComponent(tren3Label)
+                .addGap(10, 10, 10)
+                .addComponent(paso3Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seleccioneEstacion3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
-        jButton3.setText("Volver");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        paso3Panel.add(jPanel10);
+
+        RadioButton.setText("jRadioButton1");
+        RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                RadioButtonActionPerformed(evt);
+            }
+        });
+
+        volver3Button.setText("Volver");
+        volver3Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volver3ButtonActionPerformed(evt);
+            }
+        });
+
+        errores3TextField.setText("Comprobacion Errores");
+        errores3TextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                errores3TextFieldActionPerformed(evt);
             }
         });
 
@@ -351,49 +445,61 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(jRadioButton1))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addComponent(jButton3)))
-                .addContainerGap(268, Short.MAX_VALUE))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RadioButton)
+                            .addComponent(volver3Button)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(errores3TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addGap(25, 25, 25)
+                .addComponent(RadioButton)
+                .addGap(61, 61, 61)
+                .addComponent(errores3TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(volver3Button)
                 .addGap(49, 49, 49))
         );
 
-        Paso3Panel.add(jPanel11);
+        paso3Panel.add(jPanel11);
 
-        getContentPane().add(Paso3Panel, "card4");
+        getContentPane().add(paso3Panel, "card4");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void continuar1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuar1ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_continuar1ButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void bicicletaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bicicletaComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_bicicletaComboBoxActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void volver3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver3ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_volver3ButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void continuar2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuar2ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_continuar2ButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_RadioButtonActionPerformed
+
+    private void errores2TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errores2TextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_errores2TextFieldActionPerformed
+
+    private void errores3TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errores3TextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_errores3TextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -432,25 +538,18 @@ public class Vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Paso1Panel;
-    private javax.swing.JLabel Paso1jLabel1;
-    private javax.swing.JLabel Paso1jLabel2;
-    private javax.swing.JLabel Paso1jLabel3;
-    private javax.swing.JPanel Paso2Panel;
-    private javax.swing.JPanel Paso3Panel;
-    private java.awt.Checkbox checkbox1;
-    private java.awt.Checkbox checkbox2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton RadioButton;
+    private javax.swing.JComboBox<String> bicicletaComboBox;
+    private javax.swing.JLabel bicicletaImagenjLabel;
+    private java.awt.Checkbox bicicletacheckbox1;
+    private javax.swing.JButton continuar1Button;
+    private javax.swing.JButton continuar2Button;
+    private javax.swing.JTextField errores1TextField;
+    private javax.swing.JTextField errores2TextField;
+    private javax.swing.JTextField errores3TextField;
+    private javax.swing.JLabel fechaImagenLabel;
+    private javax.swing.JSpinner fechaSpinner;
+    private javax.swing.JButton intercambiarEstacionesButton;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
@@ -461,9 +560,24 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea listaTrenesDisponiblesjTextArea;
+    private javax.swing.JComboBox<String> mascotaComboBox;
+    private java.awt.Checkbox mascotacheckbox2;
+    private javax.swing.JLabel mascotajLabel;
+    private javax.swing.JLabel paso1Label;
+    private javax.swing.JPanel paso1Panel;
+    private javax.swing.JLabel paso2Label;
+    private javax.swing.JPanel paso2Panel;
+    private javax.swing.JLabel paso3Label;
+    private javax.swing.JPanel paso3Panel;
+    private javax.swing.JLabel seleccioneEstacion2Label;
+    private javax.swing.JLabel seleccioneEstacion3Label;
+    private javax.swing.JLabel seleccioneEstacionLabel;
+    private javax.swing.JLabel tren2Label;
+    private javax.swing.JLabel tren3Label;
+    private javax.swing.JLabel trenLabel;
+    private javax.swing.JButton volver2Button;
+    private javax.swing.JButton volver3Button;
     // End of variables declaration//GEN-END:variables
 }
