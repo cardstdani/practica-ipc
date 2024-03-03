@@ -4,8 +4,9 @@
  */
 package uva.ipc.vista;
 
+import java.util.*;
+import java.text.SimpleDateFormat;
 import com.formdev.flatlaf.*;
-import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -45,7 +46,7 @@ public class Vista extends javax.swing.JFrame {
         mascotaComboBox = new javax.swing.JComboBox<>();
         intercambiarEstacionesButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jPanel5 = new javax.swing.JPanel();
         continuarPaso1Button = new javax.swing.JButton();
         errores1TextField = new javax.swing.JTextField();
@@ -74,6 +75,7 @@ public class Vista extends javax.swing.JFrame {
         RadioButton = new javax.swing.JRadioButton();
         volver3Button = new javax.swing.JButton();
         errores3TextField = new javax.swing.JTextField();
+        RadioButton1 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tren Castilla y León");
@@ -103,10 +105,9 @@ public class Vista extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(paso1Label)
-                        .addGap(49, 49, 49))
+                        .addComponent(paso1Label))
                     .addComponent(seleccioneEstacionLabel))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,25 +165,29 @@ public class Vista extends javax.swing.JFrame {
 
         paso1Panel.add(jPanel3);
 
-        jDateChooser2.setDate(new java.util.Date());
-        jDateChooser2.setDateFormatString("dd/MM/yyyy");
+        jXDatePicker1.setDate(new java.util.Date());
+        jXDatePicker1.setDoubleBuffered(true);
+        jXDatePicker1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(272, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
+
+        jXDatePicker1.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
+        jXDatePicker1.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
 
         paso1Panel.add(jPanel4);
 
@@ -418,29 +423,28 @@ public class Vista extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(188, 188, 188)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(seleccioneEstacionLabel2)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(seleccioneEstacionLabel2))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
+                        .addGap(39, 39, 39)
                         .addComponent(paso1Label2)))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addGap(28, 28, 28)
                 .addComponent(paso1Label2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(seleccioneEstacionLabel2)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         paso3Panel.add(jPanel10);
 
         RadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        RadioButton.setText("jRadioButton1");
+        RadioButton.setText("Tarjeta de crédito");
         RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RadioButtonActionPerformed(evt);
@@ -462,6 +466,14 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
+        RadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        RadioButton1.setText("Tarjeta Usuario TCyL");
+        RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -469,14 +481,16 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(RadioButton))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(246, 246, 246)
                         .addComponent(errores3TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(volver3Button)))
+                        .addComponent(volver3Button))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RadioButton1)
+                            .addComponent(RadioButton))))
                 .addContainerGap(220, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
@@ -484,9 +498,11 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(RadioButton)
-                .addGap(61, 61, 61)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RadioButton1)
+                .addGap(39, 39, 39)
                 .addComponent(errores3TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(volver3Button)
                 .addGap(41, 41, 41))
         );
@@ -551,6 +567,10 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
+    private void RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RadioButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -570,6 +590,7 @@ public class Vista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton RadioButton;
+    private javax.swing.JRadioButton RadioButton1;
     private javax.swing.JComboBox<String> bicicletaComboBox;
     private javax.swing.JLabel bicicletaImagenjLabel;
     private javax.swing.JButton cambiarTemaButton;
@@ -581,7 +602,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton intercambiarEstacionesButton;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
@@ -593,6 +613,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JTextArea listaTrenesDisponiblesjTextArea;
     private javax.swing.JComboBox<String> mascotaComboBox;
     private javax.swing.JLabel mascotajLabel;
