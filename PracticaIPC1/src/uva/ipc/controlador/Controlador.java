@@ -19,6 +19,7 @@ public class Controlador {
     public Controlador(Vista vista) {
         this.vista = vista;
         this.modelo = new Modelo();
+        vista.inicializarEstaciones(modelo.getEstaciones());
     }
 
     public void continuarPaso1() {

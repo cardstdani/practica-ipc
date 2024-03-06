@@ -17,7 +17,7 @@ import uva.ipc.controlador.Controlador;
  * @author danie
  */
 public class Vista extends javax.swing.JFrame {
-
+    
     private Controlador controlador;
 
     /**
@@ -42,8 +42,8 @@ public class Vista extends javax.swing.JFrame {
         paso1Label = new javax.swing.JLabel();
         seleccioneEstacionLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        bicicletaComboBox = new javax.swing.JComboBox<>();
-        mascotaComboBox = new javax.swing.JComboBox<>();
+        estacionOrigenSelector = new javax.swing.JComboBox<>();
+        estacionDestinoSelector = new javax.swing.JComboBox<>();
         intercambiarEstacionesButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
@@ -121,16 +121,14 @@ public class Vista extends javax.swing.JFrame {
 
         paso1Panel.add(jPanel2);
 
-        bicicletaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        bicicletaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        bicicletaComboBox.addActionListener(new java.awt.event.ActionListener() {
+        estacionOrigenSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        estacionOrigenSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bicicletaComboBoxActionPerformed(evt);
+                estacionOrigenSelectorActionPerformed(evt);
             }
         });
 
-        mascotaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mascotaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        estacionDestinoSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         intercambiarEstacionesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         intercambiarEstacionesButton.setText("Intercambiar Estaciones");
@@ -142,11 +140,11 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(mascotaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bicicletaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(intercambiarEstacionesButton)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,9 +155,9 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(intercambiarEstacionesButton))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(bicicletaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mascotaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -202,7 +200,7 @@ public class Vista extends javax.swing.JFrame {
         errores1TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         errores1TextField.setText("Comprobacion Errores");
 
-        cambiarTemaButton.setText("Tema Oscuro😎");
+        cambiarTemaButton.setText("Tema Oscuro");
         cambiarTemaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cambiarTemaButtonActionPerformed(evt);
@@ -518,9 +516,9 @@ public class Vista extends javax.swing.JFrame {
         controlador.continuarPaso1();
     }//GEN-LAST:event_continuarPaso1ButtonActionPerformed
 
-    private void bicicletaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bicicletaComboBoxActionPerformed
+    private void estacionOrigenSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estacionOrigenSelectorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bicicletaComboBoxActionPerformed
+    }//GEN-LAST:event_estacionOrigenSelectorActionPerformed
 
     private void volver3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver3ButtonActionPerformed
         controlador.volverPaso3();
@@ -591,7 +589,6 @@ public class Vista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton RadioButton;
     private javax.swing.JRadioButton RadioButton1;
-    private javax.swing.JComboBox<String> bicicletaComboBox;
     private javax.swing.JLabel bicicletaImagenjLabel;
     private javax.swing.JButton cambiarTemaButton;
     private javax.swing.JButton continuarPaso1Button;
@@ -599,6 +596,8 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JTextField errores1TextField;
     private javax.swing.JTextField errores2TextField;
     private javax.swing.JTextField errores3TextField;
+    private javax.swing.JComboBox<String> estacionDestinoSelector;
+    private javax.swing.JComboBox<String> estacionOrigenSelector;
     private javax.swing.JButton intercambiarEstacionesButton;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -615,7 +614,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JTextArea listaTrenesDisponiblesjTextArea;
-    private javax.swing.JComboBox<String> mascotaComboBox;
     private javax.swing.JLabel mascotajLabel;
     private javax.swing.JLabel paso1Label;
     private javax.swing.JLabel paso1Label1;
@@ -644,7 +642,7 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
     public void escribirError(int paso) {
         switch (paso) {
             case 1:
@@ -658,10 +656,18 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
     private void desactivarPasos() {
         paso1Panel.setVisible(false);
         paso2Panel.setVisible(false);
         paso3Panel.setVisible(false);
+    }
+    
+    public void inicializarEstaciones(ArrayList<String> estaciones) {
+        for (String estacion : estaciones) {
+            estacionOrigenSelector.addItem(estacion);
+            estacionDestinoSelector.addItem(estacion);
+        }
+        estacionDestinoSelector.setSelectedIndex(estacionDestinoSelector.getItemCount() - 1);
     }
 }
