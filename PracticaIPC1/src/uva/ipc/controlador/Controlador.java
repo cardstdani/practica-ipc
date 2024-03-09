@@ -19,11 +19,15 @@ public class Controlador {
     public Controlador(Vista vista) {
         this.vista = vista;
         this.modelo = new Modelo();
-        vista.inicializarEstaciones(modelo.getEstaciones());
+        vista.inicializarEstaciones(modelo.getEstaciones());        
     }
 
     public void continuarPaso1() {
         if (comprobarErrorPaso1().equals("")) {
+            modelo.setEstacionOrigen(vista.getEstacionOrigen());
+            modelo.setEstacionDestino(vista.getEstacionDestino());
+            modelo.setFecha(vista.getFecha());
+            vista.actualizarViajes(modelo.getViajes());
             vista.activarPaso(2);
         } else {
 

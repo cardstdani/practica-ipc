@@ -7,18 +7,22 @@ package uva.ipc.vista;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import com.formdev.flatlaf.*;
+import java.time.*;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import uva.ipc.controlador.Controlador;
+import uva.ipc.modelo.Viaje;
 
 /**
  *
  * @author danie
  */
 public class Vista extends javax.swing.JFrame {
-    
+
     private Controlador controlador;
+    private DefaultListModel<Viaje> viajesListModel = new DefaultListModel<>();
 
     /**
      * Creates new form MainFrame
@@ -26,6 +30,7 @@ public class Vista extends javax.swing.JFrame {
     public Vista() {
         initComponents();
         this.controlador = new Controlador(this);
+        rutasList.setModel(viajesListModel);
     }
 
     /**
@@ -46,7 +51,7 @@ public class Vista extends javax.swing.JFrame {
         estacionDestinoSelector = new javax.swing.JComboBox<>();
         intercambiarEstacionesButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        fechaDatePicker = new org.jdesktop.swingx.JXDatePicker();
         jPanel5 = new javax.swing.JPanel();
         continuarPaso1Button = new javax.swing.JButton();
         errores1TextField = new javax.swing.JTextField();
@@ -56,8 +61,8 @@ public class Vista extends javax.swing.JFrame {
         paso1Label1 = new javax.swing.JLabel();
         seleccioneEstacionLabel1 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listaTrenesDisponiblesjTextArea = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        rutasList = new org.jdesktop.swingx.JXList();
         jPanel8 = new javax.swing.JPanel();
         bicicletaImagenjLabel = new javax.swing.JLabel();
         mascotajLabel = new javax.swing.JLabel();
@@ -132,6 +137,11 @@ public class Vista extends javax.swing.JFrame {
 
         intercambiarEstacionesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         intercambiarEstacionesButton.setText("Intercambiar Estaciones");
+        intercambiarEstacionesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                intercambiarEstacionesButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -163,9 +173,9 @@ public class Vista extends javax.swing.JFrame {
 
         paso1Panel.add(jPanel3);
 
-        jXDatePicker1.setDate(new java.util.Date());
-        jXDatePicker1.setDoubleBuffered(true);
-        jXDatePicker1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fechaDatePicker.setDate(new java.util.Date());
+        fechaDatePicker.setDoubleBuffered(true);
+        fechaDatePicker.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -173,19 +183,19 @@ public class Vista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(272, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        jXDatePicker1.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
-        jXDatePicker1.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
+        fechaDatePicker.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
+        fechaDatePicker.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
 
         paso1Panel.add(jPanel4);
 
@@ -274,26 +284,25 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel6);
 
-        listaTrenesDisponiblesjTextArea.setEditable(false);
-        listaTrenesDisponiblesjTextArea.setColumns(20);
-        listaTrenesDisponiblesjTextArea.setRows(5);
-        jScrollPane1.setViewportView(listaTrenesDisponiblesjTextArea);
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        rutasList.setModel(listModel);
+        jScrollPane2.setViewportView(rutasList);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addGap(136, 136, 136)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         paso2Panel.add(jPanel7);
@@ -569,6 +578,12 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RadioButton1ActionPerformed
 
+    private void intercambiarEstacionesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intercambiarEstacionesButtonActionPerformed
+        int index = estacionDestinoSelector.getSelectedIndex();
+        estacionDestinoSelector.setSelectedIndex(estacionOrigenSelector.getSelectedIndex());
+        estacionOrigenSelector.setSelectedIndex(index);
+    }//GEN-LAST:event_intercambiarEstacionesButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -598,6 +613,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JTextField errores3TextField;
     private javax.swing.JComboBox<String> estacionDestinoSelector;
     private javax.swing.JComboBox<String> estacionOrigenSelector;
+    private org.jdesktop.swingx.JXDatePicker fechaDatePicker;
     private javax.swing.JButton intercambiarEstacionesButton;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -611,9 +627,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
-    private javax.swing.JTextArea listaTrenesDisponiblesjTextArea;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel mascotajLabel;
     private javax.swing.JLabel paso1Label;
     private javax.swing.JLabel paso1Label1;
@@ -621,6 +635,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel paso1Panel;
     private javax.swing.JPanel paso2Panel;
     private javax.swing.JPanel paso3Panel;
+    private org.jdesktop.swingx.JXList rutasList;
     private javax.swing.JLabel seleccioneEstacionLabel;
     private javax.swing.JLabel seleccioneEstacionLabel1;
     private javax.swing.JLabel seleccioneEstacionLabel2;
@@ -642,7 +657,7 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     public void escribirError(int paso) {
         switch (paso) {
             case 1:
@@ -656,18 +671,37 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     private void desactivarPasos() {
         paso1Panel.setVisible(false);
         paso2Panel.setVisible(false);
         paso3Panel.setVisible(false);
     }
-    
+
     public void inicializarEstaciones(ArrayList<String> estaciones) {
         for (String estacion : estaciones) {
             estacionOrigenSelector.addItem(estacion);
             estacionDestinoSelector.addItem(estacion);
         }
         estacionDestinoSelector.setSelectedIndex(estacionDestinoSelector.getItemCount() - 1);
+    }
+
+    public void actualizarViajes(ArrayList<Viaje> viajes) {
+        viajesListModel.removeAllElements();
+        for (Viaje viaje : viajes) {
+            viajesListModel.addElement(viaje);
+        }
+    }
+
+    public LocalDateTime getFecha() {
+        return fechaDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    public String getEstacionOrigen() {
+        return (String) estacionOrigenSelector.getSelectedItem();
+    }
+
+    public String getEstacionDestino() {
+        return (String) estacionDestinoSelector.getSelectedItem();
     }
 }
