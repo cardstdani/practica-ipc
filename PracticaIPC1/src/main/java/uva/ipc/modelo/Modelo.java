@@ -23,8 +23,8 @@ public class Modelo {
     private boolean mascota, bicicleta;
     
     public Modelo() {
-        String csvFile = "src/main/java/resources/estaciones.csv";
-        String rutasCsvFile = "src/main/java/resources/rutas.csv";
+        String csvFile = "src/main/resources/estaciones.csv";
+        String rutasCsvFile = "src/main/resources/rutas.csv";
 
         //Procesar estaciones
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {

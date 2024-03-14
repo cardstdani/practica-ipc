@@ -153,7 +153,7 @@ public class Vista extends javax.swing.JFrame {
         estacionDestinoSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         intercambiarEstacionesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        intercambiarEstacionesButton.setText("Intercambiar Estaciones");
+        intercambiarEstacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Swap.png"))); // NOI18N
         intercambiarEstacionesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 intercambiarEstacionesButtonActionPerformed(evt);
@@ -177,22 +177,20 @@ public class Vista extends javax.swing.JFrame {
                             .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(intercambiarEstacionesButton)))
+                        .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(160, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(intercambiarEstacionesButton)))
-                .addGap(70, 70, 70)
+                    .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -568,6 +566,7 @@ public class Vista extends javax.swing.JFrame {
         seleccioneEstacionLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         seleccioneEstacionLabel3.setText("PIN:");
 
+        jXButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visa.png"))); // NOI18N
         jXButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jXButton1ActionPerformed(evt);
