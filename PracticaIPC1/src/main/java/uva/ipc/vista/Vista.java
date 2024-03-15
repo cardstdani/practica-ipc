@@ -9,8 +9,11 @@ import java.text.SimpleDateFormat;
 import com.formdev.flatlaf.*;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.io.IOException;
 import java.net.URL;
 import java.time.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import org.jdesktop.swingx.JXButton;
 import uva.ipc.controlador.Controlador;
@@ -36,10 +39,7 @@ public class Vista extends javax.swing.JFrame {
         setMinimumSize(new Dimension(650, 700)); //POR QUE AQUI!!!?!?!?!?! Maldito sea el javaswin
         tarjetaCylPanel.setVisible(false);
 
-        inicializarIconos();
-        /*JWebBrowser webBrowser = new JWebBrowser();
-        webBrowser.navigate("https://dino-url.com");
-        dinoPanel.add(webBrowser);*/
+        inicializarIconos();        
     }
 
     public void inicializarIconos() {
@@ -99,9 +99,10 @@ public class Vista extends javax.swing.JFrame {
         errores2TextField = new javax.swing.JTextField();
         paso4Panel = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        dinoPanel = new javax.swing.JPanel();
         paso1Label3 = new javax.swing.JLabel();
         comprarOtroBillete = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        dinoPanel = new javax.swing.JEditorPane();
         paso3Panel = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         paso1Label2 = new javax.swing.JLabel();
@@ -411,20 +412,7 @@ public class Vista extends javax.swing.JFrame {
         paso4Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso4Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso4Panel.setPreferredSize(new java.awt.Dimension(600, 600));
-        paso4Panel.setLayout(new javax.swing.BoxLayout(paso4Panel, javax.swing.BoxLayout.PAGE_AXIS));
-
-        dinoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-
-        javax.swing.GroupLayout dinoPanelLayout = new javax.swing.GroupLayout(dinoPanel);
-        dinoPanel.setLayout(dinoPanelLayout);
-        dinoPanelLayout.setHorizontalGroup(
-            dinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
-        );
-        dinoPanelLayout.setVerticalGroup(
-            dinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
+        paso4Panel.setLayout(new java.awt.GridBagLayout());
 
         paso1Label3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -437,6 +425,13 @@ public class Vista extends javax.swing.JFrame {
                 comprarOtroBilleteActionPerformed(evt);
             }
         });
+
+        try{
+            dinoPanel.setEditable(false);
+            dinoPanel.setPage("https://dinorunner.com/es/");
+        }catch(Exception e){}
+        jScrollPane1.setViewportView(dinoPanel);
+        jScrollPane1.setPreferredSize(new Dimension(800,600));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -451,9 +446,9 @@ public class Vista extends javax.swing.JFrame {
                         .addGap(238, 238, 238)
                         .addComponent(comprarOtroBillete, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(dinoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                        .addGap(102, 102, 102)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,12 +457,12 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(paso1Label3)
                 .addGap(37, 37, 37)
                 .addComponent(comprarOtroBillete, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(dinoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        paso4Panel.add(jPanel12);
+        paso4Panel.add(jPanel12, new java.awt.GridBagConstraints());
 
         getContentPane().add(paso4Panel, "card4");
 
@@ -749,7 +744,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton comprarOtroBillete;
     private javax.swing.JButton continuarPaso1Button;
     private javax.swing.JButton continuarPaso2Button;
-    private javax.swing.JPanel dinoPanel;
+    private javax.swing.JEditorPane dinoPanel;
     private javax.swing.JTextField errores1TextField;
     private javax.swing.JTextField errores2TextField;
     private javax.swing.JTextField errores3TextField;
@@ -767,6 +762,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private org.jdesktop.swingx.JXButton jXButton1;
     private javax.swing.JCheckBox mascotaCheckBox;
