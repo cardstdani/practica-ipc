@@ -8,9 +8,11 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 import com.formdev.flatlaf.*;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.net.URL;
 import java.time.*;
 import javax.swing.*;
+import org.jdesktop.swingx.JXButton;
 import uva.ipc.controlador.Controlador;
 import uva.ipc.modelo.Viaje;
 
@@ -28,14 +30,32 @@ public class Vista extends javax.swing.JFrame {
      */
     public Vista() {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = new Controlador(this);
         rutasList.setModel(viajesListModel);
         setMinimumSize(new Dimension(650, 700)); //POR QUE AQUI!!!?!?!?!?! Maldito sea el javaswin
         tarjetaCylPanel.setVisible(false);
 
+        inicializarIconos();
         /*JWebBrowser webBrowser = new JWebBrowser();
         webBrowser.navigate("https://dino-url.com");
         dinoPanel.add(webBrowser);*/
+    }
+
+    public void inicializarIconos() {
+        //setObjectIcon(intercambiarEstacionesButton, "src/main/resources/Swap.png");
+        /*String path = "src/main/resources/Swap.png";
+        ImageIcon icon = new ImageIcon(path);
+        Image img = icon.getImage().getScaledInstance(intercambiarEstacionesButton.getWidth(), intercambiarEstacionesButton.getHeight(), Image.SCALE_AREA_AVERAGING);
+        ImageIcon ic = new ImageIcon(img);
+        intercambiarEstacionesButton.setIcon(ic);*/
+    }
+
+    public void setObjectIcon(JButton button, String path) {
+        ImageIcon icon = new ImageIcon(path);
+        Image img = icon.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_AREA_AVERAGING);
+        ImageIcon ic = new ImageIcon(img);
+        button.setIcon(ic);
     }
 
     /**
@@ -46,6 +66,7 @@ public class Vista extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         paso1Panel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -109,39 +130,31 @@ public class Vista extends javax.swing.JFrame {
         paso1Panel.setLayout(new javax.swing.BoxLayout(paso1Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
         paso1Label.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label.setText("Paso 1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(42, 246, 0, 0);
+        jPanel2.add(paso1Label, gridBagConstraints);
 
         seleccioneEstacionLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         seleccioneEstacionLabel.setText("Seleccione las estaciones");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(paso1Label))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(seleccioneEstacionLabel)))
-                .addContainerGap(210, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(paso1Label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seleccioneEstacionLabel)
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 226, 73, 211);
+        jPanel2.add(seleccioneEstacionLabel, gridBagConstraints);
 
         paso1Panel.add(jPanel2);
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
         estacionOrigenSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         estacionOrigenSelector.addActionListener(new java.awt.event.ActionListener() {
@@ -149,57 +162,57 @@ public class Vista extends javax.swing.JFrame {
                 estacionOrigenSelectorActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 156, 0, 0);
+        jPanel3.add(estacionOrigenSelector, gridBagConstraints);
 
         estacionDestinoSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 156, 0, 0);
+        jPanel3.add(estacionDestinoSelector, gridBagConstraints);
 
         intercambiarEstacionesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         intercambiarEstacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Swap.png"))); // NOI18N
+        intercambiarEstacionesButton.setMinimumSize(new java.awt.Dimension(200, 200));
         intercambiarEstacionesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 intercambiarEstacionesButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = -414;
+        gridBagConstraints.ipady = -380;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 18, 0, 0);
+        jPanel3.add(intercambiarEstacionesButton, gridBagConstraints);
 
         fechaDatePicker.setDate(new java.util.Date());
         fechaDatePicker.setDoubleBuffered(true);
         fechaDatePicker.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(160, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 103;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(41, 156, 15, 160);
+        jPanel3.add(fechaDatePicker, gridBagConstraints);
         fechaDatePicker.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         fechaDatePicker.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
         fechaDatePicker.getMonthView().setLowerBound(new Date());
 
         paso1Panel.add(jPanel3);
+
+        jPanel5.setLayout(new java.awt.GridBagLayout());
 
         continuarPaso1Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         continuarPaso1Button.setText("Continuar");
@@ -208,9 +221,22 @@ public class Vista extends javax.swing.JFrame {
                 continuarPaso1ButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(67, 100, 0, 22);
+        jPanel5.add(continuarPaso1Button, gridBagConstraints);
 
         errores1TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         errores1TextField.setText("Comprobacion Errores");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 88;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(58, 117, 0, 0);
+        jPanel5.add(errores1TextField, gridBagConstraints);
 
         cambiarTemaButton.setText("Tema Oscuro");
         cambiarTemaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -218,33 +244,14 @@ public class Vista extends javax.swing.JFrame {
                 cambiarTemaButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(cambiarTemaButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
-                .addComponent(continuarPaso1Button)
-                .addGap(22, 22, 22))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addComponent(errores1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(errores1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(continuarPaso1Button)
-                    .addComponent(cambiarTemaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 43;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(49, 18, 13, 0);
+        jPanel5.add(cambiarTemaButton, gridBagConstraints);
 
         paso1Panel.add(jPanel5);
 
@@ -256,62 +263,68 @@ public class Vista extends javax.swing.JFrame {
         paso2Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso2Panel.setLayout(new java.awt.GridLayout(4, 1));
 
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
         paso1Label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label1.setText("Paso 2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(49, 243, 0, 241);
+        jPanel6.add(paso1Label1, gridBagConstraints);
 
         seleccioneEstacionLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         seleccioneEstacionLabel1.setText("Selecciona tu tren");
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(paso1Label1)
-                    .addComponent(seleccioneEstacionLabel1))
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(paso1Label1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seleccioneEstacionLabel1)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 243, 36, 0);
+        jPanel6.add(seleccioneEstacionLabel1, gridBagConstraints);
 
         paso2Panel.add(jPanel6);
+
+        jPanel7.setLayout(new java.awt.GridBagLayout());
 
         DefaultListModel<String> listModel = new DefaultListModel<>();
         rutasList.setModel(listModel);
         jScrollPane2.setViewportView(rutasList);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 294;
+        gridBagConstraints.ipady = 114;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(6, 136, 14, 154);
+        jPanel7.add(jScrollPane2, gridBagConstraints);
 
         paso2Panel.add(jPanel7);
 
+        jPanel8.setLayout(new java.awt.GridBagLayout());
+
         bicicletaImagenjLabel.setText("bicicletaImagen");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(67, 6, 0, 0);
+        jPanel8.add(bicicletaImagenjLabel, gridBagConstraints);
 
         mascotajLabel.setText("mascotaImagen");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 6, 0, 333);
+        jPanel8.add(mascotajLabel, gridBagConstraints);
 
         bicicletaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bicicletaCheckBox.setText("Bicicleta");
@@ -320,6 +333,13 @@ public class Vista extends javax.swing.JFrame {
                 bicicletaCheckBoxActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(62, 101, 0, 0);
+        jPanel8.add(bicicletaCheckBox, gridBagConstraints);
 
         mascotaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         mascotaCheckBox.setText("Mascota");
@@ -328,37 +348,18 @@ public class Vista extends javax.swing.JFrame {
                 mascotaCheckBoxActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bicicletaCheckBox)
-                    .addComponent(mascotaCheckBox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mascotajLabel)
-                    .addComponent(bicicletaImagenjLabel))
-                .addContainerGap(333, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bicicletaImagenjLabel)
-                    .addComponent(bicicletaCheckBox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mascotaCheckBox)
-                    .addComponent(mascotajLabel))
-                .addGap(34, 34, 34))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 101, 34, 0);
+        jPanel8.add(mascotaCheckBox, gridBagConstraints);
 
         paso2Panel.add(jPanel8);
+
+        jPanel9.setLayout(new java.awt.GridBagLayout());
 
         volver2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         volver2Button.setText("Volver");
@@ -367,6 +368,12 @@ public class Vista extends javax.swing.JFrame {
                 volver2ButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(46, 40, 31, 0);
+        jPanel9.add(volver2Button, gridBagConstraints);
 
         continuarPaso2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         continuarPaso2Button.setText("Continuar");
@@ -375,6 +382,12 @@ public class Vista extends javax.swing.JFrame {
                 continuarPaso2ButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(46, 105, 31, 30);
+        jPanel9.add(continuarPaso2Button, gridBagConstraints);
 
         errores2TextField.setText("Comprobacion Errores");
         errores2TextField.addActionListener(new java.awt.event.ActionListener() {
@@ -382,33 +395,13 @@ public class Vista extends javax.swing.JFrame {
                 errores2TextFieldActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(volver2Button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
-                .addComponent(continuarPaso2Button)
-                .addGap(30, 30, 30))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(errores2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(errores2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volver2Button)
-                    .addComponent(continuarPaso2Button))
-                .addGap(31, 31, 31))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 131, 0, 0);
+        jPanel9.add(errores2TextField, gridBagConstraints);
 
         paso2Panel.add(jPanel9);
 
@@ -484,12 +477,27 @@ public class Vista extends javax.swing.JFrame {
         paso3Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso3Panel.setLayout(new javax.swing.BoxLayout(paso3Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
+        jPanel10.setLayout(new java.awt.GridBagLayout());
+
         paso1Label2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label2.setText("Paso 3");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(28, 227, 0, 0);
+        jPanel10.add(paso1Label2, gridBagConstraints);
 
         seleccioneEstacionLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         seleccioneEstacionLabel2.setText("Selecciona el método de pago");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 188, 0, 221);
+        jPanel10.add(seleccioneEstacionLabel2, gridBagConstraints);
 
         tarjetaCylRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tarjetaCylRadioButton.setText("Tarjeta Usuario TCyL");
@@ -498,6 +506,13 @@ public class Vista extends javax.swing.JFrame {
                 tarjetaCylRadioButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 221, 6, 0);
+        jPanel10.add(tarjetaCylRadioButton, gridBagConstraints);
 
         tarjetaCreditoRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tarjetaCreditoRadioButton.setSelected(true);
@@ -507,44 +522,19 @@ public class Vista extends javax.swing.JFrame {
                 tarjetaCreditoRadioButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seleccioneEstacionLabel2)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(paso1Label2))))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tarjetaCylRadioButton)
-                            .addComponent(tarjetaCreditoRadioButton))))
-                .addContainerGap(221, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(paso1Label2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seleccioneEstacionLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tarjetaCreditoRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tarjetaCylRadioButton)
-                .addContainerGap())
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 221, 0, 0);
+        jPanel10.add(tarjetaCreditoRadioButton, gridBagConstraints);
 
         paso3Panel.add(jPanel10);
 
         opcionesPanel.setLayout(new java.awt.CardLayout());
+
+        tarjetaCreditoPanel.setLayout(new java.awt.GridBagLayout());
 
         errores3TextField.setText("Comprobacion Errores");
         errores3TextField.addActionListener(new java.awt.event.ActionListener() {
@@ -552,6 +542,14 @@ public class Vista extends javax.swing.JFrame {
                 errores3TextFieldActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 0);
+        tarjetaCreditoPanel.add(errores3TextField, gridBagConstraints);
 
         aceptarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         aceptarButton.setText("Aceptar");
@@ -560,11 +558,33 @@ public class Vista extends javax.swing.JFrame {
                 aceptarButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(29, 32, 0, 89);
+        tarjetaCreditoPanel.add(aceptarButton, gridBagConstraints);
 
         pinTarjetaField.setToolTipText("Introduce el PIN...");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 69;
+        gridBagConstraints.ipady = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 12, 63, 0);
+        tarjetaCreditoPanel.add(pinTarjetaField, gridBagConstraints);
 
         seleccioneEstacionLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         seleccioneEstacionLabel3.setText("PIN:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 229, 0, 0);
+        tarjetaCreditoPanel.add(seleccioneEstacionLabel3, gridBagConstraints);
 
         jXButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visa.png"))); // NOI18N
         jXButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -572,40 +592,15 @@ public class Vista extends javax.swing.JFrame {
                 jXButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout tarjetaCreditoPanelLayout = new javax.swing.GroupLayout(tarjetaCreditoPanel);
-        tarjetaCreditoPanel.setLayout(tarjetaCreditoPanelLayout);
-        tarjetaCreditoPanelLayout.setHorizontalGroup(
-            tarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tarjetaCreditoPanelLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(tarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jXButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tarjetaCreditoPanelLayout.createSequentialGroup()
-                        .addComponent(seleccioneEstacionLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(tarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(errores3TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tarjetaCreditoPanelLayout.createSequentialGroup()
-                                .addComponent(pinTarjetaField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(aceptarButton)))))
-                .addContainerGap(89, Short.MAX_VALUE))
-        );
-        tarjetaCreditoPanelLayout.setVerticalGroup(
-            tarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tarjetaCreditoPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jXButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(errores3TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(tarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pinTarjetaField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(seleccioneEstacionLabel3)
-                    .addComponent(aceptarButton))
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.ipadx = -118;
+        gridBagConstraints.ipady = -335;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 111, 0, 89);
+        tarjetaCreditoPanel.add(jXButton1, gridBagConstraints);
 
         opcionesPanel.add(tarjetaCreditoPanel, "card2");
 
@@ -624,6 +619,8 @@ public class Vista extends javax.swing.JFrame {
 
         paso3Panel.add(opcionesPanel);
 
+        jPanel11.setLayout(new java.awt.GridBagLayout());
+
         volver3Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         volver3Button.setText("Volver");
         volver3Button.addActionListener(new java.awt.event.ActionListener() {
@@ -631,23 +628,12 @@ public class Vista extends javax.swing.JFrame {
                 volver3ButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(volver3Button)
-                .addContainerGap(491, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(volver3Button)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 40, 8, 491);
+        jPanel11.add(volver3Button, gridBagConstraints);
 
         paso3Panel.add(jPanel11);
 
