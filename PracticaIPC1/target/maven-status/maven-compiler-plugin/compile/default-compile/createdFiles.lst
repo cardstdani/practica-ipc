@@ -1,10 +1,13 @@
 uva\ipc\vista\Vista$11.class
 uva\ipc\vista\Vista$9.class
+uva\ipc\vista\Utiles$codigoMensaje.class
+uva\ipc\vista\Vista$18.class
 uva\ipc\modelo\Modelo.class
 uva\ipc\vista\Vista$7.class
 uva\ipc\modelo\Viaje.class
 uva\ipc\controlador\Controlador.class
 uva\ipc\vista\Vista$2.class
+uva\ipc\vista\Utiles.class
 uva\ipc\vista\Vista$5.class
 uva\ipc\vista\Vista$13.class
 uva\ipc\vista\Vista$16.class
@@ -12,7 +15,9 @@ uva\ipc\vista\Vista$8.class
 uva\ipc\vista\Vista$17.class
 uva\ipc\vista\Vista.class
 uva\ipc\vista\Vista$3.class
+uva\ipc\vista\Vista$19.class
 uva\ipc\vista\Vista$10.class
+uva\ipc\vista\Vista$20.class
 uva\ipc\vista\Vista$14.class
 uva\ipc\vista\Vista$6.class
 uva\ipc\vista\Vista$15.class

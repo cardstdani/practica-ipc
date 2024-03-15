@@ -4,7 +4,12 @@
  */
 package uva.ipc.controlador;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import uva.ipc.modelo.Modelo;
+import uva.ipc.modelo.Viaje;
+import uva.ipc.vista.Utiles;
 import uva.ipc.vista.Vista;
 
 /**
@@ -18,20 +23,15 @@ public class Controlador {
 
     public Controlador(Vista vista) {
         this.vista = vista;
-        this.modelo = new Modelo();
-        vista.inicializarEstaciones(modelo.getEstaciones());
+        this.modelo = new Modelo(this);
     }
 
     public void continuarPaso1() {
-        if (comprobarErrorPaso1().equals("")) {
-            modelo.setEstacionOrigen(vista.getEstacionOrigen());
-            modelo.setEstacionDestino(vista.getEstacionDestino());
-            modelo.setFecha(vista.getFecha());
-            vista.actualizarViajes(modelo.getViajes());
-            vista.activarPaso(2);
-        } else {
-
-        }
+        modelo.setEstacionOrigen(vista.getEstacionOrigen());
+        modelo.setEstacionDestino(vista.getEstacionDestino());
+        modelo.setFecha(vista.getFecha());
+        vista.actualizarViajes(modelo.getViajesPaso2());
+        vista.activarPaso(2);
     }
 
     public void continuarPaso2() {
@@ -57,10 +57,6 @@ public class Controlador {
         vista.activarPaso(2);
     }
 
-    private String comprobarErrorPaso1() {
-        return "";
-    }
-
     private String comprobarErrorPaso2() {
         return "";
     }
@@ -68,6 +64,45 @@ public class Controlador {
     public void aceptarPagoTarjetaCredito() {
         if (modelo.validarPin(vista.getPinTarjeta())) {
             continuarPaso3();
+        } else {
+            vista.mensajePaso3("Su PIN es incorrecto", Utiles.codigoMensaje.ERROR);
         }
+    }
+
+    public void tarjetaCreditoStart() {
+        modelo.tarjetaCreditoStart();
+    }
+
+    public void tarjetaCreditoStop() {
+        modelo.tarjetaCreditoStop();
+    }
+
+    public void tarjetaCylStart() {
+        modelo.tarjetaCylStart();
+    }
+
+    public void tarjetaCylStop() {
+        modelo.tarjetaCylStop();
+    }
+
+    public void tarjetaCreditoValida() {
+        vista.activarPinTarjeta();
+        vista.mensajePaso3("Inserte usted el pin de su tarjeta", Utiles.codigoMensaje.NORMAL);
+    }
+
+    public void tarjetaCylValida() {
+        vista.activarPaso(4);
+    }
+
+    public Viaje getRandomViaje() {
+        return modelo.getRandomViaje();
+    }
+
+    public ArrayList<String> getPosiblesEstacionesDestino(String estacionOrigen) {
+        return modelo.getPosiblesEstacionesDestino(estacionOrigen);
+    }
+
+    public ArrayList<String> getEstaciones() {
+        return modelo.getEstaciones();
     }
 }
