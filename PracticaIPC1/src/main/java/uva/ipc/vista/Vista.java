@@ -19,8 +19,8 @@ import uva.ipc.controlador.Controlador;
 import uva.ipc.modelo.Viaje;
 
 /**
- *
- * @author danie
+ * @author Daniel Garcia Solla
+ * @author Carolina de las Heras Clavier 
  */
 public class Vista extends javax.swing.JFrame {
 
@@ -899,11 +899,16 @@ public class Vista extends javax.swing.JFrame {
             viajesListModel.addElement(viaje);
         }
     }
-
+    
+    /**
+     * Obtiene la fecha actual
+     * @return devuelve la fecha actual
+     */
     public LocalDateTime getFecha() {
         return fechaDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
-
+    
+    
     public Viaje getSelectedViaje() {
         return (Viaje) rutasList.getSelectedValue();
     }

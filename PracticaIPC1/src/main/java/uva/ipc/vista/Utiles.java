@@ -5,8 +5,8 @@
 package uva.ipc.vista;
 
 /**
- *
- * @author danie
+ * @author Daniel Garcia Solla
+ * @author Carolina de las Heras Clavier 
  */
 public class Utiles {
 
