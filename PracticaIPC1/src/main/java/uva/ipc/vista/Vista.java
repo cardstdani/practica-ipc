@@ -9,21 +9,26 @@ import java.text.SimpleDateFormat;
 import com.formdev.flatlaf.*;
 import com.formdev.flatlaf.intellijthemes.*;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.time.*;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.web.WebView;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import uva.ipc.controlador.Controlador;
 import uva.ipc.modelo.Viaje;
 
 /**
  * @author Daniel Garcia Solla
- * @author Carolina de las Heras Clavier 
+ * @author Carolina de las Heras Clavier
  */
 public class Vista extends javax.swing.JFrame {
-
+    
     private Controlador controlador;
     private DefaultListModel<Viaje> viajesListModel = new DefaultListModel<>();
     private boolean darkTheme = false;
@@ -32,8 +37,8 @@ public class Vista extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public Vista() {
-        FlatLaf.setup(new FlatAtomOneLightIJTheme());
-
+        FlatLaf.setup(new FlatArcOrangeIJTheme());
+        
         initComponents();
         this.setLocationRelativeTo(null);
         this.controlador = new Controlador(this);
@@ -42,40 +47,58 @@ public class Vista extends javax.swing.JFrame {
         desactivarPinTarjeta();
         inicializarIconos();
         limpiar();
-
+        
         tarjetaCreditoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCreditoStart();
             }
-
+            
             @Override
             public void mouseExited(MouseEvent e) {
                 controlador.tarjetaCreditoStop();
             }
         });
-
+        
         tarjetaCylButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCylStart();
             }
-
+            
             @Override
             public void mouseExited(MouseEvent e) {
                 controlador.tarjetaCylStop();
             }
         });
         styleButtons();
+        inicializarJueguecito();
     }
-
+    
+    public void inicializarJueguecito() {
+        final JFXPanel jfxPanel = new JFXPanel();
+        
+        Platform.runLater(() -> {
+            WebView webView = new WebView();
+            webView.getEngine().load("https://dinorunner.com/"); //https://offline-dino-game.firebaseapp.com/
+            Scene scene = new Scene(webView);
+            jfxPanel.setScene(scene);
+            webView.requestFocus();
+        });
+        
+        dinoPanel.setLayout(new BorderLayout());
+        dinoPanel.add(jfxPanel, BorderLayout.CENTER);
+        dinoPanel.revalidate();
+        dinoPanel.repaint();
+    }
+    
     public void styleButtons() {
         styleButton(continuarPaso1Button);
         styleButton(continuarPaso2Button);
         styleButton(comprarOtroBillete);
         styleButton(aceptarButton);
     }
-
+    
     public void styleButton(JButton button) {
         button.setBackground(UIManager.getColor("Component.accentColor"));
         if (darkTheme) {
@@ -83,15 +106,15 @@ public class Vista extends javax.swing.JFrame {
         } else {
             button.setForeground(UIManager.getColor("Label.background"));
         }
-
+        
     }
-
+    
     public void inicializarIconos() {
         setObjectIcon(intercambiarEstacionesButton, "src/main/resources/Swap.png");
         setObjectIcon(tarjetaCreditoButton, "src/main/resources/Visa.png");
         setObjectIcon(tarjetaCylButton, "src/main/resources/Tarjetacyl.png");
     }
-
+    
     public void setObjectIcon(JButton button, String path) {
         ImageIcon icon = new ImageIcon(path);
         Image img = icon.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_AREA_AVERAGING);
@@ -139,8 +162,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         paso1Label3 = new javax.swing.JLabel();
         comprarOtroBillete = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        dinoPanel = new javax.swing.JEditorPane();
+        dinoPanel = new org.jdesktop.swingx.JXPanel();
         paso3Panel = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         paso1Label2 = new javax.swing.JLabel();
@@ -218,6 +240,7 @@ public class Vista extends javax.swing.JFrame {
 
         intercambiarEstacionesButton.setBackground(new java.awt.Color(0, 0, 0, 0));
         intercambiarEstacionesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        intercambiarEstacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Swap.png"))); // NOI18N
         intercambiarEstacionesButton.setBorder(null);
         intercambiarEstacionesButton.setMaximumSize(new java.awt.Dimension(300, 300));
         intercambiarEstacionesButton.setMinimumSize(new java.awt.Dimension(200, 200));
@@ -231,10 +254,10 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -254;
-        gridBagConstraints.ipady = -263;
+        gridBagConstraints.ipadx = -270;
+        gridBagConstraints.ipady = -267;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(68, 12, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(68, 18, 0, 0);
         jPanel3.add(intercambiarEstacionesButton, gridBagConstraints);
 
         estacionDestinoSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -249,6 +272,11 @@ public class Vista extends javax.swing.JFrame {
         fechaDatePicker.setDate(new java.util.Date());
         fechaDatePicker.setDoubleBuffered(true);
         fechaDatePicker.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fechaDatePicker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaDatePickerActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -329,6 +357,7 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel6);
 
+        rutasList.setMinimumSize(new java.awt.Dimension(300, 100));
         DefaultListModel<String> listModel = new DefaultListModel<>();
         rutasList.setModel(listModel);
         jScrollPane2.setViewportView(rutasList);
@@ -337,6 +366,8 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel7);
 
+        jPanel8.setLayout(new java.awt.GridBagLayout());
+
         bicicletaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bicicletaCheckBox.setText("Bicicleta");
         bicicletaCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -344,6 +375,12 @@ public class Vista extends javax.swing.JFrame {
                 bicicletaCheckBoxActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(47, 264, 0, 0);
+        jPanel8.add(bicicletaCheckBox, gridBagConstraints);
 
         mascotaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         mascotaCheckBox.setText("Mascota");
@@ -352,27 +389,13 @@ public class Vista extends javax.swing.JFrame {
                 mascotaCheckBoxActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(264, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bicicletaCheckBox)
-                    .addComponent(mascotaCheckBox))
-                .addGap(261, 261, 261))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(bicicletaCheckBox)
-                .addGap(6, 6, 6)
-                .addComponent(mascotaCheckBox)
-                .addContainerGap(49, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 264, 49, 261);
+        jPanel8.add(mascotaCheckBox, gridBagConstraints);
 
         paso2Panel.add(jPanel8);
 
@@ -429,9 +452,18 @@ public class Vista extends javax.swing.JFrame {
         paso4Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso4Panel.setLayout(new java.awt.GridBagLayout());
 
+        jPanel12.setLayout(new java.awt.GridBagLayout());
+
         paso1Label3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label3.setText("Pago confirmado");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(99, 179, 0, 0);
+        jPanel12.add(paso1Label3, gridBagConstraints);
 
         comprarOtroBillete.setBackground(UIManager.getColor("Component.accentColor"));
         comprarOtroBillete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -441,42 +473,37 @@ public class Vista extends javax.swing.JFrame {
                 comprarOtroBilleteActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 26;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(37, 238, 0, 0);
+        jPanel12.add(comprarOtroBillete, gridBagConstraints);
 
-        try{
-            dinoPanel.setEditable(false);
-            dinoPanel.setPage("https://dinorunner.com/");
-        }catch(Exception e){}
-        jScrollPane1.setViewportView(dinoPanel);
-        jScrollPane1.setPreferredSize(new Dimension(100,100));
+        dinoPanel.setDoubleBuffered(false);
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(paso1Label3))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(238, 238, 238)
-                        .addComponent(comprarOtroBillete, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+        javax.swing.GroupLayout dinoPanelLayout = new javax.swing.GroupLayout(dinoPanel);
+        dinoPanel.setLayout(dinoPanelLayout);
+        dinoPanelLayout.setHorizontalGroup(
+            dinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 379, Short.MAX_VALUE)
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(paso1Label3)
-                .addGap(37, 37, 37)
-                .addComponent(comprarOtroBillete, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+        dinoPanelLayout.setVerticalGroup(
+            dinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 295, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 379;
+        gridBagConstraints.ipady = 295;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 136, 57, 85);
+        jPanel12.add(dinoPanel, gridBagConstraints);
 
         paso4Panel.add(jPanel12, new java.awt.GridBagConstraints());
 
@@ -545,7 +572,6 @@ public class Vista extends javax.swing.JFrame {
 
         opcionesPanel.setLayout(new java.awt.CardLayout());
 
-        tarjetaCreditoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visa.png"))); // NOI18N
         tarjetaCreditoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tarjetaCreditoButtonActionPerformed(evt);
@@ -714,10 +740,10 @@ public class Vista extends javax.swing.JFrame {
     private void cambiarTemaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarTemaButtonActionPerformed
         try {
             if (darkTheme) {
-                FlatAtomOneLightIJTheme.setup();
+                FlatArcOrangeIJTheme.setup();
                 cambiarTemaButton.setText("Tema Oscuro");
             } else {
-                FlatAtomOneDarkIJTheme.setup();
+                FlatArcDarkOrangeIJTheme.setup();
                 cambiarTemaButton.setText("Tema Claro");
             }
             SwingUtilities.updateComponentTreeUI(this);
@@ -772,6 +798,10 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_estacionOrigenSelectorPropertyChange
 
+    private void fechaDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDatePickerActionPerformed
+
+    }//GEN-LAST:event_fechaDatePickerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -795,7 +825,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton comprarOtroBillete;
     private javax.swing.JButton continuarPaso1Button;
     private javax.swing.JButton continuarPaso2Button;
-    private javax.swing.JEditorPane dinoPanel;
+    private org.jdesktop.swingx.JXPanel dinoPanel;
     private org.jdesktop.swingx.JXLabel erroresLabel2;
     private org.jdesktop.swingx.JXLabel erroresLabel3;
     private org.jdesktop.swingx.JXLabel erroresLabel4;
@@ -813,7 +843,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JCheckBox mascotaCheckBox;
     private javax.swing.JPanel opcionesPanel;
@@ -859,7 +888,7 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
     public void escribirError(int paso) {
         switch (paso) {
             case 1:
@@ -873,84 +902,84 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
     private void desactivarPasos() {
         paso1Panel.setVisible(false);
         paso2Panel.setVisible(false);
         paso3Panel.setVisible(false);
         paso4Panel.setVisible(false);
     }
-
+    
     public void inicializarEstaciones(ArrayList<String> estaciones) {
         estacionOrigenSelector.removeAllItems();
         for (String estacion : estaciones) {
             estacionOrigenSelector.addItem(estacion);
         }
-
+        
         Viaje v = controlador.getRandomViaje();
         estacionOrigenSelector.setSelectedItem(v.getEstacionOrigen());
         actualizarSeleccionEstacionDestino();
         estacionOrigenSelector.setSelectedItem(v.getEstacionDestino());
     }
-
+    
     public void actualizarViajes(ArrayList<Viaje> viajes) {
         viajesListModel.removeAllElements();
         for (Viaje viaje : viajes) {
             viajesListModel.addElement(viaje);
         }
     }
-    
+
     /**
      * Obtiene la fecha actual
+     *
      * @return devuelve la fecha actual
      */
     public LocalDateTime getFecha() {
         return fechaDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
     
-    
     public Viaje getSelectedViaje() {
         return (Viaje) rutasList.getSelectedValue();
     }
-
+    
     public boolean getBicicletaSelection() {
         return bicicletaCheckBox.isSelected();
     }
-
+    
     public boolean getMascotaSelection() {
         return mascotaCheckBox.isSelected();
     }
-
+    
     public String getEstacionOrigen() {
         return (String) estacionOrigenSelector.getSelectedItem();
     }
-
+    
     public String getEstacionDestino() {
         return (String) estacionDestinoSelector.getSelectedItem();
     }
-
+    
     private void desactivarSelectoresTarjeta() {
         tarjetaCreditoRadioButton.setSelected(false);
         tarjetaCylRadioButton.setSelected(false);
     }
-
+    
     private void desactivarPanelesTarjeta() {
         tarjetaCylPanel.setVisible(false);
         tarjetaCreditoPanel.setVisible(false);
     }
-
+    
     public String getPinTarjeta() {
         return pinTarjetaField.getText();
     }
-
+    
     public void activarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(true);
     }
-
+    
     public void desactivarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(false);
     }
-
+    
     public void mensajePaso3(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel3.setText(mensaje);
         switch (codigoMensaje) {
@@ -962,17 +991,19 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
     private void limpiar() { //A BARRER!!!!
         mensajePaso3("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
         bicicletaCheckBox.setSelected(false);
         mascotaCheckBox.setSelected(false);
-        tarjetaCylPanel.setVisible(false);
-        tarjetaCreditoPanel.setVisible(true);
         fechaDatePicker.setDate(new Date());
         inicializarEstaciones(controlador.getEstaciones());
+        desactivarSelectoresTarjeta();
+        desactivarPanelesTarjeta();
+        tarjetaCreditoRadioButton.setSelected(true);
+        tarjetaCreditoPanel.setVisible(true);
     }
-
+    
     private void actualizarSeleccionEstacionDestino() {
         estacionDestinoSelector.removeAllItems();
         ArrayList<String> estacionesDestinoPosibles = controlador.getPosiblesEstacionesDestino(getEstacionOrigen());
