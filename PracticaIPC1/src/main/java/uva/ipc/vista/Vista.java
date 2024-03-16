@@ -38,7 +38,7 @@ public class Vista extends javax.swing.JFrame {
      */
     public Vista() {
         FlatLaf.setup(new FlatArcOrangeIJTheme());
-        
+        this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
         initComponents();
         this.setLocationRelativeTo(null);
         this.controlador = new Controlador(this);
@@ -980,7 +980,7 @@ public class Vista extends javax.swing.JFrame {
         pinTarjetaCreditoPanel.setVisible(false);
     }
     
-    public void mensajePaso3(String mensaje, Utiles.codigoMensaje codigoMensaje) {
+    public void mensajePaso3TarjetaCredito(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel3.setText(mensaje);
         switch (codigoMensaje) {
             case ERROR:
@@ -992,8 +992,21 @@ public class Vista extends javax.swing.JFrame {
         }
     }
     
+    public void mensajePaso3TarjetaCyl(String mensaje, Utiles.codigoMensaje codigoMensaje) {
+        erroresLabel4.setText(mensaje);
+        switch (codigoMensaje) {
+            case ERROR:
+                erroresLabel4.setForeground(Color.red);
+                break;
+            case NORMAL:
+                erroresLabel4.setForeground(Color.black);
+                break;
+        }
+    }
+    
     private void limpiar() { //A BARRER!!!!
-        mensajePaso3("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
+        mensajePaso3TarjetaCredito("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
+        mensajePaso3TarjetaCyl("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
         bicicletaCheckBox.setSelected(false);
         mascotaCheckBox.setSelected(false);
         fechaDatePicker.setDate(new Date());

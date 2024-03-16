@@ -6,7 +6,7 @@ package uva.ipc.modelo;
 
 /**
  * @author Daniel Garcia Solla
- * @author Carolina de las Heras Clavier 
+ * @author Carolina de las Heras Clavier
  */
 public class Viaje {
 
@@ -27,37 +27,40 @@ public class Viaje {
         this.horario = horario;
         this.finSemana = finSemana;
     }
-    
+
     /**
      * Obtiene la estacion de origen que el usuario ha elegido
+     *
      * @return la estacion de origen que el usuario ha elegido
      */
     public String getEstacionOrigen() {
         return estacionOrigen;
     }
+
     /**
      * Obtiene la estacion de destino que el usuario ha elegido
+     *
      * @return la estacion de destino que el usuario ha elegido
      */
     public String getEstacionDestino() {
         return estacionDestino;
     }
-    
+
     /**
      * Obtiene si es fin de semana
+     *
      * @return True o False si es fin de semana
      */
     public boolean isFinSemana() {
         return finSemana;
-    }       
+    }
 
-    
-    
-    
-    
-    
     @Override
     public String toString() {
-        return idRuta + " " + tiempo + " " + horario + " " + precio + "$";
+        return idRuta + " " + tiempo + "m " + horario + " " + precio + "€";
+    }
+
+    public double getPrecio() {
+        return precio;
     }
 }
