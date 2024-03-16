@@ -113,6 +113,7 @@ public class Vista extends javax.swing.JFrame {
         setObjectIcon(intercambiarEstacionesButton, "src/main/resources/Swap.png");
         setObjectIcon(tarjetaCreditoButton, "src/main/resources/Visa.png");
         setObjectIcon(tarjetaCylButton, "src/main/resources/Tarjetacyl.png");
+         
     }
     
     public void setObjectIcon(JButton button, String path) {
@@ -366,8 +367,6 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel7);
 
-        jPanel8.setLayout(new java.awt.GridBagLayout());
-
         bicicletaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bicicletaCheckBox.setText("Bicicleta");
         bicicletaCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -375,12 +374,6 @@ public class Vista extends javax.swing.JFrame {
                 bicicletaCheckBoxActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(47, 264, 0, 0);
-        jPanel8.add(bicicletaCheckBox, gridBagConstraints);
 
         mascotaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         mascotaCheckBox.setText("Mascota");
@@ -389,13 +382,27 @@ public class Vista extends javax.swing.JFrame {
                 mascotaCheckBoxActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 264, 49, 261);
-        jPanel8.add(mascotaCheckBox, gridBagConstraints);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mascotaCheckBox)
+                    .addComponent(bicicletaCheckBox))
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(bicicletaCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(mascotaCheckBox)
+                .addGap(0, 28, Short.MAX_VALUE))
+        );
 
         paso2Panel.add(jPanel8);
 
@@ -1002,6 +1009,10 @@ public class Vista extends javax.swing.JFrame {
                 erroresLabel4.setForeground(Color.black);
                 break;
         }
+    }
+    
+    public void mensajePaso2SeleccionarViaje(String mensaje) {
+        erroresLabel2.setText(mensaje);
     }
     
     private void limpiar() { //A BARRER!!!!

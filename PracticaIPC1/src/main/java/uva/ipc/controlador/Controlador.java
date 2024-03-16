@@ -4,6 +4,7 @@
  */
 package uva.ipc.controlador;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,9 +50,22 @@ public class Controlador {
             modelo.setBicicleta(vista.getBicicletaSelection());
             vista.activarPaso(3);
         } else {
-
+            vista.mensajePaso2SeleccionarViaje("No has seleccionado ningun viaje");
         }
     }
+    
+    
+    
+    public boolean validarFecha(Modelo model){
+        LocalDateTime fechaActual = LocalDateTime.now();
+        if(model.getFecha().isBefore(fechaActual)){
+            return false;
+        }
+        else {           
+            return true;
+        }
+    }
+     
 
     /**
      * Actualiza los valores de la vista cuando se quiere pasar del paso 3 al
@@ -83,8 +97,19 @@ public class Controlador {
      * @return Errores si los hay cometidos por el usuario en el paso 2
      */
     private String comprobarErrorPaso2() {
+       //if(no ha seleccionado ningun tren)
+       //mostrar mensaje
+       //else
         return "";
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Acepta al usuario su pago con la tarejeta de credito

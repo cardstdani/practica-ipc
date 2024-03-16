@@ -122,6 +122,15 @@ public class Modelo {
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
+    
+    
+    
+    
+    
+    
+    public LocalDateTime getFecha(){
+        return fecha;
+    }
 
     /**
      * Establece el viaje que el usuario ha elegido
