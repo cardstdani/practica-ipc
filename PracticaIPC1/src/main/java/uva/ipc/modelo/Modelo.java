@@ -231,6 +231,5 @@ public class Modelo {
 
     public void pagarConTarjetaCyl() {
         saldoTarjetaCYL -= viaje.getPrecio();
-        System.out.println(saldoTarjetaCYL);
     }
 }//class Modelo

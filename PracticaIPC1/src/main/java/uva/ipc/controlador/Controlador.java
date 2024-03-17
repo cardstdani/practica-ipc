@@ -6,8 +6,6 @@ package uva.ipc.controlador;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import uva.ipc.modelo.Modelo;
 import uva.ipc.modelo.Viaje;
 import uva.ipc.vista.Utiles;
@@ -44,13 +42,13 @@ public class Controlador {
      * siguiente
      */
     public void continuarPaso2() {
-        if (comprobarErrorPaso2().equals("")) {
+        if (vista.getSelectedViaje() != null) {
             modelo.setSelectedViaje(vista.getSelectedViaje());
             modelo.setMascota(vista.getMascotaSelection());
             modelo.setBicicleta(vista.getBicicletaSelection());
             vista.activarPaso(3);
         } else {
-            vista.mensajePaso2SeleccionarViaje("No has seleccionado ningun viaje");
+            vista.dialogoError("Por favor, seleccione usted un viaje");
         }
     }
     
@@ -73,6 +71,7 @@ public class Controlador {
      */
     public void continuarPaso3() {
         vista.activarPaso(4);
+        vista.sonidoAmigable();
     }
 
     /**
@@ -92,6 +91,7 @@ public class Controlador {
     }
 
     /**
+<<<<<<< Updated upstream
      * Comprueba si hay errores cuando se quiere pasar del paso 2 al siguiente
      *
      * @return Errores si los hay cometidos por el usuario en el paso 2
@@ -112,6 +112,8 @@ public class Controlador {
     
 
     /**
+=======
+>>>>>>> Stashed changes
      * Acepta al usuario su pago con la tarejeta de credito
      */
     public void aceptarPagoTarjetaCredito() {
@@ -169,7 +171,7 @@ public class Controlador {
      */
     public void tarjetaCylValida() {
         if (modelo.validarSaldoCyl()) {
-            vista.activarPaso(4);
+            continuarPaso3();
             modelo.pagarConTarjetaCyl();
         } else {
             vista.mensajePaso3TarjetaCyl("No hay saldo suficiente", Utiles.codigoMensaje.ERROR);

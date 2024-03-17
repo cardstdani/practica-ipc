@@ -11,14 +11,15 @@ import com.formdev.flatlaf.intellijthemes.*;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.time.*;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.web.WebView;
-import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import uva.ipc.controlador.Controlador;
 import uva.ipc.modelo.Viaje;
@@ -28,7 +29,7 @@ import uva.ipc.modelo.Viaje;
  * @author Carolina de las Heras Clavier
  */
 public class Vista extends javax.swing.JFrame {
-    
+
     private Controlador controlador;
     private DefaultListModel<Viaje> viajesListModel = new DefaultListModel<>();
     private boolean darkTheme = false;
@@ -47,25 +48,25 @@ public class Vista extends javax.swing.JFrame {
         desactivarPinTarjeta();
         inicializarIconos();
         limpiar();
-        
+
         tarjetaCreditoButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCreditoStart();
             }
-            
+
             @Override
             public void mouseExited(MouseEvent e) {
                 controlador.tarjetaCreditoStop();
             }
         });
-        
+
         tarjetaCylButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCylStart();
             }
-            
+
             @Override
             public void mouseExited(MouseEvent e) {
                 controlador.tarjetaCylStop();
@@ -74,10 +75,10 @@ public class Vista extends javax.swing.JFrame {
         styleButtons();
         inicializarJueguecito();
     }
-    
+
     public void inicializarJueguecito() {
         final JFXPanel jfxPanel = new JFXPanel();
-        
+
         Platform.runLater(() -> {
             WebView webView = new WebView();
             webView.getEngine().load("https://dinorunner.com/"); //https://offline-dino-game.firebaseapp.com/
@@ -85,20 +86,20 @@ public class Vista extends javax.swing.JFrame {
             jfxPanel.setScene(scene);
             webView.requestFocus();
         });
-        
+
         dinoPanel.setLayout(new BorderLayout());
         dinoPanel.add(jfxPanel, BorderLayout.CENTER);
         dinoPanel.revalidate();
         dinoPanel.repaint();
     }
-    
+
     public void styleButtons() {
         styleButton(continuarPaso1Button);
         styleButton(continuarPaso2Button);
         styleButton(comprarOtroBillete);
         styleButton(aceptarButton);
     }
-    
+
     public void styleButton(JButton button) {
         button.setBackground(UIManager.getColor("Component.accentColor"));
         if (darkTheme) {
@@ -106,16 +107,16 @@ public class Vista extends javax.swing.JFrame {
         } else {
             button.setForeground(UIManager.getColor("Label.background"));
         }
-        
+
     }
-    
+
     public void inicializarIconos() {
         setObjectIcon(intercambiarEstacionesButton, "src/main/resources/Swap.png");
         setObjectIcon(tarjetaCreditoButton, "src/main/resources/Visa.png");
         setObjectIcon(tarjetaCylButton, "src/main/resources/Tarjetacyl.png");
-         
+
     }
-    
+
     public void setObjectIcon(JButton button, String path) {
         ImageIcon icon = new ImageIcon(path);
         Image img = icon.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_AREA_AVERAGING);
@@ -158,7 +159,6 @@ public class Vista extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         volver2Button = new javax.swing.JButton();
         continuarPaso2Button = new javax.swing.JButton();
-        erroresLabel2 = new org.jdesktop.swingx.JXLabel();
         paso4Panel = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         paso1Label3 = new javax.swing.JLabel();
@@ -288,7 +288,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel3.add(fechaDatePicker, gridBagConstraints);
         fechaDatePicker.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         fechaDatePicker.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
-        fechaDatePicker.getMonthView().setLowerBound(new Date());
+        fechaDatePicker.getMonthView().setLowerBound(java.util.Calendar.getInstance().getTime());
 
         paso1Panel.add(jPanel3);
 
@@ -367,6 +367,8 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel7);
 
+        jPanel8.setLayout(new java.awt.GridBagLayout());
+
         bicicletaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bicicletaCheckBox.setText("Bicicleta");
         bicicletaCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -374,6 +376,13 @@ public class Vista extends javax.swing.JFrame {
                 bicicletaCheckBoxActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(51, 268, 0, 0);
+        jPanel8.add(bicicletaCheckBox, gridBagConstraints);
 
         mascotaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         mascotaCheckBox.setText("Mascota");
@@ -382,27 +391,13 @@ public class Vista extends javax.swing.JFrame {
                 mascotaCheckBoxActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(268, 268, 268)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mascotaCheckBox)
-                    .addComponent(bicicletaCheckBox))
-                .addContainerGap(259, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(bicicletaCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(mascotaCheckBox)
-                .addGap(0, 28, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 268, 40, 259);
+        jPanel8.add(mascotaCheckBox, gridBagConstraints);
 
         paso2Panel.add(jPanel8);
 
@@ -417,9 +412,9 @@ public class Vista extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(53, 40, 31, 0);
+        gridBagConstraints.insets = new java.awt.Insets(77, 48, 47, 0);
         jPanel9.add(volver2Button, gridBagConstraints);
 
         continuarPaso2Button.setBackground(UIManager.getColor("Component.accentColor"));
@@ -432,22 +427,10 @@ public class Vista extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(53, 370, 31, 30);
-        jPanel9.add(continuarPaso2Button, gridBagConstraints);
-
-        erroresLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        erroresLabel2.setText("Seleccione usted");
-        erroresLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 430;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 40, 0, 30);
-        jPanel9.add(erroresLabel2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(77, 363, 47, 31);
+        jPanel9.add(continuarPaso2Button, gridBagConstraints);
 
         paso2Panel.add(jPanel9);
 
@@ -633,7 +616,7 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(tarjetaCreditoPanelLayout.createSequentialGroup()
                 .addGap(128, 128, 128)
                 .addGroup(tarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pinTarjetaCreditoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pinTarjetaCreditoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                     .addComponent(tarjetaCreditoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(erroresLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -806,7 +789,9 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_estacionOrigenSelectorPropertyChange
 
     private void fechaDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDatePickerActionPerformed
-
+        if (getFecha() == null) {
+            fechaDatePicker.setDate(new Date());
+        }
     }//GEN-LAST:event_fechaDatePickerActionPerformed
 
     /**
@@ -833,7 +818,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton continuarPaso1Button;
     private javax.swing.JButton continuarPaso2Button;
     private org.jdesktop.swingx.JXPanel dinoPanel;
-    private org.jdesktop.swingx.JXLabel erroresLabel2;
     private org.jdesktop.swingx.JXLabel erroresLabel3;
     private org.jdesktop.swingx.JXLabel erroresLabel4;
     private javax.swing.JComboBox<String> estacionDestinoSelector;
@@ -895,7 +879,7 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     public void escribirError(int paso) {
         switch (paso) {
             case 1:
@@ -909,26 +893,26 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     private void desactivarPasos() {
         paso1Panel.setVisible(false);
         paso2Panel.setVisible(false);
         paso3Panel.setVisible(false);
         paso4Panel.setVisible(false);
     }
-    
+
     public void inicializarEstaciones(ArrayList<String> estaciones) {
         estacionOrigenSelector.removeAllItems();
         for (String estacion : estaciones) {
             estacionOrigenSelector.addItem(estacion);
         }
-        
+
         Viaje v = controlador.getRandomViaje();
         estacionOrigenSelector.setSelectedItem(v.getEstacionOrigen());
         actualizarSeleccionEstacionDestino();
         estacionOrigenSelector.setSelectedItem(v.getEstacionDestino());
     }
-    
+
     public void actualizarViajes(ArrayList<Viaje> viajes) {
         viajesListModel.removeAllElements();
         for (Viaje viaje : viajes) {
@@ -942,79 +926,81 @@ public class Vista extends javax.swing.JFrame {
      * @return devuelve la fecha actual
      */
     public LocalDateTime getFecha() {
-        return fechaDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        try {
+            return fechaDatePicker.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        } catch (Exception e) {
+            return null;
+        }
     }
-    
+
     public Viaje getSelectedViaje() {
         return (Viaje) rutasList.getSelectedValue();
     }
-    
+
     public boolean getBicicletaSelection() {
         return bicicletaCheckBox.isSelected();
     }
-    
+
     public boolean getMascotaSelection() {
         return mascotaCheckBox.isSelected();
     }
-    
+
     public String getEstacionOrigen() {
         return (String) estacionOrigenSelector.getSelectedItem();
     }
-    
+
     public String getEstacionDestino() {
         return (String) estacionDestinoSelector.getSelectedItem();
     }
-    
+
     private void desactivarSelectoresTarjeta() {
         tarjetaCreditoRadioButton.setSelected(false);
         tarjetaCylRadioButton.setSelected(false);
     }
-    
+
     private void desactivarPanelesTarjeta() {
         tarjetaCylPanel.setVisible(false);
         tarjetaCreditoPanel.setVisible(false);
     }
-    
+
     public String getPinTarjeta() {
         return pinTarjetaField.getText();
     }
-    
+
     public void activarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(true);
     }
-    
+
     public void desactivarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(false);
     }
-    
+
     public void mensajePaso3TarjetaCredito(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel3.setText(mensaje);
         switch (codigoMensaje) {
             case ERROR:
                 erroresLabel3.setForeground(Color.red);
+                Toolkit.getDefaultToolkit().beep();
                 break;
             case NORMAL:
                 erroresLabel3.setForeground(Color.black);
                 break;
         }
     }
-    
+
     public void mensajePaso3TarjetaCyl(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel4.setText(mensaje);
         switch (codigoMensaje) {
             case ERROR:
                 erroresLabel4.setForeground(Color.red);
+                Toolkit.getDefaultToolkit().beep();
                 break;
             case NORMAL:
                 erroresLabel4.setForeground(Color.black);
                 break;
         }
     }
-    
-    public void mensajePaso2SeleccionarViaje(String mensaje) {
-        erroresLabel2.setText(mensaje);
-    }
-    
+
     private void limpiar() { //A BARRER!!!!
         mensajePaso3TarjetaCredito("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
         mensajePaso3TarjetaCyl("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
@@ -1027,12 +1013,28 @@ public class Vista extends javax.swing.JFrame {
         tarjetaCreditoRadioButton.setSelected(true);
         tarjetaCreditoPanel.setVisible(true);
     }
-    
+
     private void actualizarSeleccionEstacionDestino() {
         estacionDestinoSelector.removeAllItems();
         ArrayList<String> estacionesDestinoPosibles = controlador.getPosiblesEstacionesDestino(getEstacionOrigen());
         for (String estacion : estacionesDestinoPosibles) {
             estacionDestinoSelector.addItem(estacion);
+        }
+    }
+
+    public void dialogoError(String mensaje) {
+        Toolkit.getDefaultToolkit().beep();
+        JOptionPane.showMessageDialog(null, mensaje, "Error!!!", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void sonidoAmigable() {
+        try {
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("src/main/resources/SonidoAmigable.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
         }
     }
 }
