@@ -81,7 +81,7 @@ public class Vista extends javax.swing.JFrame {
 
         Platform.runLater(() -> {
             WebView webView = new WebView();
-            webView.getEngine().load("https://dinorunner.com/"); //https://offline-dino-game.firebaseapp.com/
+            webView.getEngine().load("https://dinorunner.com/ru/"); //https://offline-dino-game.firebaseapp.com/
             Scene scene = new Scene(webView);
             jfxPanel.setScene(scene);
             webView.requestFocus();
