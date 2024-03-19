@@ -30,10 +30,15 @@ public class Controlador {
      * siguiente
      */
     public void continuarPaso1() {
+        modelo.setFecha(vista.getFecha());
         modelo.setEstacionOrigen(vista.getEstacionOrigen());
         modelo.setEstacionDestino(vista.getEstacionDestino());
-        modelo.setFecha(vista.getFecha());
-        vista.actualizarViajes(modelo.getViajesPaso2());
+        ArrayList<Viaje> viajesDisponibles = modelo.getViajesPaso2();
+        if (viajesDisponibles.isEmpty()) {
+            vista.dialogoAlerta("No hay viajes disponibles con estos datos.");
+            return;
+        }
+        vista.actualizarViajes(viajesDisponibles);
         vista.activarPaso(2);
     }
 
@@ -51,19 +56,6 @@ public class Controlador {
             vista.dialogoError("Por favor, seleccione usted un viaje");
         }
     }
-    
-    
-    
-    public boolean validarFecha(Modelo model){
-        LocalDateTime fechaActual = LocalDateTime.now();
-        if(model.getFecha().isBefore(fechaActual)){
-            return false;
-        }
-        else {           
-            return true;
-        }
-    }
-     
 
     /**
      * Actualiza los valores de la vista cuando se quiere pasar del paso 3 al
@@ -91,29 +83,6 @@ public class Controlador {
     }
 
     /**
-<<<<<<< Updated upstream
-     * Comprueba si hay errores cuando se quiere pasar del paso 2 al siguiente
-     *
-     * @return Errores si los hay cometidos por el usuario en el paso 2
-     */
-    private String comprobarErrorPaso2() {
-       //if(no ha seleccionado ningun tren)
-       //mostrar mensaje
-       //else
-        return "";
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-
-    /**
-=======
->>>>>>> Stashed changes
      * Acepta al usuario su pago con la tarejeta de credito
      */
     public void aceptarPagoTarjetaCredito() {

@@ -4,6 +4,8 @@
  */
 package uva.ipc.modelo;
 
+import java.time.LocalTime;
+
 /**
  * @author Daniel Garcia Solla
  * @author Carolina de las Heras Clavier
@@ -53,6 +55,11 @@ public class Viaje {
      */
     public boolean isFinSemana() {
         return finSemana;
+    }
+
+    public LocalTime getHorario() {
+        String[] chunks = horario.split(":");
+        return LocalTime.of(Integer.parseInt(chunks[0]), Integer.parseInt(chunks[1]));
     }
 
     @Override

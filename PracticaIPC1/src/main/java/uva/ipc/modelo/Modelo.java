@@ -89,6 +89,9 @@ public class Modelo {
         ArrayList<Viaje> out = new ArrayList<>();
         for (Viaje viaje : viajes) {
             if (viaje.getEstacionOrigen().equals(estacionOrigen) && viaje.getEstacionDestino().equals(estacionDestino) && (viaje.isFinSemana() == (fecha.getDayOfWeek().getValue() > 5))) {
+                if (fecha.toLocalDate().equals(LocalDateTime.now().toLocalDate()) && viaje.getHorario().isBefore(LocalTime.now())) {//Validar hora del viaje
+                    continue;
+                }
                 out.add(viaje);
             }
         }
@@ -122,13 +125,8 @@ public class Modelo {
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
-    
-    
-    
-    
-    
-    
-    public LocalDateTime getFecha(){
+
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
