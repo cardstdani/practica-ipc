@@ -769,34 +769,61 @@ public class Vista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Maneja el evento de acción del botón para pasar del paso 1 al 2
+     * @param evt 
+     */
     private void continuarPaso1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarPaso1ButtonActionPerformed
         controlador.continuarPaso1();
     }//GEN-LAST:event_continuarPaso1ButtonActionPerformed
-
+    
+    /**
+     *  Maneja el evento de accion del selector de estacion de origen.
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void estacionOrigenSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estacionOrigenSelectorActionPerformed
         actualizarSeleccionEstacionDestino();
     }//GEN-LAST:event_estacionOrigenSelectorActionPerformed
-
+    
+    /**
+     * Maneja el evento de accion del boton "Volver" en el paso 3
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void volver3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver3ButtonActionPerformed
         controlador.volverPaso3();
     }//GEN-LAST:event_volver3ButtonActionPerformed
-
+    
+    /**
+     * Maneja el evento de acción del boton para continuar del paso al siguiente 
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void continuarPaso2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarPaso2ButtonActionPerformed
         controlador.continuarPaso2();
     }//GEN-LAST:event_continuarPaso2ButtonActionPerformed
-
+    
+    /**
+     * Maneja el evento de accion del boton de radio para seleccionar la tarjeta de credito.
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void tarjetaCreditoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCreditoRadioButtonActionPerformed
         desactivarSelectoresTarjeta();
         tarjetaCreditoRadioButton.setSelected(true);
         desactivarPanelesTarjeta();
         tarjetaCreditoPanel.setVisible(true);
     }//GEN-LAST:event_tarjetaCreditoRadioButtonActionPerformed
-
+    
+    /**
+     * Maneja el evento de acción del botón "Volver" en el paso 2
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void volver2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver2ButtonActionPerformed
         controlador.volverPaso2();
     }//GEN-LAST:event_volver2ButtonActionPerformed
-
+    
+    /**
+     * Maneja el evento de acción del botón para cambiar el tema de la interfaz
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void cambiarTemaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarTemaButtonActionPerformed
         try {
             if (darkTheme) {
@@ -814,15 +841,27 @@ public class Vista extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_cambiarTemaButtonActionPerformed
-
+    /**
+     * Maneja el evento de acción del checkbox relacionado con la opción de bicicleta
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void bicicletaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bicicletaCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bicicletaCheckBoxActionPerformed
-
+    
+    /**
+     * Maneja el evento de accion del checkbox relacionado con la opcion de mascota
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void mascotaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mascotaCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mascotaCheckBoxActionPerformed
-
+    
+    /**
+     * Maneja el evento de acción del botón de radio para seleccionar la tarjeta CYL
+     * Desactiva los selectores y paneles relacionados con la tarjeta de credito, activa los relacionados con la tarjeta CYL
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void tarjetaCylRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCylRadioButtonActionPerformed
         desactivarSelectoresTarjeta();
         tarjetaCylRadioButton.setSelected(true);
@@ -830,6 +869,11 @@ public class Vista extends javax.swing.JFrame {
         tarjetaCylPanel.setVisible(true);
     }//GEN-LAST:event_tarjetaCylRadioButtonActionPerformed
 
+    /**
+     * Maneja el evento de acción del botón para intercambiar estaciones
+     * Intercambia la selección de estaciones de origen y destino en los selectores correspondientes
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void intercambiarEstacionesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intercambiarEstacionesButtonActionPerformed
         String origen = (String) estacionOrigenSelector.getSelectedItem();
         String destino = (String) estacionDestinoSelector.getSelectedItem();
@@ -837,27 +881,52 @@ public class Vista extends javax.swing.JFrame {
         estacionDestinoSelector.setSelectedItem(origen);
     }//GEN-LAST:event_intercambiarEstacionesButtonActionPerformed
 
+    /**
+     * Maneja el evento de acción del boton "Aceptar" para aceptar el pago con tarjeta de crédito 
+     * @param evt El evento de acción que desencadeno este metodo
+     */
     private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
         controlador.aceptarPagoTarjetaCredito();
     }//GEN-LAST:event_aceptarButtonActionPerformed
-
+    
+    /**
+     * Maneja el evento de acción del botón para comprar otro billete
+     * Limpia los campos y restablece el estado de la interfaz del usuario al paso 1
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void comprarOtroBilleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarOtroBilleteActionPerformed
         limpiar();
         activarPaso(1);
     }//GEN-LAST:event_comprarOtroBilleteActionPerformed
 
+    /**
+     * Maneja el evento de acción del botón relacionado con la tarjeta de credito
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void tarjetaCreditoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCreditoButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tarjetaCreditoButtonActionPerformed
-
+    
+    /**
+     * Maneja el evento de acción del botón relacionado con la tarjeta CYL
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void tarjetaCylButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCylButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tarjetaCylButtonActionPerformed
-
+    
+    /**
+     * Establece el cambio de propiedad del selector de estación de origen
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void estacionOrigenSelectorPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_estacionOrigenSelectorPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_estacionOrigenSelectorPropertyChange
-
+    
+    /**
+     * Maneja el evento de acción del selector de fecha
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void fechaDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDatePickerActionPerformed
         if (getFecha() == null) {
             fechaDatePicker.setDate(new Date());
@@ -878,7 +947,7 @@ public class Vista extends javax.swing.JFrame {
                 new Vista().setVisible(true);
             }
         });
-    }
+    }//main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptarButton;
@@ -934,6 +1003,11 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton volver3Button;
     // End of variables declaration//GEN-END:variables
 
+    
+    /**
+     * Establece la visibilidad del paso para que el usuario lo vea
+     * @param i paso del que se quiere activar la visibilidad 
+     */
     public void activarPaso(int i) {
         desactivarPasos();
         switch (i) {
@@ -951,7 +1025,10 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    /**
+     * Muestra el error producido
+     * @param paso paso en el que se produjo un error
+     */
     public void escribirError(int paso) {
         switch (paso) {
             case 1:
@@ -965,14 +1042,19 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    /**
+     * Desactiva la visibilidad de los pasos
+     */
     private void desactivarPasos() {
         paso1Panel.setVisible(false);
         paso2Panel.setVisible(false);
         paso3Panel.setVisible(false);
         paso4Panel.setVisible(false);
     }
-
+    /**
+     * Inicializa el selector de estaciones con la lista proporcionada.
+     * @param estaciones La lista de nombres de estaciones a mostrar en el selector
+     */
     public void inicializarEstaciones(ArrayList<String> estaciones) {
         estacionOrigenSelector.removeAllItems();
         for (String estacion : estaciones) {
@@ -985,6 +1067,10 @@ public class Vista extends javax.swing.JFrame {
         estacionOrigenSelector.setSelectedItem(v.getEstacionDestino());
     }
 
+    /**
+     * Actualiza el modelo de la lista de viajes con la lista proporcionada de viajes.
+     * @param viajes La lista de viajes a utilizar para actualizar la lista
+     */
     public void actualizarViajes(ArrayList<Viaje> viajes) {
         viajesListModel.removeAllElements();
         for (Viaje viaje : viajes) {
@@ -994,7 +1080,6 @@ public class Vista extends javax.swing.JFrame {
 
     /**
      * Obtiene la fecha actual
-     *
      * @return devuelve la fecha actual
      */
     public LocalDateTime getFecha() {
@@ -1005,48 +1090,88 @@ public class Vista extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Devuelve el viaje seleccionado en la lista de rutas
+     * @return El viaje seleccionado en la lista de rutas
+     */
     public Viaje getSelectedViaje() {
         return (Viaje) rutasList.getSelectedValue();
     }
-
+    
+    /**
+     * Devuelve el estado de selección del checkbox de bicicleta
+     * @return True si el checkbox de bicicleta está seleccionado.False en caso contrario
+     */
     public boolean getBicicletaSelection() {
         return bicicletaCheckBox.isSelected();
     }
-
+    
+    /**
+     * Devuelve el estado de selección del checkbox de la mascota
+     * @return True si el checkbox de mascota está seleccionado.False en caso contrario
+     */
     public boolean getMascotaSelection() {
         return mascotaCheckBox.isSelected();
     }
 
+    /**
+    * Devuelve la estación seleccionada como estación de origen en el selector de estaciones
+    * @return El nombre de la estación seleccionada como estación de origen
+    */
     public String getEstacionOrigen() {
         return (String) estacionOrigenSelector.getSelectedItem();
     }
-
+    /**
+     * Devuelve la estación seleccionada como estación de destino en el selector de estaciones.
+     * @return El nombre de la estación seleccionada como estación de destino
+     */
     public String getEstacionDestino() {
         return (String) estacionDestinoSelector.getSelectedItem();
     }
-
+    
+    /**
+     * Desactiva los selectores de tarjeta de crédito y tarjeta CYL
+     */
     private void desactivarSelectoresTarjeta() {
         tarjetaCreditoRadioButton.setSelected(false);
         tarjetaCylRadioButton.setSelected(false);
     }
-
+    
+    /**
+     * Desactiva los paneles relacionados con las tarjetas CYL y de crédito.
+     */
     private void desactivarPanelesTarjeta() {
         tarjetaCylPanel.setVisible(false);
         tarjetaCreditoPanel.setVisible(false);
     }
-
+    
+    /**
+     * Obtiene el PIN introducido en el campo de texto correspondiente al PIN de la tarjeta
+     * @return El pin que el usuario introdujo
+     */
     public String getPinTarjeta() {
         return pinTarjetaField.getText();
     }
 
+    /**
+     * Activa el panel relacionado con el ingreso del PIN de la tarjeta de crédito.
+     */
     public void activarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(true);
     }
 
+    /**
+     * Desactiva el panel relacionado con el ingreso del PIN de la tarjeta de crédito
+     */
     public void desactivarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(false);
     }
 
+    /**
+     * Muestra un mensaje de error en el paso 3 al procesar la tarjeta de crédito
+     * @param mensaje El mensaje a mostrar
+     * @param codigoMensaje El código que indica el tipo de mensaje (ERROR o NORMAL)
+     */
     public void mensajePaso3TarjetaCredito(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel3.setText(mensaje);
         switch (codigoMensaje) {
@@ -1059,7 +1184,12 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
+    /**
+     * Muestra un mensaje de error en el paso 3 al procesar la tarjeta de CYL
+     * @param mensaje El mensaje a mostrar
+     * @param codigoMensaje El código que indica el tipo de mensaje (ERROR o NORMAL)
+     */
     public void mensajePaso3TarjetaCyl(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel4.setText(mensaje);
         switch (codigoMensaje) {
@@ -1072,8 +1202,11 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-
-    private void limpiar() { //A BARRER!!!!
+    
+    /**
+     * Limpia y restaura el estado de los componentes de la interfaz de usuario
+     */
+    private void limpiar() { 
         mensajePaso3TarjetaCredito("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
         mensajePaso3TarjetaCyl("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
         bicicletaCheckBox.setSelected(false);
@@ -1087,7 +1220,10 @@ public class Vista extends javax.swing.JFrame {
         tarjetaCreditoRadioButton.setSelected(true);
         tarjetaCreditoPanel.setVisible(true);
     }
-
+    
+    /**
+     * Actualiza las opciones del selector de estaciones de destino
+     */
     private void actualizarSeleccionEstacionDestino() {
         estacionDestinoSelector.removeAllItems();
         ArrayList<String> estacionesDestinoPosibles = controlador.getPosiblesEstacionesDestino(getEstacionOrigen());
@@ -1095,17 +1231,28 @@ public class Vista extends javax.swing.JFrame {
             estacionDestinoSelector.addItem(estacion);
         }
     }
-
+    
+    /**
+     * Muestra un diálogo de error con el mensaje proporcionado
+     * @param mensaje El mensaje de error a mostrar en el diálogo
+     */
     public void dialogoError(String mensaje) {
         Toolkit.getDefaultToolkit().beep();
         JOptionPane.showMessageDialog(null, mensaje, "¡ERROR!", JOptionPane.ERROR_MESSAGE);
     }
-
+    
+    /**
+     * Muestra un diálogo de alerta con el mensaje proporcionado.
+     * @param mensaje El mensaje de advertencia a mostrar en el diálogo
+     */
     public void dialogoAlerta(String mensaje) {
         Toolkit.getDefaultToolkit().beep();
         JOptionPane.showMessageDialog(null, mensaje, "¡WARNING!", JOptionPane.WARNING_MESSAGE);
     }
-
+    
+    /**
+     * Reproduce un sonido
+     */
     public void sonidoAmigable() {
         try {
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("src/main/resources/SonidoAmigable.wav"));
@@ -1116,4 +1263,4 @@ public class Vista extends javax.swing.JFrame {
             e.printStackTrace(System.err);
         }
     }
-}
+}//class Vista

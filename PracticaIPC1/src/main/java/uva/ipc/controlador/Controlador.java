@@ -146,7 +146,11 @@ public class Controlador {
             vista.mensajePaso3TarjetaCyl("No hay saldo suficiente", Utiles.codigoMensaje.ERROR);
         }
     }
-
+    
+    /**
+     * Obtiene viajes de manera aleatoria para que el usuario pueda elegir el origen de su tren
+     * @return un listado de viajes
+     */
     public Viaje getRandomViaje() {
         return modelo.getRandomViaje();
     }
@@ -163,11 +167,11 @@ public class Controlador {
         return modelo.getPosiblesEstacionesDestino(estacionOrigen);
     }
 
-    
-    
-    
-    //PENDIENTE
+    /**
+     * Obtiene el listado de estaciones
+     * @return el listado de estaciones
+     */
     public ArrayList<String> getEstaciones() {
         return modelo.getEstaciones();
     }
-}
+}//class Controlador

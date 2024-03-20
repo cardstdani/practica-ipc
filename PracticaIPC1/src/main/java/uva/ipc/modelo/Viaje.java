@@ -82,4 +82,4 @@ public class Viaje {
     public double getPrecio() {
         return precio;
     }
-}
+}//class Viaje
