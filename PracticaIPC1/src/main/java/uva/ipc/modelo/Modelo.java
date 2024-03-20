@@ -200,16 +200,11 @@ public class Modelo {
     public void tarjetaCylStop() {
         timerTarjetaCyl.stop();
     }
-
     
-    
-    
-    
-    
-    
-    
-    
-    //PENDIENTE
+    /**
+     * Obtiene viajes de manera aleatoria para que el usuario pueda elegir el origen de su tren
+     * @return un listado de viajes
+     */
     public Viaje getRandomViaje() {
         return viajes.get(ThreadLocalRandom.current().nextInt(viajes.size()));
     }

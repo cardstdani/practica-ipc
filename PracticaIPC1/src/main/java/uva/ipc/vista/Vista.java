@@ -41,7 +41,7 @@ public class Vista extends javax.swing.JFrame {
         FlatLaf.setup(new FlatArcOrangeIJTheme());
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);//Para que no aparezca a arriba a la izquierda
         this.controlador = new Controlador(this);
         rutasList.setModel(viajesListModel);
         setMinimumSize(new Dimension(650, 700));
