@@ -163,6 +163,10 @@ public class Controlador {
         return modelo.getPosiblesEstacionesDestino(estacionOrigen);
     }
 
+    
+    
+    
+    //PENDIENTE
     public ArrayList<String> getEstaciones() {
         return modelo.getEstaciones();
     }

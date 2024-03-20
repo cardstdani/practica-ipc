@@ -57,16 +57,28 @@ public class Viaje {
         return finSemana;
     }
 
+    /**
+     * Obtiene el horario del viaje que el usuario quiere hacer
+     * @return el horario del viaje
+     */
     public LocalTime getHorario() {
         String[] chunks = horario.split(":");
         return LocalTime.of(Integer.parseInt(chunks[0]), Integer.parseInt(chunks[1]));
     }
 
+    /**
+     * Sobrescribe el método toString por defecto 
+     * @return una cadena que contiene el ID de la ruta, el tiempo, el horario y el precio de la ruta.
+     */
     @Override
     public String toString() {
         return idRuta + " " + tiempo + "m " + horario + " " + precio + "€";
     }
 
+    /**
+     * Obtiene el precio del viaje
+     * @return el precio del viaje
+     */
     public double getPrecio() {
         return precio;
     }

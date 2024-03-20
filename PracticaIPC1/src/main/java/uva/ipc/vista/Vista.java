@@ -50,23 +50,40 @@ public class Vista extends javax.swing.JFrame {
         limpiar();
 
         tarjetaCreditoButton.addMouseListener(new MouseAdapter() {
+            /**
+             * Invocado cuando el puntero del raton entra en el área del componente.
+             * Indica que se inicia el contador de tiempo requerido para que el usuario pague con tarjeta de credito
+             * @param e El evento del raton (hacer click) que desencadenó la acción.
+             */
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCreditoStart();
             }
-
+            /**
+             * Invocado cuando el puntero del raton sale del área del componente.
+             * Indica que se detnega la accion de cntar el numero de segundos para pagar con la tarjeta de credito
+             * @param e El evento del mouse que desencadenó la acción.
+             */
             @Override
             public void mouseExited(MouseEvent e) {
                 controlador.tarjetaCreditoStop();
             }
         });
 
-        tarjetaCylButton.addMouseListener(new MouseAdapter() {
+        tarjetaCylButton.addMouseListener(new MouseAdapter() {            
+            /**
+             * Indica que se inicia el contador de tiempo requerido para que el usuario pague con tarjeta CYL
+             * @param e El evento del raton (hacer click) que desencadenó la acción.
+             */
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCylStart();
             }
-
+            /**
+             * Invocado cuando el puntero del raton sale del área del componente.
+             * Indica que se detenga la accion de cntar el numero de segundos para pagar con la tarjeta CYL
+             * @param e El evento del mouse que desencadenó la acción.
+             */
             @Override
             public void mouseExited(MouseEvent e) {
                 controlador.tarjetaCylStop();
@@ -75,7 +92,9 @@ public class Vista extends javax.swing.JFrame {
         styleButtons();
         inicializarJueguecito();
     }
-
+    /**
+     * Inicializa el juego que le aparece al usuario una vez ha comprado cargando una página web 
+     */
     public void inicializarJueguecito() {
         final JFXPanel jfxPanel = new JFXPanel();
 
@@ -86,20 +105,26 @@ public class Vista extends javax.swing.JFrame {
             jfxPanel.setScene(scene);
             webView.requestFocus();
         });
-
+        //Se actualiza el panel
         dinoPanel.setLayout(new BorderLayout());
         dinoPanel.add(jfxPanel, BorderLayout.CENTER);
         dinoPanel.revalidate();
         dinoPanel.repaint();
     }
-
+    /**
+     * Aplica un estilo específico a una serie de botones.
+     */
     public void styleButtons() {
         styleButton(continuarPaso1Button);
         styleButton(continuarPaso2Button);
         styleButton(comprarOtroBillete);
         styleButton(aceptarButton);
     }
-
+    
+    /**
+    * Aplica un estilo personalizado a un botón.  
+    * @param button El botón al que se le aplicará el estilo.
+    */
     public void styleButton(JButton button) {
         button.setBackground(UIManager.getColor("Component.accentColor"));
         if (darkTheme) {
@@ -109,14 +134,21 @@ public class Vista extends javax.swing.JFrame {
         }
 
     }
-
+    /**
+     * Inicializa los iconos de los botones especificados con las imagenes introducidas
+     */
     public void inicializarIconos() {
         setObjectIcon(intercambiarEstacionesButton, "src/main/resources/Swap.png");
         setObjectIcon(tarjetaCreditoButton, "src/main/resources/Visa.png");
         setObjectIcon(tarjetaCylButton, "src/main/resources/Tarjetacyl.png");
 
     }
-
+    /**
+    * Establece un icono en un JButton utilizando una imagen
+    * La imagen se ajusta al tamaño del botón proporcionado. 
+    * @param button El botón al que se le establecerá el icono.
+    * @param path La ruta de archivo de la imagen que se utilizará como icono.
+    */
     public void setObjectIcon(JButton button, String path) {
         ImageIcon icon = new ImageIcon(path);
         Image img = icon.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_AREA_AVERAGING);

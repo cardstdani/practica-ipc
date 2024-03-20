@@ -201,6 +201,15 @@ public class Modelo {
         timerTarjetaCyl.stop();
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    //PENDIENTE
     public Viaje getRandomViaje() {
         return viajes.get(ThreadLocalRandom.current().nextInt(viajes.size()));
     }
@@ -223,10 +232,17 @@ public class Modelo {
         return out;
     }
 
+    /**
+     * Valida que el sueldo restante en la tarjeta Cyl es superior al precio del viaje
+     * @return True si hay mas saldo en la tarjeta que el precio del viaje. False en caso contrario
+     */
     public boolean validarSaldoCyl() {
         return saldoTarjetaCYL >= viaje.getPrecio();
     }
-
+    
+    /**
+     * Resta el coste del viaje al saldo de la tarjeta CYL
+     */
     public void pagarConTarjetaCyl() {
         saldoTarjetaCYL -= viaje.getPrecio();
     }
