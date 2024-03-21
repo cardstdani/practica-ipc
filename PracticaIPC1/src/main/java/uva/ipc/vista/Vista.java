@@ -100,7 +100,7 @@ public class Vista extends javax.swing.JFrame {
 
         Platform.runLater(() -> {
             WebView webView = new WebView();
-            webView.getEngine().load("https://dinorunner.com/ru/"); //https://offline-dino-game.firebaseapp.com/
+            webView.getEngine().load("https://dinorunner.com/"); //https://offline-dino-game.firebaseapp.com/
             Scene scene = new Scene(webView);
             jfxPanel.setScene(scene);
             webView.requestFocus();
@@ -268,9 +268,10 @@ public class Vista extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(53, 166, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 166, 0, 0);
         jPanel3.add(estacionOrigenSelector, gridBagConstraints);
 
         intercambiarEstacionesButton.setBackground(new java.awt.Color(0, 0, 0, 0));
@@ -286,22 +287,22 @@ public class Vista extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.ipadx = -270;
         gridBagConstraints.ipady = -267;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(68, 18, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(29, 6, 0, 0);
         jPanel3.add(intercambiarEstacionesButton, gridBagConstraints);
 
         estacionDestinoSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 166, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 166, 0, 0);
         jPanel3.add(estacionDestinoSelector, gridBagConstraints);
 
         fechaDatePicker.setDate(new java.util.Date());
@@ -314,11 +315,11 @@ public class Vista extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 52;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(44, 166, 41, 203);
+        gridBagConstraints.insets = new java.awt.Insets(54, 166, 33, 203);
         jPanel3.add(fechaDatePicker, gridBagConstraints);
         fechaDatePicker.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         fechaDatePicker.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
@@ -615,14 +616,14 @@ public class Vista extends javax.swing.JFrame {
         pinTarjetaCreditoPanel.setLayout(pinTarjetaCreditoPanelLayout);
         pinTarjetaCreditoPanelLayout.setHorizontalGroup(
             pinTarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pinTarjetaCreditoPanelLayout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pinTarjetaCreditoPanelLayout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addComponent(seleccioneEstacionLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pinTarjetaField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(aceptarButton)
-                .addContainerGap())
+                .addGap(29, 29, 29))
         );
         pinTarjetaCreditoPanelLayout.setVerticalGroup(
             pinTarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,7 +642,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.ipadx = 80;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 128, 6, 97);
+        gridBagConstraints.insets = new java.awt.Insets(18, 132, 27, 101);
         tarjetaCreditoPanel.add(pinTarjetaCreditoPanel, gridBagConstraints);
 
         tarjetaCreditoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -672,7 +673,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 128, 0, 97);
+        gridBagConstraints.insets = new java.awt.Insets(26, 132, 0, 101);
         tarjetaCreditoPanel.add(jPanel1, gridBagConstraints);
 
         erroresLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -700,7 +701,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 163, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 167, 0, 0);
         tarjetaCreditoPanel.add(jPanel4, gridBagConstraints);
 
         opcionesPanel.add(tarjetaCreditoPanel, "card2");
