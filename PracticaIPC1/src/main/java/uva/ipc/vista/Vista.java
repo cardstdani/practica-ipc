@@ -175,6 +175,8 @@ public class Vista extends javax.swing.JFrame {
         intercambiarEstacionesButton = new javax.swing.JButton();
         estacionDestinoSelector = new javax.swing.JComboBox<>();
         fechaDatePicker = new org.jdesktop.swingx.JXDatePicker();
+        estacionOrigenLabel = new javax.swing.JLabel();
+        estacionDestinoLabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         continuarPaso1Button = new javax.swing.JButton();
         cambiarTemaButton = new javax.swing.JButton();
@@ -210,7 +212,7 @@ public class Vista extends javax.swing.JFrame {
         aceptarButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         tarjetaCreditoButton = new org.jdesktop.swingx.JXButton();
-        jPanel4 = new javax.swing.JPanel();
+        mantenerDosSegundosPanel = new javax.swing.JPanel();
         erroresLabel3 = new org.jdesktop.swingx.JXLabel();
         tarjetaCylPanel = new javax.swing.JPanel();
         tarjetaCylButton = new org.jdesktop.swingx.JXButton();
@@ -222,16 +224,20 @@ public class Vista extends javax.swing.JFrame {
         setTitle("Tren Castilla y León");
         getContentPane().setLayout(new java.awt.CardLayout());
 
+        paso1Panel.setBackground(new java.awt.Color(245, 250, 250));
+        paso1Panel.setForeground(new java.awt.Color(236, 255, 255));
         paso1Panel.setEnabled(false);
         paso1Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso1Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso1Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso1Panel.setLayout(new javax.swing.BoxLayout(paso1Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
+        jPanel2.setBackground(new java.awt.Color(245, 250, 250));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         paso1Label.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        paso1Label.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label.setText("Paso 1");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -253,7 +259,7 @@ public class Vista extends javax.swing.JFrame {
 
         paso1Panel.add(jPanel2);
 
-        jPanel3.setLayout(new java.awt.GridBagLayout());
+        jPanel3.setBackground(new java.awt.Color(245, 250, 250));
 
         estacionOrigenSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         estacionOrigenSelector.addActionListener(new java.awt.event.ActionListener() {
@@ -266,13 +272,6 @@ public class Vista extends javax.swing.JFrame {
                 estacionOrigenSelectorPropertyChange(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 166, 0, 0);
-        jPanel3.add(estacionOrigenSelector, gridBagConstraints);
 
         intercambiarEstacionesButton.setBackground(new java.awt.Color(0, 0, 0, 0));
         intercambiarEstacionesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -286,24 +285,8 @@ public class Vista extends javax.swing.JFrame {
                 intercambiarEstacionesButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = -270;
-        gridBagConstraints.ipady = -267;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 6, 0, 0);
-        jPanel3.add(intercambiarEstacionesButton, gridBagConstraints);
 
         estacionDestinoSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(2, 166, 0, 0);
-        jPanel3.add(estacionDestinoSelector, gridBagConstraints);
 
         fechaDatePicker.setDate(new java.util.Date());
         fechaDatePicker.setDoubleBuffered(true);
@@ -313,20 +296,58 @@ public class Vista extends javax.swing.JFrame {
                 fechaDatePickerActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 52;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(54, 166, 33, 203);
-        jPanel3.add(fechaDatePicker, gridBagConstraints);
+
+        estacionOrigenLabel.setFont(estacionOrigenLabel.getFont().deriveFont(estacionOrigenLabel.getFont().getStyle() | java.awt.Font.BOLD, 14));
+        estacionOrigenLabel.setText("Estación de origen");
+
+        estacionDestinoLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        estacionDestinoLabel.setText("Estación de destino");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(estacionOrigenLabel)
+                    .addComponent(estacionDestinoLabel))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(222, 222, 222))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(estacionOrigenLabel))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(estacionDestinoLabel))
+                .addGap(54, 54, 54)
+                .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         fechaDatePicker.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         fechaDatePicker.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
         fechaDatePicker.getMonthView().setLowerBound(java.util.Calendar.getInstance().getTime());
 
         paso1Panel.add(jPanel3);
 
+        jPanel5.setBackground(new java.awt.Color(245, 250, 250));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         continuarPaso1Button.setBackground(UIManager.getColor("Component.accentColor"));
@@ -369,9 +390,11 @@ public class Vista extends javax.swing.JFrame {
         paso2Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso2Panel.setLayout(new java.awt.GridLayout(4, 1));
 
+        jPanel6.setBackground(new java.awt.Color(245, 250, 250));
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         paso1Label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        paso1Label1.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label1.setText("Paso 2");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -383,7 +406,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel6.add(paso1Label1, gridBagConstraints);
 
         seleccioneEstacionLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        seleccioneEstacionLabel1.setText("Selecciona tu tren");
+        seleccioneEstacionLabel1.setText("Seleccione su tren");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -392,6 +415,8 @@ public class Vista extends javax.swing.JFrame {
         jPanel6.add(seleccioneEstacionLabel1, gridBagConstraints);
 
         paso2Panel.add(jPanel6);
+
+        jPanel7.setBackground(new java.awt.Color(245, 250, 250));
 
         rutasList.setMinimumSize(new java.awt.Dimension(300, 100));
         DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -402,6 +427,7 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel7);
 
+        jPanel8.setBackground(new java.awt.Color(245, 250, 250));
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
         bicicletaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -436,6 +462,7 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel8);
 
+        jPanel9.setBackground(new java.awt.Color(245, 250, 250));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         volver2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -471,15 +498,18 @@ public class Vista extends javax.swing.JFrame {
 
         getContentPane().add(paso2Panel, "card3");
 
+        paso4Panel.setBackground(new java.awt.Color(245, 250, 250));
         paso4Panel.setEnabled(false);
         paso4Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso4Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso4Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso4Panel.setLayout(new java.awt.GridBagLayout());
 
+        jPanel12.setBackground(new java.awt.Color(245, 250, 250));
         jPanel12.setLayout(new java.awt.GridBagLayout());
 
         paso1Label3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        paso1Label3.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label3.setText("Pago confirmado");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -534,15 +564,18 @@ public class Vista extends javax.swing.JFrame {
 
         getContentPane().add(paso4Panel, "card4");
 
+        paso3Panel.setBackground(new java.awt.Color(245, 250, 250));
         paso3Panel.setEnabled(false);
         paso3Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso3Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso3Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso3Panel.setLayout(new javax.swing.BoxLayout(paso3Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
+        jPanel10.setBackground(new java.awt.Color(245, 250, 250));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
         paso1Label2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        paso1Label2.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label2.setText("Paso 3");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -553,7 +586,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel10.add(paso1Label2, gridBagConstraints);
 
         seleccioneEstacionLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        seleccioneEstacionLabel2.setText("Selecciona el método de pago");
+        seleccioneEstacionLabel2.setText("Seleccione el método de pago");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -595,9 +628,13 @@ public class Vista extends javax.swing.JFrame {
 
         paso3Panel.add(jPanel10);
 
+        opcionesPanel.setBackground(new java.awt.Color(245, 250, 250));
         opcionesPanel.setLayout(new java.awt.CardLayout());
 
+        tarjetaCreditoPanel.setBackground(new java.awt.Color(245, 250, 250));
         tarjetaCreditoPanel.setLayout(new java.awt.GridBagLayout());
+
+        pinTarjetaCreditoPanel.setBackground(new java.awt.Color(245, 250, 250));
 
         seleccioneEstacionLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         seleccioneEstacionLabel3.setText("PIN:");
@@ -645,6 +682,8 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 132, 27, 101);
         tarjetaCreditoPanel.add(pinTarjetaCreditoPanel, gridBagConstraints);
 
+        jPanel1.setBackground(new java.awt.Color(245, 250, 250));
+
         tarjetaCreditoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tarjetaCreditoButtonActionPerformed(evt);
@@ -676,22 +715,25 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(26, 132, 0, 101);
         tarjetaCreditoPanel.add(jPanel1, gridBagConstraints);
 
+        mantenerDosSegundosPanel.setBackground(new java.awt.Color(245, 250, 250));
+
+        erroresLabel3.setBackground(new java.awt.Color(245, 250, 250));
         erroresLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         erroresLabel3.setText("Mantenga usted la tarjeta 2 segundos");
         erroresLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout mantenerDosSegundosPanelLayout = new javax.swing.GroupLayout(mantenerDosSegundosPanel);
+        mantenerDosSegundosPanel.setLayout(mantenerDosSegundosPanelLayout);
+        mantenerDosSegundosPanelLayout.setHorizontalGroup(
+            mantenerDosSegundosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mantenerDosSegundosPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(erroresLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        mantenerDosSegundosPanelLayout.setVerticalGroup(
+            mantenerDosSegundosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mantenerDosSegundosPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(erroresLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -702,9 +744,11 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 167, 0, 0);
-        tarjetaCreditoPanel.add(jPanel4, gridBagConstraints);
+        tarjetaCreditoPanel.add(mantenerDosSegundosPanel, gridBagConstraints);
 
         opcionesPanel.add(tarjetaCreditoPanel, "card2");
+
+        tarjetaCylPanel.setBackground(new java.awt.Color(245, 250, 250));
 
         tarjetaCylButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visa.png"))); // NOI18N
         tarjetaCylButton.addActionListener(new java.awt.event.ActionListener() {
@@ -748,6 +792,7 @@ public class Vista extends javax.swing.JFrame {
 
         paso3Panel.add(opcionesPanel);
 
+        jPanel11.setBackground(new java.awt.Color(245, 250, 250));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
         volver3Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -960,7 +1005,9 @@ public class Vista extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXPanel dinoPanel;
     private org.jdesktop.swingx.JXLabel erroresLabel3;
     private org.jdesktop.swingx.JXLabel erroresLabel4;
+    private javax.swing.JLabel estacionDestinoLabel;
     private javax.swing.JComboBox<String> estacionDestinoSelector;
+    private javax.swing.JLabel estacionOrigenLabel;
     private javax.swing.JComboBox<String> estacionOrigenSelector;
     private org.jdesktop.swingx.JXDatePicker fechaDatePicker;
     private javax.swing.JButton intercambiarEstacionesButton;
@@ -970,13 +1017,13 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel mantenerDosSegundosPanel;
     private javax.swing.JCheckBox mascotaCheckBox;
     private javax.swing.JPanel opcionesPanel;
     private javax.swing.JLabel paso1Label;
