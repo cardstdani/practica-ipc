@@ -8,7 +8,6 @@ import java.util.*;
 import java.text.SimpleDateFormat;
 import com.formdev.flatlaf.*;
 import com.formdev.flatlaf.intellijthemes.*;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
@@ -39,6 +38,7 @@ public class Vista extends javax.swing.JFrame {
      */
     public Vista() {
         FlatLaf.setup(new FlatArcOrangeIJTheme());
+
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
         initComponents();
         this.setLocationRelativeTo(null);//Para que no aparezca a arriba a la izquierda
@@ -51,17 +51,23 @@ public class Vista extends javax.swing.JFrame {
 
         tarjetaCreditoButton.addMouseListener(new MouseAdapter() {
             /**
-             * Invocado cuando el puntero del raton entra en el área del componente.
-             * Indica que se inicia el contador de tiempo requerido para que el usuario pague con tarjeta de credito
-             * @param e El evento del raton (hacer click) que desencadenó la acción.
+             * Invocado cuando el puntero del raton entra en el área del
+             * componente. Indica que se inicia el contador de tiempo requerido
+             * para que el usuario pague con tarjeta de credito
+             *
+             * @param e El evento del raton (hacer click) que desencadenó la
+             * acción.
              */
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCreditoStart();
             }
+
             /**
-             * Invocado cuando el puntero del raton sale del área del componente.
-             * Indica que se detnega la accion de cntar el numero de segundos para pagar con la tarjeta de credito
+             * Invocado cuando el puntero del raton sale del área del
+             * componente. Indica que se detnega la accion de cntar el numero de
+             * segundos para pagar con la tarjeta de credito
+             *
              * @param e El evento del mouse que desencadenó la acción.
              */
             @Override
@@ -70,18 +76,24 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
-        tarjetaCylButton.addMouseListener(new MouseAdapter() {            
+        tarjetaCylButton.addMouseListener(new MouseAdapter() {
             /**
-             * Indica que se inicia el contador de tiempo requerido para que el usuario pague con tarjeta CYL
-             * @param e El evento del raton (hacer click) que desencadenó la acción.
+             * Indica que se inicia el contador de tiempo requerido para que el
+             * usuario pague con tarjeta CYL
+             *
+             * @param e El evento del raton (hacer click) que desencadenó la
+             * acción.
              */
             @Override
             public void mouseEntered(MouseEvent e) {
                 controlador.tarjetaCylStart();
             }
+
             /**
-             * Invocado cuando el puntero del raton sale del área del componente.
-             * Indica que se detenga la accion de cntar el numero de segundos para pagar con la tarjeta CYL
+             * Invocado cuando el puntero del raton sale del área del
+             * componente. Indica que se detenga la accion de cntar el numero de
+             * segundos para pagar con la tarjeta CYL
+             *
              * @param e El evento del mouse que desencadenó la acción.
              */
             @Override
@@ -92,8 +104,10 @@ public class Vista extends javax.swing.JFrame {
         styleButtons();
         inicializarJueguecito();
     }
+
     /**
-     * Inicializa el juego que le aparece al usuario una vez ha comprado cargando una página web 
+     * Inicializa el juego que le aparece al usuario una vez ha comprado
+     * cargando una página web
      */
     public void inicializarJueguecito() {
         final JFXPanel jfxPanel = new JFXPanel();
@@ -111,6 +125,7 @@ public class Vista extends javax.swing.JFrame {
         dinoPanel.revalidate();
         dinoPanel.repaint();
     }
+
     /**
      * Aplica un estilo específico a una serie de botones.
      */
@@ -120,11 +135,12 @@ public class Vista extends javax.swing.JFrame {
         styleButton(comprarOtroBillete);
         styleButton(aceptarButton);
     }
-    
+
     /**
-    * Aplica un estilo personalizado a un botón.  
-    * @param button El botón al que se le aplicará el estilo.
-    */
+     * Aplica un estilo personalizado a un botón.
+     *
+     * @param button El botón al que se le aplicará el estilo.
+     */
     public void styleButton(JButton button) {
         button.setBackground(UIManager.getColor("Component.accentColor"));
         if (darkTheme) {
@@ -134,22 +150,41 @@ public class Vista extends javax.swing.JFrame {
         }
 
     }
+
     /**
-     * Inicializa los iconos de los botones especificados con las imagenes introducidas
+     * Inicializa los iconos de los botones especificados con las imagenes
+     * introducidas
      */
     public void inicializarIconos() {
         setObjectIcon(intercambiarEstacionesButton, "src/main/resources/Swap.png");
         setObjectIcon(tarjetaCreditoButton, "src/main/resources/Visa.png");
         setObjectIcon(tarjetaCylButton, "src/main/resources/Tarjetacyl.png");
-
+        setObjectIcon(imagenBiciLabel, "src/main/resources/Bicicleta.png");
+        setObjectIcon(imagenMascotaLabel, "src/main/resources/Mascota.png");
     }
+
     /**
-    * Establece un icono en un JButton utilizando una imagen
-    * La imagen se ajusta al tamaño del botón proporcionado. 
-    * @param button El botón al que se le establecerá el icono.
-    * @param path La ruta de archivo de la imagen que se utilizará como icono.
-    */
+     * Establece un icono en un JButton utilizando una imagen La imagen se
+     * ajusta al tamaño del botón proporcionado.
+     *
+     * @param button El botón al que se le establecerá el icono.
+     * @param path La ruta de archivo de la imagen que se utilizará como icono.
+     */
     public void setObjectIcon(JButton button, String path) {
+        ImageIcon icon = new ImageIcon(path);
+        Image img = icon.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_AREA_AVERAGING);
+        ImageIcon ic = new ImageIcon(img);
+        button.setIcon(ic);
+    }
+
+    /**
+     * Establece un icono en un JLabel utilizando una imagen La imagen se ajusta
+     * al tamaño del label proporcionado.
+     *
+     * @param button El label al que se le establecerá el icono.
+     * @param path La ruta de archivo de la imagen que se utilizará como icono.
+     */
+    public void setObjectIcon(JLabel button, String path) {
         ImageIcon icon = new ImageIcon(path);
         Image img = icon.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_AREA_AVERAGING);
         ImageIcon ic = new ImageIcon(img);
@@ -175,8 +210,8 @@ public class Vista extends javax.swing.JFrame {
         intercambiarEstacionesButton = new javax.swing.JButton();
         estacionDestinoSelector = new javax.swing.JComboBox<>();
         fechaDatePicker = new org.jdesktop.swingx.JXDatePicker();
-        estacionOrigenLabel = new javax.swing.JLabel();
-        estacionDestinoLabel = new javax.swing.JLabel();
+        seleccioneEstacionLabel4 = new javax.swing.JLabel();
+        seleccioneEstacionLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         continuarPaso1Button = new javax.swing.JButton();
         cambiarTemaButton = new javax.swing.JButton();
@@ -188,8 +223,11 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         rutasList = new org.jdesktop.swingx.JXList();
         jPanel8 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
         bicicletaCheckBox = new javax.swing.JCheckBox();
         mascotaCheckBox = new javax.swing.JCheckBox();
+        imagenMascotaLabel = new javax.swing.JLabel();
+        imagenBiciLabel = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         volver2Button = new javax.swing.JButton();
         continuarPaso2Button = new javax.swing.JButton();
@@ -212,7 +250,7 @@ public class Vista extends javax.swing.JFrame {
         aceptarButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         tarjetaCreditoButton = new org.jdesktop.swingx.JXButton();
-        mantenerDosSegundosPanel = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         erroresLabel3 = new org.jdesktop.swingx.JXLabel();
         tarjetaCylPanel = new javax.swing.JPanel();
         tarjetaCylButton = new org.jdesktop.swingx.JXButton();
@@ -224,20 +262,16 @@ public class Vista extends javax.swing.JFrame {
         setTitle("Tren Castilla y León");
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        paso1Panel.setBackground(new java.awt.Color(245, 250, 250));
-        paso1Panel.setForeground(new java.awt.Color(236, 255, 255));
         paso1Panel.setEnabled(false);
         paso1Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso1Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso1Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso1Panel.setLayout(new javax.swing.BoxLayout(paso1Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jPanel2.setBackground(new java.awt.Color(245, 250, 250));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         paso1Label.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        paso1Label.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label.setText("Paso 1");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -259,7 +293,7 @@ public class Vista extends javax.swing.JFrame {
 
         paso1Panel.add(jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(245, 250, 250));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
         estacionOrigenSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         estacionOrigenSelector.addActionListener(new java.awt.event.ActionListener() {
@@ -272,6 +306,13 @@ public class Vista extends javax.swing.JFrame {
                 estacionOrigenSelectorPropertyChange(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 166, 0, 0);
+        jPanel3.add(estacionOrigenSelector, gridBagConstraints);
 
         intercambiarEstacionesButton.setBackground(new java.awt.Color(0, 0, 0, 0));
         intercambiarEstacionesButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -285,8 +326,24 @@ public class Vista extends javax.swing.JFrame {
                 intercambiarEstacionesButtonActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = -270;
+        gridBagConstraints.ipady = -267;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 6, 0, 0);
+        jPanel3.add(intercambiarEstacionesButton, gridBagConstraints);
 
         estacionDestinoSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 166, 0, 0);
+        jPanel3.add(estacionDestinoSelector, gridBagConstraints);
 
         fechaDatePicker.setDate(new java.util.Date());
         fechaDatePicker.setDoubleBuffered(true);
@@ -296,58 +353,39 @@ public class Vista extends javax.swing.JFrame {
                 fechaDatePickerActionPerformed(evt);
             }
         });
-
-        estacionOrigenLabel.setFont(estacionOrigenLabel.getFont().deriveFont(estacionOrigenLabel.getFont().getStyle() | java.awt.Font.BOLD, 14));
-        estacionOrigenLabel.setText("Estación de origen");
-
-        estacionDestinoLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        estacionDestinoLabel.setText("Estación de destino");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(estacionOrigenLabel)
-                    .addComponent(estacionDestinoLabel))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(222, 222, 222))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(estacionOrigenSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(estacionOrigenLabel))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(intercambiarEstacionesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(2, 2, 2)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(estacionDestinoSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(estacionDestinoLabel))
-                .addGap(54, 54, 54)
-                .addComponent(fechaDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 52;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 166, 22, 203);
+        jPanel3.add(fechaDatePicker, gridBagConstraints);
         fechaDatePicker.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         fechaDatePicker.getMonthView().setFirstDayOfWeek(Calendar.MONDAY);
         fechaDatePicker.getMonthView().setLowerBound(java.util.Calendar.getInstance().getTime());
 
+        seleccioneEstacionLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        seleccioneEstacionLabel4.setText("Origen:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(34, 166, 0, 0);
+        jPanel3.add(seleccioneEstacionLabel4, gridBagConstraints);
+
+        seleccioneEstacionLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        seleccioneEstacionLabel5.setText("Destino:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 166, 0, 0);
+        jPanel3.add(seleccioneEstacionLabel5, gridBagConstraints);
+
         paso1Panel.add(jPanel3);
 
-        jPanel5.setBackground(new java.awt.Color(245, 250, 250));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         continuarPaso1Button.setBackground(UIManager.getColor("Component.accentColor"));
@@ -390,11 +428,9 @@ public class Vista extends javax.swing.JFrame {
         paso2Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso2Panel.setLayout(new java.awt.GridLayout(4, 1));
 
-        jPanel6.setBackground(new java.awt.Color(245, 250, 250));
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         paso1Label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        paso1Label1.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label1.setText("Paso 2");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -406,7 +442,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel6.add(paso1Label1, gridBagConstraints);
 
         seleccioneEstacionLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        seleccioneEstacionLabel1.setText("Seleccione su tren");
+        seleccioneEstacionLabel1.setText("Selecciona tu tren");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -415,8 +451,6 @@ public class Vista extends javax.swing.JFrame {
         jPanel6.add(seleccioneEstacionLabel1, gridBagConstraints);
 
         paso2Panel.add(jPanel6);
-
-        jPanel7.setBackground(new java.awt.Color(245, 250, 250));
 
         rutasList.setMinimumSize(new java.awt.Dimension(300, 100));
         DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -427,7 +461,6 @@ public class Vista extends javax.swing.JFrame {
 
         paso2Panel.add(jPanel7);
 
-        jPanel8.setBackground(new java.awt.Color(245, 250, 250));
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
         bicicletaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -437,13 +470,6 @@ public class Vista extends javax.swing.JFrame {
                 bicicletaCheckBoxActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(51, 268, 0, 0);
-        jPanel8.add(bicicletaCheckBox, gridBagConstraints);
 
         mascotaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         mascotaCheckBox.setText("Mascota");
@@ -452,17 +478,49 @@ public class Vista extends javax.swing.JFrame {
                 mascotaCheckBoxActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(bicicletaCheckBox)
+                        .addGap(12, 12, 12)
+                        .addComponent(imagenBiciLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(mascotaCheckBox)
+                        .addGap(6, 6, 6)
+                        .addComponent(imagenMascotaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bicicletaCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenBiciLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(mascotaCheckBox))
+                    .addComponent(imagenMascotaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 268, 40, 259);
-        jPanel8.add(mascotaCheckBox, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(39, 256, 29, 220);
+        jPanel8.add(jPanel13, gridBagConstraints);
 
         paso2Panel.add(jPanel8);
 
-        jPanel9.setBackground(new java.awt.Color(245, 250, 250));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         volver2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -498,18 +556,15 @@ public class Vista extends javax.swing.JFrame {
 
         getContentPane().add(paso2Panel, "card3");
 
-        paso4Panel.setBackground(new java.awt.Color(245, 250, 250));
         paso4Panel.setEnabled(false);
         paso4Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso4Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso4Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso4Panel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel12.setBackground(new java.awt.Color(245, 250, 250));
         jPanel12.setLayout(new java.awt.GridBagLayout());
 
         paso1Label3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        paso1Label3.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label3.setText("Pago confirmado");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -564,18 +619,15 @@ public class Vista extends javax.swing.JFrame {
 
         getContentPane().add(paso4Panel, "card4");
 
-        paso3Panel.setBackground(new java.awt.Color(245, 250, 250));
         paso3Panel.setEnabled(false);
         paso3Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso3Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso3Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso3Panel.setLayout(new javax.swing.BoxLayout(paso3Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jPanel10.setBackground(new java.awt.Color(245, 250, 250));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
         paso1Label2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        paso1Label2.setForeground(new java.awt.Color(0, 153, 153));
         paso1Label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label2.setText("Paso 3");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -586,7 +638,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel10.add(paso1Label2, gridBagConstraints);
 
         seleccioneEstacionLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        seleccioneEstacionLabel2.setText("Seleccione el método de pago");
+        seleccioneEstacionLabel2.setText("Selecciona el método de pago");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -628,13 +680,9 @@ public class Vista extends javax.swing.JFrame {
 
         paso3Panel.add(jPanel10);
 
-        opcionesPanel.setBackground(new java.awt.Color(245, 250, 250));
         opcionesPanel.setLayout(new java.awt.CardLayout());
 
-        tarjetaCreditoPanel.setBackground(new java.awt.Color(245, 250, 250));
         tarjetaCreditoPanel.setLayout(new java.awt.GridBagLayout());
-
-        pinTarjetaCreditoPanel.setBackground(new java.awt.Color(245, 250, 250));
 
         seleccioneEstacionLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         seleccioneEstacionLabel3.setText("PIN:");
@@ -682,8 +730,6 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 132, 27, 101);
         tarjetaCreditoPanel.add(pinTarjetaCreditoPanel, gridBagConstraints);
 
-        jPanel1.setBackground(new java.awt.Color(245, 250, 250));
-
         tarjetaCreditoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tarjetaCreditoButtonActionPerformed(evt);
@@ -715,25 +761,22 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(26, 132, 0, 101);
         tarjetaCreditoPanel.add(jPanel1, gridBagConstraints);
 
-        mantenerDosSegundosPanel.setBackground(new java.awt.Color(245, 250, 250));
-
-        erroresLabel3.setBackground(new java.awt.Color(245, 250, 250));
         erroresLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         erroresLabel3.setText("Mantenga usted la tarjeta 2 segundos");
         erroresLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        javax.swing.GroupLayout mantenerDosSegundosPanelLayout = new javax.swing.GroupLayout(mantenerDosSegundosPanel);
-        mantenerDosSegundosPanel.setLayout(mantenerDosSegundosPanelLayout);
-        mantenerDosSegundosPanelLayout.setHorizontalGroup(
-            mantenerDosSegundosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mantenerDosSegundosPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(erroresLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        mantenerDosSegundosPanelLayout.setVerticalGroup(
-            mantenerDosSegundosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mantenerDosSegundosPanelLayout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(erroresLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -744,11 +787,9 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(18, 167, 0, 0);
-        tarjetaCreditoPanel.add(mantenerDosSegundosPanel, gridBagConstraints);
+        tarjetaCreditoPanel.add(jPanel4, gridBagConstraints);
 
         opcionesPanel.add(tarjetaCreditoPanel, "card2");
-
-        tarjetaCylPanel.setBackground(new java.awt.Color(245, 250, 250));
 
         tarjetaCylButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visa.png"))); // NOI18N
         tarjetaCylButton.addActionListener(new java.awt.event.ActionListener() {
@@ -792,7 +833,6 @@ public class Vista extends javax.swing.JFrame {
 
         paso3Panel.add(opcionesPanel);
 
-        jPanel11.setBackground(new java.awt.Color(245, 250, 250));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
         volver3Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -817,38 +857,44 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     /**
      * Maneja el evento de acción del botón para pasar del paso 1 al 2
-     * @param evt 
+     *
+     * @param evt
      */
     private void continuarPaso1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarPaso1ButtonActionPerformed
         controlador.continuarPaso1();
     }//GEN-LAST:event_continuarPaso1ButtonActionPerformed
-    
+
     /**
-     *  Maneja el evento de accion del selector de estacion de origen.
+     * Maneja el evento de accion del selector de estacion de origen.
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void estacionOrigenSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estacionOrigenSelectorActionPerformed
         actualizarSeleccionEstacionDestino();
     }//GEN-LAST:event_estacionOrigenSelectorActionPerformed
-    
+
     /**
      * Maneja el evento de accion del boton "Volver" en el paso 3
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void volver3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver3ButtonActionPerformed
         controlador.volverPaso3();
     }//GEN-LAST:event_volver3ButtonActionPerformed
-    
+
     /**
-     * Maneja el evento de acción del boton para continuar del paso al siguiente 
+     * Maneja el evento de acción del boton para continuar del paso al siguiente
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void continuarPaso2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarPaso2ButtonActionPerformed
         controlador.continuarPaso2();
     }//GEN-LAST:event_continuarPaso2ButtonActionPerformed
-    
+
     /**
-     * Maneja el evento de accion del boton de radio para seleccionar la tarjeta de credito.
+     * Maneja el evento de accion del boton de radio para seleccionar la tarjeta
+     * de credito.
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void tarjetaCreditoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCreditoRadioButtonActionPerformed
@@ -857,17 +903,19 @@ public class Vista extends javax.swing.JFrame {
         desactivarPanelesTarjeta();
         tarjetaCreditoPanel.setVisible(true);
     }//GEN-LAST:event_tarjetaCreditoRadioButtonActionPerformed
-    
+
     /**
      * Maneja el evento de acción del botón "Volver" en el paso 2
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void volver2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver2ButtonActionPerformed
         controlador.volverPaso2();
     }//GEN-LAST:event_volver2ButtonActionPerformed
-    
+
     /**
      * Maneja el evento de acción del botón para cambiar el tema de la interfaz
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void cambiarTemaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarTemaButtonActionPerformed
@@ -888,24 +936,30 @@ public class Vista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cambiarTemaButtonActionPerformed
     /**
-     * Maneja el evento de acción del checkbox relacionado con la opción de bicicleta
+     * Maneja el evento de acción del checkbox relacionado con la opción de
+     * bicicleta
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void bicicletaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bicicletaCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bicicletaCheckBoxActionPerformed
-    
+
     /**
-     * Maneja el evento de accion del checkbox relacionado con la opcion de mascota
+     * Maneja el evento de accion del checkbox relacionado con la opcion de
+     * mascota
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void mascotaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mascotaCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mascotaCheckBoxActionPerformed
-    
+
     /**
-     * Maneja el evento de acción del botón de radio para seleccionar la tarjeta CYL
-     * Desactiva los selectores y paneles relacionados con la tarjeta de credito, activa los relacionados con la tarjeta CYL
+     * Maneja el evento de acción del botón de radio para seleccionar la tarjeta
+     * CYL Desactiva los selectores y paneles relacionados con la tarjeta de
+     * credito, activa los relacionados con la tarjeta CYL
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void tarjetaCylRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCylRadioButtonActionPerformed
@@ -917,7 +971,9 @@ public class Vista extends javax.swing.JFrame {
 
     /**
      * Maneja el evento de acción del botón para intercambiar estaciones
-     * Intercambia la selección de estaciones de origen y destino en los selectores correspondientes
+     * Intercambia la selección de estaciones de origen y destino en los
+     * selectores correspondientes
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void intercambiarEstacionesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intercambiarEstacionesButtonActionPerformed
@@ -928,16 +984,19 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_intercambiarEstacionesButtonActionPerformed
 
     /**
-     * Maneja el evento de acción del boton "Aceptar" para aceptar el pago con tarjeta de crédito 
+     * Maneja el evento de acción del boton "Aceptar" para aceptar el pago con
+     * tarjeta de crédito
+     *
      * @param evt El evento de acción que desencadeno este metodo
      */
     private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
         controlador.aceptarPagoTarjetaCredito();
     }//GEN-LAST:event_aceptarButtonActionPerformed
-    
+
     /**
-     * Maneja el evento de acción del botón para comprar otro billete
-     * Limpia los campos y restablece el estado de la interfaz del usuario al paso 1
+     * Maneja el evento de acción del botón para comprar otro billete Limpia los
+     * campos y restablece el estado de la interfaz del usuario al paso 1
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void comprarOtroBilleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarOtroBilleteActionPerformed
@@ -946,31 +1005,36 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_comprarOtroBilleteActionPerformed
 
     /**
-     * Maneja el evento de acción del botón relacionado con la tarjeta de credito
+     * Maneja el evento de acción del botón relacionado con la tarjeta de
+     * credito
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void tarjetaCreditoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCreditoButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tarjetaCreditoButtonActionPerformed
-    
+
     /**
      * Maneja el evento de acción del botón relacionado con la tarjeta CYL
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void tarjetaCylButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCylButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tarjetaCylButtonActionPerformed
-    
+
     /**
      * Establece el cambio de propiedad del selector de estación de origen
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void estacionOrigenSelectorPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_estacionOrigenSelectorPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_estacionOrigenSelectorPropertyChange
-    
+
     /**
      * Maneja el evento de acción del selector de fecha
+     *
      * @param evt El evento de accion que desencadeno este metodo
      */
     private void fechaDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDatePickerActionPerformed
@@ -1005,25 +1069,26 @@ public class Vista extends javax.swing.JFrame {
     private org.jdesktop.swingx.JXPanel dinoPanel;
     private org.jdesktop.swingx.JXLabel erroresLabel3;
     private org.jdesktop.swingx.JXLabel erroresLabel4;
-    private javax.swing.JLabel estacionDestinoLabel;
     private javax.swing.JComboBox<String> estacionDestinoSelector;
-    private javax.swing.JLabel estacionOrigenLabel;
     private javax.swing.JComboBox<String> estacionOrigenSelector;
     private org.jdesktop.swingx.JXDatePicker fechaDatePicker;
+    private javax.swing.JLabel imagenBiciLabel;
+    private javax.swing.JLabel imagenMascotaLabel;
     private javax.swing.JButton intercambiarEstacionesButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel mantenerDosSegundosPanel;
     private javax.swing.JCheckBox mascotaCheckBox;
     private javax.swing.JPanel opcionesPanel;
     private javax.swing.JLabel paso1Label;
@@ -1041,6 +1106,8 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel seleccioneEstacionLabel1;
     private javax.swing.JLabel seleccioneEstacionLabel2;
     private javax.swing.JLabel seleccioneEstacionLabel3;
+    private javax.swing.JLabel seleccioneEstacionLabel4;
+    private javax.swing.JLabel seleccioneEstacionLabel5;
     private org.jdesktop.swingx.JXButton tarjetaCreditoButton;
     private javax.swing.JPanel tarjetaCreditoPanel;
     private javax.swing.JRadioButton tarjetaCreditoRadioButton;
@@ -1051,10 +1118,10 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton volver3Button;
     // End of variables declaration//GEN-END:variables
 
-    
     /**
      * Establece la visibilidad del paso para que el usuario lo vea
-     * @param i paso del que se quiere activar la visibilidad 
+     *
+     * @param i paso del que se quiere activar la visibilidad
      */
     public void activarPaso(int i) {
         desactivarPasos();
@@ -1073,8 +1140,10 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
+
     /**
      * Muestra el error producido
+     *
      * @param paso paso en el que se produjo un error
      */
     public void escribirError(int paso) {
@@ -1090,6 +1159,7 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
+
     /**
      * Desactiva la visibilidad de los pasos
      */
@@ -1099,9 +1169,12 @@ public class Vista extends javax.swing.JFrame {
         paso3Panel.setVisible(false);
         paso4Panel.setVisible(false);
     }
+
     /**
      * Inicializa el selector de estaciones con la lista proporcionada.
-     * @param estaciones La lista de nombres de estaciones a mostrar en el selector
+     *
+     * @param estaciones La lista de nombres de estaciones a mostrar en el
+     * selector
      */
     public void inicializarEstaciones(ArrayList<String> estaciones) {
         estacionOrigenSelector.removeAllItems();
@@ -1116,7 +1189,9 @@ public class Vista extends javax.swing.JFrame {
     }
 
     /**
-     * Actualiza el modelo de la lista de viajes con la lista proporcionada de viajes.
+     * Actualiza el modelo de la lista de viajes con la lista proporcionada de
+     * viajes.
+     *
      * @param viajes La lista de viajes a utilizar para actualizar la lista
      */
     public void actualizarViajes(ArrayList<Viaje> viajes) {
@@ -1128,6 +1203,7 @@ public class Vista extends javax.swing.JFrame {
 
     /**
      * Obtiene la fecha actual
+     *
      * @return devuelve la fecha actual
      */
     public LocalDateTime getFecha() {
@@ -1140,43 +1216,53 @@ public class Vista extends javax.swing.JFrame {
 
     /**
      * Devuelve el viaje seleccionado en la lista de rutas
+     *
      * @return El viaje seleccionado en la lista de rutas
      */
     public Viaje getSelectedViaje() {
         return (Viaje) rutasList.getSelectedValue();
     }
-    
+
     /**
      * Devuelve el estado de selección del checkbox de bicicleta
-     * @return True si el checkbox de bicicleta está seleccionado.False en caso contrario
+     *
+     * @return True si el checkbox de bicicleta está seleccionado.False en caso
+     * contrario
      */
     public boolean getBicicletaSelection() {
         return bicicletaCheckBox.isSelected();
     }
-    
+
     /**
      * Devuelve el estado de selección del checkbox de la mascota
-     * @return True si el checkbox de mascota está seleccionado.False en caso contrario
+     *
+     * @return True si el checkbox de mascota está seleccionado.False en caso
+     * contrario
      */
     public boolean getMascotaSelection() {
         return mascotaCheckBox.isSelected();
     }
 
     /**
-    * Devuelve la estación seleccionada como estación de origen en el selector de estaciones
-    * @return El nombre de la estación seleccionada como estación de origen
-    */
+     * Devuelve la estación seleccionada como estación de origen en el selector
+     * de estaciones
+     *
+     * @return El nombre de la estación seleccionada como estación de origen
+     */
     public String getEstacionOrigen() {
         return (String) estacionOrigenSelector.getSelectedItem();
     }
+
     /**
-     * Devuelve la estación seleccionada como estación de destino en el selector de estaciones.
+     * Devuelve la estación seleccionada como estación de destino en el selector
+     * de estaciones.
+     *
      * @return El nombre de la estación seleccionada como estación de destino
      */
     public String getEstacionDestino() {
         return (String) estacionDestinoSelector.getSelectedItem();
     }
-    
+
     /**
      * Desactiva los selectores de tarjeta de crédito y tarjeta CYL
      */
@@ -1184,7 +1270,7 @@ public class Vista extends javax.swing.JFrame {
         tarjetaCreditoRadioButton.setSelected(false);
         tarjetaCylRadioButton.setSelected(false);
     }
-    
+
     /**
      * Desactiva los paneles relacionados con las tarjetas CYL y de crédito.
      */
@@ -1192,9 +1278,11 @@ public class Vista extends javax.swing.JFrame {
         tarjetaCylPanel.setVisible(false);
         tarjetaCreditoPanel.setVisible(false);
     }
-    
+
     /**
-     * Obtiene el PIN introducido en el campo de texto correspondiente al PIN de la tarjeta
+     * Obtiene el PIN introducido en el campo de texto correspondiente al PIN de
+     * la tarjeta
+     *
      * @return El pin que el usuario introdujo
      */
     public String getPinTarjeta() {
@@ -1202,23 +1290,28 @@ public class Vista extends javax.swing.JFrame {
     }
 
     /**
-     * Activa el panel relacionado con el ingreso del PIN de la tarjeta de crédito.
+     * Activa el panel relacionado con el ingreso del PIN de la tarjeta de
+     * crédito.
      */
     public void activarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(true);
     }
 
     /**
-     * Desactiva el panel relacionado con el ingreso del PIN de la tarjeta de crédito
+     * Desactiva el panel relacionado con el ingreso del PIN de la tarjeta de
+     * crédito
      */
     public void desactivarPinTarjeta() {
         pinTarjetaCreditoPanel.setVisible(false);
     }
 
     /**
-     * Muestra un mensaje de error en el paso 3 al procesar la tarjeta de crédito
+     * Muestra un mensaje de error en el paso 3 al procesar la tarjeta de
+     * crédito
+     *
      * @param mensaje El mensaje a mostrar
-     * @param codigoMensaje El código que indica el tipo de mensaje (ERROR o NORMAL)
+     * @param codigoMensaje El código que indica el tipo de mensaje (ERROR o
+     * NORMAL)
      */
     public void mensajePaso3TarjetaCredito(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel3.setText(mensaje);
@@ -1232,11 +1325,13 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     /**
      * Muestra un mensaje de error en el paso 3 al procesar la tarjeta de CYL
+     *
      * @param mensaje El mensaje a mostrar
-     * @param codigoMensaje El código que indica el tipo de mensaje (ERROR o NORMAL)
+     * @param codigoMensaje El código que indica el tipo de mensaje (ERROR o
+     * NORMAL)
      */
     public void mensajePaso3TarjetaCyl(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel4.setText(mensaje);
@@ -1250,11 +1345,11 @@ public class Vista extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     /**
      * Limpia y restaura el estado de los componentes de la interfaz de usuario
      */
-    private void limpiar() { 
+    private void limpiar() {
         mensajePaso3TarjetaCredito("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
         mensajePaso3TarjetaCyl("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
         bicicletaCheckBox.setSelected(false);
@@ -1268,7 +1363,7 @@ public class Vista extends javax.swing.JFrame {
         tarjetaCreditoRadioButton.setSelected(true);
         tarjetaCreditoPanel.setVisible(true);
     }
-    
+
     /**
      * Actualiza las opciones del selector de estaciones de destino
      */
@@ -1279,25 +1374,27 @@ public class Vista extends javax.swing.JFrame {
             estacionDestinoSelector.addItem(estacion);
         }
     }
-    
+
     /**
      * Muestra un diálogo de error con el mensaje proporcionado
+     *
      * @param mensaje El mensaje de error a mostrar en el diálogo
      */
     public void dialogoError(String mensaje) {
         Toolkit.getDefaultToolkit().beep();
         JOptionPane.showMessageDialog(null, mensaje, "¡ERROR!", JOptionPane.ERROR_MESSAGE);
     }
-    
+
     /**
      * Muestra un diálogo de alerta con el mensaje proporcionado.
+     *
      * @param mensaje El mensaje de advertencia a mostrar en el diálogo
      */
     public void dialogoAlerta(String mensaje) {
         Toolkit.getDefaultToolkit().beep();
         JOptionPane.showMessageDialog(null, mensaje, "¡WARNING!", JOptionPane.WARNING_MESSAGE);
     }
-    
+
     /**
      * Reproduce un sonido
      */
