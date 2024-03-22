@@ -346,7 +346,6 @@ public class Vista extends javax.swing.JFrame {
         jPanel3.add(estacionDestinoSelector, gridBagConstraints);
 
         fechaDatePicker.setDate(new java.util.Date());
-        fechaDatePicker.setDoubleBuffered(true);
         fechaDatePicker.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fechaDatePicker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

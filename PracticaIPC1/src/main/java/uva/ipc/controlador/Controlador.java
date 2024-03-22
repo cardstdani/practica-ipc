@@ -30,6 +30,10 @@ public class Controlador {
      * siguiente
      */
     public void continuarPaso1() {
+        if (vista.getFecha() == null) {
+            vista.dialogoError("Seleccione usted bien la fecha");
+            return;
+        }
         modelo.setFecha(vista.getFecha());
         modelo.setEstacionOrigen(vista.getEstacionOrigen());
         modelo.setEstacionDestino(vista.getEstacionDestino());
@@ -146,9 +150,11 @@ public class Controlador {
             vista.mensajePaso3TarjetaCyl("No hay saldo suficiente", Utiles.codigoMensaje.ERROR);
         }
     }
-    
+
     /**
-     * Obtiene viajes de manera aleatoria para que el usuario pueda elegir el origen de su tren
+     * Obtiene viajes de manera aleatoria para que el usuario pueda elegir el
+     * origen de su tren
+     *
      * @return un listado de viajes
      */
     public Viaje getRandomViaje() {
@@ -169,6 +175,7 @@ public class Controlador {
 
     /**
      * Obtiene el listado de estaciones
+     *
      * @return el listado de estaciones
      */
     public ArrayList<String> getEstaciones() {
