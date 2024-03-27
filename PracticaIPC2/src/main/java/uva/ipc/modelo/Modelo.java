@@ -99,6 +99,10 @@ public class Modelo {
         return politicaPrivacidad;
     }
 
+    public double getSaldo() {
+        return saldoTarjetaCYL;
+    }
+
     /**
      * Obtiene el listado de estaciones
      *

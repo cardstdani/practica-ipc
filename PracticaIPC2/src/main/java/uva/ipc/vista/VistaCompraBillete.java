@@ -1424,5 +1424,5 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         for (String estacion : estacionesDestinoPosibles) {
             estacionDestinoSelector.addItem(estacion);
         }
-    }    
+    }        
 }//class Vista

@@ -20,7 +20,7 @@ public class ControladorCompraBillete {
 
     public ControladorCompraBillete(VistaCompraBillete vista) {
         this.vista = vista;
-        this.modelo = Main.getModelo();
+        this.modelo = Main.getModelo();        
     }
 
     /**

@@ -337,7 +337,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void recargarTarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargarTarjetaButtonActionPerformed
-
+        controlador.recargarTarjeta();
     }//GEN-LAST:event_recargarTarjetaButtonActionPerformed
 
     private void misViajesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_misViajesButtonActionPerformed
@@ -386,4 +386,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         tarjetaValidaPanel.setVisible(true);
     }
 
+    public void actualizarSaldo(double saldo) {
+        saldoLabel.setText("Saldo: " + saldo + "$");
+    }
 }//class Vista

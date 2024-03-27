@@ -19,6 +19,7 @@ public class ControladorAccesoTarjeta {
     public ControladorAccesoTarjeta(VistaAccesoTarjeta vista) {
         this.vista = vista;
         this.modelo = Main.getModelo();
+        this.vista.actualizarSaldo(modelo.getSaldo());
     }
 
     public void tarjetaCylStart() {
@@ -43,5 +44,9 @@ public class ControladorAccesoTarjeta {
 
     public String getPoliticaPrivacidad() {
         return modelo.getPoliticaPrivacidad();
+    }
+
+    public void recargarTarjeta() {
+        Main.getGestorVistas().mostrarVistaRecargarTarjeta();
     }
 }//class Controlador

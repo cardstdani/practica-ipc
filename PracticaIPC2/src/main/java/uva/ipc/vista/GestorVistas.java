@@ -14,15 +14,6 @@ public class GestorVistas {
 
     private JFrame vistaActual;
 
-    public void mostrarVistaMenu() {
-        if (vistaActual != null) {
-            vistaActual.setVisible(false);
-            vistaActual.dispose();
-        }
-        vistaActual = new VistaMenu();
-        vistaActual.setVisible(true);
-    }
-
     public void mostrarVistaComprarBillete() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -32,12 +23,30 @@ public class GestorVistas {
         vistaActual.setVisible(true);
     }
 
+    public void mostrarVistaMenu() {
+        if (vistaActual != null) {
+            vistaActual.setVisible(false);
+            vistaActual.dispose();
+        }
+        vistaActual = new VistaMenu();
+        vistaActual.setVisible(true);
+    }
+
     public void mostrarVistaAccesoTarjeta() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
             vistaActual.dispose();
         }
         vistaActual = new VistaAccesoTarjeta();
+        vistaActual.setVisible(true);
+    }
+
+    public void mostrarVistaRecargarTarjeta() {
+        if (vistaActual != null) {
+            vistaActual.setVisible(false);
+            vistaActual.dispose();
+        }
+        vistaActual = new VistaRecargarTarjeta();
         vistaActual.setVisible(true);
     }
 }
