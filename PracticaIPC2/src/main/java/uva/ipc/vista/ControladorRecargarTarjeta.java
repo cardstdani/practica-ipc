@@ -15,6 +15,7 @@ public class ControladorRecargarTarjeta {
 
     private VistaRecargarTarjeta vista;
     private Modelo modelo;
+    private double cantidadRecarga;
 
     public ControladorRecargarTarjeta(VistaRecargarTarjeta vista) {
         this.vista = vista;
@@ -26,16 +27,23 @@ public class ControladorRecargarTarjeta {
         Main.getGestorVistas().mostrarVistaMenu();
     }
 
-    void tarjetaCreditoStart() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void tarjetaCreditoStart() {
+        modelo.tarjetaCreditoStart(this);
     }
 
-    void tarjetaCreditoStop() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void tarjetaCreditoStop() {
+        modelo.tarjetaCreditoStop();
     }
 
-    void aceptarPagoTarjetaCredito() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void aceptarPagoTarjetaCredito() {
+        if (modelo.validarPin(vista.getPinTarjeta())) {
+            //continuarPaso3();
+            modelo.recargarTarjetaCyl(cantidadRecarga);
+            Utiles.sonidoAmigable();
+            vista.mostrarFelicidadesPanel();
+        } else {
+            vista.mensajePaso3TarjetaCredito("Su PIN es incorrecto", Utiles.codigoMensaje.ERROR);
+        }
     }
 
     public void volverTarjetaCredito() {
@@ -48,5 +56,20 @@ public class ControladorRecargarTarjeta {
 
     public void recargar10() {
         vista.mostrarTarjetaCredito();
+        this.cantidadRecarga = 10;
+    }
+
+    public void recargar20() {
+        vista.mostrarTarjetaCredito();
+        this.cantidadRecarga = 20;
+    }
+
+    public void recargar50() {
+        vista.mostrarTarjetaCredito();
+        this.cantidadRecarga = 50;
+    }
+
+    public void tarjetaCreditoValida() {
+        vista.mostrarPinTarjetaPanel();
     }
 }//class Controlador

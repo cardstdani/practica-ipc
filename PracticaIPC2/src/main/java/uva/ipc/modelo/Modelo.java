@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.Timer;
 import uva.ipc.vista.ControladorAccesoTarjeta;
 import uva.ipc.vista.ControladorCompraBillete;
+import uva.ipc.vista.ControladorRecargarTarjeta;
 
 /**
  * @author Daniel Garcia Solla
@@ -27,6 +28,7 @@ public class Modelo {
     Timer timerTarjetaCredito, timerTarjetaCyl;
     private ControladorCompraBillete controladorCompraBillete = null;
     private ControladorAccesoTarjeta controladorTarjeta = null;
+    private ControladorRecargarTarjeta controladorRecargaTarjeta = null;
     private double saldoTarjetaCYL = 20;
     private boolean tarjetaCylValida = false;
     private String politicaPrivacidad = "";
@@ -77,6 +79,9 @@ public class Modelo {
         timerTarjetaCredito = new Timer(2000, e -> {
             if (this.controladorCompraBillete != null) {
                 this.controladorCompraBillete.tarjetaCreditoValida();
+            }
+            if (this.controladorRecargaTarjeta != null) {
+                this.controladorRecargaTarjeta.tarjetaCreditoValida();
             }
         });
         timerTarjetaCyl = new Timer(2000, e -> {
@@ -219,6 +224,12 @@ public class Modelo {
         timerTarjetaCredito.stop();
     }
 
+    public void tarjetaCreditoStart(ControladorRecargarTarjeta controlador) {
+        this.controladorRecargaTarjeta = controlador;
+        this.controladorCompraBillete = null;
+        timerTarjetaCredito.start();
+    }
+
     /**
      * Inicia el tiempo para procesar que el usuario quiere pagar con tarjeta de
      * CYL
@@ -291,5 +302,9 @@ public class Modelo {
      */
     public void pagarConTarjetaCyl() {
         saldoTarjetaCYL -= viaje.getPrecio();
+    }
+
+    public void recargarTarjetaCyl(double cantidadRecarga) {
+        saldoTarjetaCYL += cantidadRecarga;
     }
 }//class Modelo

@@ -11,6 +11,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 import uva.ipc.modelo.Viaje;
+import static uva.ipc.vista.Utiles.codigoMensaje.ERROR;
+import static uva.ipc.vista.Utiles.codigoMensaje.NORMAL;
 
 /**
  * @author Daniel Garcia Solla
@@ -64,6 +66,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         });
         Utiles.setObjectIcon(tarjetaCreditoButton, "src/main/resources/Visa.png");
         mostrarRecargaTarjeta();
+        pinTarjetaCreditoPanel.setVisible(false);
     }
 
     /**
@@ -73,6 +76,9 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         styleButton(recargar10Button);
         styleButton(recargar20Button);
         styleButton(recargar50Button);
+        styleButton(aceptarButton);
+        styleButton(menuButton1);
+        styleButton(accesoTarjetaButton);
     }
 
     /**
@@ -127,6 +133,13 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         erroresLabel3 = new org.jdesktop.swingx.JXLabel();
         jPanel13 = new javax.swing.JPanel();
         volverTarjetaCreditoButton = new javax.swing.JButton();
+        felicidadesPanel = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        paso1Label6 = new javax.swing.JLabel();
+        seleccioneEstacionLabel6 = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
+        accesoTarjetaButton = new javax.swing.JButton();
+        menuButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tren Castilla y León");
@@ -437,6 +450,76 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
         getContentPane().add(tarjetaPanel, "card4");
 
+        felicidadesPanel.setEnabled(false);
+        felicidadesPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        felicidadesPanel.setMinimumSize(new java.awt.Dimension(600, 600));
+        felicidadesPanel.setPreferredSize(new java.awt.Dimension(600, 600));
+        felicidadesPanel.setLayout(new javax.swing.BoxLayout(felicidadesPanel, javax.swing.BoxLayout.PAGE_AXIS));
+
+        jPanel14.setLayout(new java.awt.GridBagLayout());
+
+        paso1Label6.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        paso1Label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        paso1Label6.setText("Felicidades!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(73, 257, 0, 0);
+        jPanel14.add(paso1Label6, gridBagConstraints);
+
+        seleccioneEstacionLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        seleccioneEstacionLabel6.setText("Su pago ha sido aceptado con éxito");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 247, 6, 275);
+        jPanel14.add(seleccioneEstacionLabel6, gridBagConstraints);
+
+        felicidadesPanel.add(jPanel14);
+
+        panel.setLayout(new java.awt.GridBagLayout());
+
+        accesoTarjetaButton.setBackground(UIManager.getColor("Component.accentColor"));
+        accesoTarjetaButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        accesoTarjetaButton.setText("Acceso tarjeta");
+        accesoTarjetaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accesoTarjetaButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 13;
+        gridBagConstraints.ipady = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 227, 224, 245);
+        panel.add(accesoTarjetaButton, gridBagConstraints);
+
+        menuButton1.setBackground(UIManager.getColor("Component.accentColor"));
+        menuButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        menuButton1.setText("Ir al menú");
+        menuButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(59, 227, 0, 245);
+        panel.add(menuButton1, gridBagConstraints);
+
+        felicidadesPanel.add(panel);
+
+        getContentPane().add(felicidadesPanel, "card4");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -449,11 +532,11 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     }//GEN-LAST:event_inicioButtonActionPerformed
 
     private void recargar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar20ButtonActionPerformed
-        // TODO add your handling code here:
+        controlador.recargar20();
     }//GEN-LAST:event_recargar20ButtonActionPerformed
 
     private void recargar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar50ButtonActionPerformed
-        // TODO add your handling code here:
+        controlador.recargar50();
     }//GEN-LAST:event_recargar50ButtonActionPerformed
 
     private void inicioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton3ActionPerformed
@@ -476,26 +559,34 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         controlador.volverAccesoTarjeta();
     }//GEN-LAST:event_volverRecargarButtonActionPerformed
 
+    private void accesoTarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accesoTarjetaButtonActionPerformed
+        controlador.volverAccesoTarjeta();
+    }//GEN-LAST:event_accesoTarjetaButtonActionPerformed
+
+    private void menuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButton1ActionPerformed
+        controlador.volverMenu();
+    }//GEN-LAST:event_menuButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton accesoTarjetaButton;
     private javax.swing.JButton aceptarButton;
     private org.jdesktop.swingx.JXLabel erroresLabel3;
+    private javax.swing.JPanel felicidadesPanel;
     private javax.swing.JButton inicioButton;
     private javax.swing.JButton inicioButton3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel label;
-    private javax.swing.JLabel paso1Label2;
+    private javax.swing.JButton menuButton1;
+    private javax.swing.JPanel panel;
     private javax.swing.JLabel paso1Label3;
-    private javax.swing.JLabel paso1Label4;
     private javax.swing.JLabel paso1Label5;
-    private javax.swing.JPanel paso3Panel;
-    private javax.swing.JPanel paso3Panel1;
+    private javax.swing.JLabel paso1Label6;
     private javax.swing.JPanel pinTarjetaCreditoPanel;
     private javax.swing.JPasswordField pinTarjetaField;
     private javax.swing.JButton recargar10Button;
@@ -503,14 +594,11 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     private javax.swing.JButton recargar50Button;
     private javax.swing.JPanel recargarPanel;
     private javax.swing.JLabel saldoLabel;
-    private javax.swing.JLabel seleccioneEstacionLabel2;
-    private javax.swing.JLabel seleccioneEstacionLabel3;
     private javax.swing.JLabel seleccioneEstacionLabel4;
     private javax.swing.JLabel seleccioneEstacionLabel5;
+    private javax.swing.JLabel seleccioneEstacionLabel6;
     private org.jdesktop.swingx.JXButton tarjetaCreditoButton;
     private javax.swing.JPanel tarjetaCreditoPanel;
-    private javax.swing.JRadioButton tarjetaCylRadioButton;
-    private javax.swing.JRadioButton tarjetaCylRadioButton1;
     private javax.swing.JPanel tarjetaPanel;
     private javax.swing.JButton volverRecargarButton;
     private javax.swing.JButton volverTarjetaCreditoButton;
@@ -523,6 +611,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     private void desactivarPaneles() {
         tarjetaPanel.setVisible(false);
         recargarPanel.setVisible(false);
+        felicidadesPanel.setVisible(false);
     }
 
     public void mostrarRecargaTarjeta() {
@@ -533,5 +622,31 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     public void mostrarTarjetaCredito() {
         desactivarPaneles();
         tarjetaPanel.setVisible(true);
+    }
+
+    public void mostrarPinTarjetaPanel() {
+        pinTarjetaCreditoPanel.setVisible(true);
+    }
+
+    public void mostrarFelicidadesPanel() {
+        desactivarPaneles();
+        felicidadesPanel.setVisible(true);
+    }
+
+    public String getPinTarjeta() {
+        return pinTarjetaField.getText();
+    }
+
+    public void mensajePaso3TarjetaCredito(String mensaje, Utiles.codigoMensaje codigoMensaje) {
+        erroresLabel3.setText(mensaje);
+        switch (codigoMensaje) {
+            case ERROR:
+                erroresLabel3.setForeground(Color.red);
+                Toolkit.getDefaultToolkit().beep();
+                break;
+            case NORMAL:
+                erroresLabel3.setForeground(Color.black);
+                break;
+        }
     }
 }//class Vista
