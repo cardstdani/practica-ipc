@@ -39,6 +39,10 @@ public class Viaje {
         return estacionOrigen;
     }
 
+    public int getTiempo() {
+        return tiempo;
+    }
+
     /**
      * Obtiene la estacion de destino que el usuario ha elegido
      *
@@ -59,6 +63,7 @@ public class Viaje {
 
     /**
      * Obtiene el horario del viaje que el usuario quiere hacer
+     *
      * @return el horario del viaje
      */
     public LocalTime getHorario() {
@@ -67,8 +72,10 @@ public class Viaje {
     }
 
     /**
-     * Sobrescribe el método toString por defecto 
-     * @return una cadena que contiene el ID de la ruta, el tiempo, el horario y el precio de la ruta.
+     * Sobrescribe el método toString por defecto
+     *
+     * @return una cadena que contiene el ID de la ruta, el tiempo, el horario y
+     * el precio de la ruta.
      */
     @Override
     public String toString() {
@@ -77,6 +84,7 @@ public class Viaje {
 
     /**
      * Obtiene el precio del viaje
+     *
      * @return el precio del viaje
      */
     public double getPrecio() {

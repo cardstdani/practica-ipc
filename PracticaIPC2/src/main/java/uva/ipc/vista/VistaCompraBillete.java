@@ -10,15 +10,11 @@ import com.formdev.flatlaf.*;
 import com.formdev.flatlaf.intellijthemes.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.time.*;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.web.WebView;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 import uva.ipc.modelo.Viaje;
 

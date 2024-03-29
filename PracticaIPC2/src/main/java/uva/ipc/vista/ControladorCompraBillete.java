@@ -89,6 +89,7 @@ public class ControladorCompraBillete {
      */
     public void aceptarPagoTarjetaCredito() {
         if (modelo.validarPin(vista.getPinTarjeta())) {
+            modelo.pagarConTarjetaCredito();
             continuarPaso3();
         } else {
             vista.mensajePaso3TarjetaCredito("Su PIN es incorrecto", Utiles.codigoMensaje.ERROR);
@@ -140,7 +141,6 @@ public class ControladorCompraBillete {
      * CYL
      */
     public void comprarBilleteTarjetaCyl() {
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         if (modelo.validarSaldoCyl()) {
             continuarPaso3();
             modelo.pagarConTarjetaCyl();

@@ -5,6 +5,8 @@
 package uva.ipc.modelo;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
 import java.time.*;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -302,9 +304,25 @@ public class Modelo {
      */
     public void pagarConTarjetaCyl() {
         saldoTarjetaCYL -= viaje.getPrecio();
+        addBillete();
     }
 
     public void recargarTarjetaCyl(double cantidadRecarga) {
         saldoTarjetaCYL += cantidadRecarga;
+    }
+
+    private void addBillete() {
+        String content = String.join(";", LocalDateTime.now().toString(), viaje.getEstacionOrigen(),
+                viaje.getEstacionDestino(), "" + viaje.getTiempo(), "" + viaje.getPrecio());
+        try {
+            Files.write(Paths.get("src/main/resources/billetes.csv"), Collections.singleton(content),
+                    StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
+    }
+
+    public void pagarConTarjetaCredito() {
+        addBillete();
     }
 }//class Modelo
