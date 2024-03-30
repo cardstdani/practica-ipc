@@ -341,7 +341,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
     }//GEN-LAST:event_recargarTarjetaButtonActionPerformed
 
     private void misViajesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_misViajesButtonActionPerformed
-
+controlador.misViajes();
     }//GEN-LAST:event_misViajesButtonActionPerformed
 
     private void tarjetaCylButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCylButtonActionPerformed

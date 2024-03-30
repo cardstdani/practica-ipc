@@ -49,4 +49,13 @@ public class GestorVistas {
         vistaActual = new VistaRecargarTarjeta();
         vistaActual.setVisible(true);
     }
+
+    public void mostrarVistaMisViajes() {
+        if (vistaActual != null) {
+            vistaActual.setVisible(false);
+            vistaActual.dispose();
+        }
+        vistaActual = new VistaMisViajes();
+        vistaActual.setVisible(true);
+    }
 }

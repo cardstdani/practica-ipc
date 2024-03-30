@@ -49,4 +49,8 @@ public class ControladorAccesoTarjeta {
     public void recargarTarjeta() {
         Main.getGestorVistas().mostrarVistaRecargarTarjeta();
     }
+
+    public void misViajes() {
+        Main.getGestorVistas().mostrarVistaMisViajes();
+    }
 }//class Controlador

@@ -1,4 +1,5 @@
 uva\ipc\vista\VistaCompraBillete$6.class
+uva\ipc\vista\VistaMisViajes$2.class
 uva\ipc\vista\Utiles$codigoMensaje.class
 uva\ipc\vista\VistaCompraBillete$14.class
 uva\ipc\modelo\Modelo.class
@@ -15,6 +16,7 @@ uva\ipc\vista\VistaCompraBillete$18.class
 uva\ipc\vista\VistaAccesoTarjeta$1.class
 uva\ipc\vista\ControladorMenu.class
 uva\ipc\vista\VistaRecargarTarjeta$6.class
+uva\ipc\vista\VistaMisViajes.class
 uva\ipc\vista\VistaRecargarTarjeta.class
 uva\ipc\vista\ControladorCompraBillete.class
 uva\ipc\vista\VistaAccesoTarjeta$3.class
@@ -47,11 +49,13 @@ uva\ipc\vista\ControladorAccesoTarjeta.class
 uva\ipc\vista\VistaMenu$1.class
 uva\ipc\vista\VistaRecargarTarjeta$7.class
 uva\ipc\vista\VistaCompraBillete$23.class
+uva\ipc\vista\VistaMisViajes$1.class
 uva\ipc\vista\VistaRecargarTarjeta$12.class
 uva\ipc\vista\VistaCompraBillete$21.class
 uva\ipc\vista\VistaCompraBillete$15.class
 uva\ipc\vista\VistaRecargarTarjeta$4.class
 uva\ipc\vista\ControladorRecargarTarjeta.class
+uva\ipc\vista\ControladorMisViajes.class
 uva\ipc\vista\VistaMenu.class
 uva\ipc\vista\VistaCompraBillete$4.class
 uva\ipc\vista\VistaAccesoTarjeta$5.class
