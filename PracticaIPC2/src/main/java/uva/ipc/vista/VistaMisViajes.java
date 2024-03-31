@@ -89,7 +89,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
 
         paso1Label.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso1Label.setText("Título");
+        paso1Label.setText("Mis viajes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -151,8 +151,6 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel paso1Label;
     private javax.swing.JPanel paso1Panel;
-    private javax.swing.JButton volver2Button;
-    private javax.swing.JButton volver2Button1;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 
