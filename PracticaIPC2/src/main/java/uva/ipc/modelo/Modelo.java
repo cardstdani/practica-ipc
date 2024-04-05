@@ -8,6 +8,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.Timer;
@@ -312,8 +313,9 @@ public class Modelo {
     }
 
     private void addBillete() {
-        String content = String.join(";", LocalDateTime.now().toString(), viaje.getEstacionOrigen(),
-                viaje.getEstacionDestino(), "" + viaje.getTiempo(), "" + viaje.getPrecio());
+        String content = String.join(";", fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                viaje.getHorario().toString(), viaje.getIdRuta(), viaje.getEstacionOrigen(),
+                viaje.getEstacionDestino(), "" + viaje.getTiempo(), "" + viaje.getPrecio(), "" + bicicleta, "" + mascota);
         try {
             Files.write(Paths.get("src/main/resources/billetes.csv"), Collections.singleton(content),
                     StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);

@@ -30,6 +30,10 @@ public class Viaje {
         this.finSemana = finSemana;
     }
 
+    public String getIdRuta() {
+        return idRuta;
+    }
+
     /**
      * Obtiene la estacion de origen que el usuario ha elegido
      *
