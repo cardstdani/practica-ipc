@@ -1,1 +1,4 @@
 fecha;hora;id;estacionOrigen;estaciónDestino;tiempo;precio;bicicleta;mascota
+24/04/2024;16:30;CYL4;Toro - Zamora;Valladolid - Valladolid;20;3.6;true;false
+16/09/2024;22:50;CYL5;León - León;Medina de Rioseco - Valladolid;30;2.5;false;true
+05/04/2024;20:25;CYL4;Benavente - Zamora;Zamora - Zamora;35;4.75;false;false

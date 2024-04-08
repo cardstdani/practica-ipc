@@ -8,6 +8,7 @@ import com.formdev.flatlaf.*;
 import com.formdev.flatlaf.intellijthemes.*;
 import java.awt.*;
 import javax.swing.*;
+import raven.toast.Notifications;
 import uva.ipc.modelo.Viaje;
 
 /**
@@ -33,6 +34,10 @@ public class VistaMisViajes extends javax.swing.JFrame {
         setMinimumSize(new Dimension(650, 700));
 
         styleButtons();
+        Notifications.getInstance().setJFrame(this);
+        Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.BOTTOM_RIGHT, "Tururú");
+        Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Tururú");
+        Notifications.getInstance().show(Notifications.Type.WARNING, Notifications.Location.BOTTOM_RIGHT, "Tururú");
     }
 
     /**
@@ -73,6 +78,23 @@ public class VistaMisViajes extends javax.swing.JFrame {
         inicioButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         volverButton = new javax.swing.JButton();
+        paso2Panel = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        seleccioneEstacionLabel1 = new javax.swing.JLabel();
+        inicioButton1 = new javax.swing.JButton();
+        paso1Label1 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        rutasList = new org.jdesktop.swingx.JXList();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        bicicletaCheckBox = new javax.swing.JCheckBox();
+        mascotaCheckBox = new javax.swing.JCheckBox();
+        imagenMascotaLabel = new javax.swing.JLabel();
+        imagenBiciLabel = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        volver2Button = new javax.swing.JButton();
+        continuarPaso2Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tren Castilla y León");
@@ -134,6 +156,145 @@ public class VistaMisViajes extends javax.swing.JFrame {
 
         getContentPane().add(paso1Panel, "card2");
 
+        paso2Panel.setEnabled(false);
+        paso2Panel.setMaximumSize(new java.awt.Dimension(700, 700));
+        paso2Panel.setMinimumSize(new java.awt.Dimension(600, 600));
+        paso2Panel.setPreferredSize(new java.awt.Dimension(600, 600));
+        paso2Panel.setLayout(new java.awt.GridLayout(4, 1));
+
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        seleccioneEstacionLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        seleccioneEstacionLabel1.setText("Ahora usté mofifica su billete");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 120, 36, 215);
+        jPanel6.add(seleccioneEstacionLabel1, gridBagConstraints);
+
+        inicioButton1.setBackground(UIManager.getColor("Component.accentColor"));
+        inicioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        inicioButton1.setText("INICIO");
+        inicioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicioButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        jPanel6.add(inicioButton1, gridBagConstraints);
+
+        paso1Label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        paso1Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        paso1Label1.setText("?????");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 163, 0, 0);
+        jPanel6.add(paso1Label1, gridBagConstraints);
+
+        paso2Panel.add(jPanel6);
+
+        rutasList.setMinimumSize(new java.awt.Dimension(300, 100));
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        rutasList.setModel(listModel);
+        jScrollPane2.setViewportView(rutasList);
+
+        jPanel7.add(jScrollPane2);
+
+        paso2Panel.add(jPanel7);
+
+        jPanel8.setLayout(new java.awt.GridBagLayout());
+
+        bicicletaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bicicletaCheckBox.setText("Bicicleta");
+        bicicletaCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bicicletaCheckBoxActionPerformed(evt);
+            }
+        });
+
+        mascotaCheckBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        mascotaCheckBox.setText("Mascota");
+        mascotaCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mascotaCheckBoxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(bicicletaCheckBox)
+                        .addGap(12, 12, 12)
+                        .addComponent(imagenBiciLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(mascotaCheckBox)
+                        .addGap(6, 6, 6)
+                        .addComponent(imagenMascotaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bicicletaCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenBiciLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(mascotaCheckBox))
+                    .addComponent(imagenMascotaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(39, 256, 29, 220);
+        jPanel8.add(jPanel13, gridBagConstraints);
+
+        paso2Panel.add(jPanel8);
+
+        jPanel9.setLayout(new java.awt.GridBagLayout());
+
+        volver2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        volver2Button.setText("Volver");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(77, 48, 47, 0);
+        jPanel9.add(volver2Button, gridBagConstraints);
+
+        continuarPaso2Button.setBackground(UIManager.getColor("Component.accentColor"));
+        continuarPaso2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        continuarPaso2Button.setText("Continuar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(77, 363, 47, 31);
+        jPanel9.add(continuarPaso2Button, gridBagConstraints);
+
+        paso2Panel.add(jPanel9);
+
+        getContentPane().add(paso2Panel, "card3");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -145,12 +306,41 @@ public class VistaMisViajes extends javax.swing.JFrame {
         controlador.volver();
     }//GEN-LAST:event_volverButtonActionPerformed
 
+    private void inicioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton1ActionPerformed
+        controlador.volverMenu();
+    }//GEN-LAST:event_inicioButton1ActionPerformed
+
+    private void bicicletaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bicicletaCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bicicletaCheckBoxActionPerformed
+
+    private void mascotaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mascotaCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mascotaCheckBoxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox bicicletaCheckBox;
+    private javax.swing.JButton continuarPaso2Button;
+    private javax.swing.JLabel imagenBiciLabel;
+    private javax.swing.JLabel imagenMascotaLabel;
     private javax.swing.JButton inicioButton;
+    private javax.swing.JButton inicioButton1;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JCheckBox mascotaCheckBox;
     private javax.swing.JLabel paso1Label;
+    private javax.swing.JLabel paso1Label1;
     private javax.swing.JPanel paso1Panel;
+    private javax.swing.JPanel paso2Panel;
+    private org.jdesktop.swingx.JXList rutasList;
+    private javax.swing.JLabel seleccioneEstacionLabel1;
+    private javax.swing.JButton volver2Button;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 

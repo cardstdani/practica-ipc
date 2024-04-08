@@ -10,14 +10,16 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <javafx.version>17</javafx.version>
-        <exec.mainClass>uva.ipc.practicaipc1.PracticaIPC1</exec.mainClass>
+        <exec.mainClass>uva.ipc.practicaipc1.PracticaIPC1</exec.mainClass>       
     </properties>
+    
+
     <build>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
-        </resources>
+        </resources>                        
     </build>
     <dependencies>
         <dependency>
@@ -76,6 +78,12 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE180</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.bweng20</groupId>
+            <artifactId>jSVG</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
+
     <name>PracticaIPC2</name>
 </project>
