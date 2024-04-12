@@ -324,6 +324,19 @@ public class Modelo {
         }
     }
 
+    public ArrayList<String> getBilletes() {
+        ArrayList<String> out = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/billetes.csv"))) {
+            String line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                out.add(line);
+            }
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
+        return out;
+    }
+
     public void pagarConTarjetaCredito() {
         addBillete();
     }

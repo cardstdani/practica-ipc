@@ -26,7 +26,6 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
     private ControladorCompraBillete controlador;
     private DefaultListModel<Viaje> viajesListModel = new DefaultListModel<>();
-    private boolean darkTheme = false;
 
     /**
      * Creates new form MainFrame
@@ -141,12 +140,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
      */
     public void styleButton(JButton button) {
         button.setBackground(UIManager.getColor("Component.accentColor"));
-        if (darkTheme) {
-            button.setForeground(UIManager.getColor("Label.foreground"));
-        } else {
-            button.setForeground(UIManager.getColor("Label.background"));
-        }
-
+        button.setForeground(UIManager.getColor("Label.background"));
     }
 
     /**
@@ -185,7 +179,6 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         seleccioneEstacionLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         continuarPaso1Button = new javax.swing.JButton();
-        cambiarTemaButton = new javax.swing.JButton();
         paso2Panel = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         seleccioneEstacionLabel1 = new javax.swing.JLabel();
@@ -387,26 +380,11 @@ public class VistaCompraBillete extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(132, 371, 0, 19);
-        jPanel5.add(continuarPaso1Button, gridBagConstraints);
-
-        cambiarTemaButton.setText("Tema Oscuro");
-        cambiarTemaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cambiarTemaButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 43;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(114, 21, 17, 0);
-        jPanel5.add(cambiarTemaButton, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(133, 492, 39, 19);
+        jPanel5.add(continuarPaso1Button, gridBagConstraints);
 
         paso1Panel.add(jPanel5);
 
@@ -732,7 +710,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         pinTarjetaCreditoPanelLayout.setHorizontalGroup(
             pinTarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pinTarjetaCreditoPanelLayout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+                .addContainerGap(143, Short.MAX_VALUE)
                 .addComponent(seleccioneEstacionLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pinTarjetaField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -967,29 +945,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         controlador.volverPaso2();
     }//GEN-LAST:event_volver2ButtonActionPerformed
 
-    /**
-     * Maneja el evento de acción del botón para cambiar el tema de la interfaz
-     *
-     * @param evt El evento de accion que desencadeno este metodo
-     */
-    private void cambiarTemaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarTemaButtonActionPerformed
-        try {
-            if (darkTheme) {
-                FlatArcOrangeIJTheme.setup();
-                cambiarTemaButton.setText("Tema Oscuro");
-            } else {
-                FlatArcDarkOrangeIJTheme.setup();
-                cambiarTemaButton.setText("Tema Claro");
-            }
-            SwingUtilities.updateComponentTreeUI(this);
-            this.pack();
-            darkTheme = !darkTheme;
-            styleButtons();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }//GEN-LAST:event_cambiarTemaButtonActionPerformed
-    /**
+   /**
      * Maneja el evento de acción del checkbox relacionado con la opción de
      * bicicleta
      *
@@ -1123,7 +1079,6 @@ public class VistaCompraBillete extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptarButton;
     private javax.swing.JCheckBox bicicletaCheckBox;
-    private javax.swing.JButton cambiarTemaButton;
     private javax.swing.JButton comprarBilleteTarjetaCyl;
     private javax.swing.JButton comprarOtroBillete;
     private javax.swing.JButton continuarPaso1Button;

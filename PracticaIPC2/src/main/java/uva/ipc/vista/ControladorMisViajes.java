@@ -4,6 +4,7 @@
  */
 package uva.ipc.vista;
 
+import java.util.*;
 import uva.ipc.app.Main;
 import uva.ipc.modelo.Modelo;
 
@@ -28,4 +29,9 @@ public class ControladorMisViajes {
     public void volver() {
         Main.getGestorVistas().mostrarVistaAccesoTarjeta();
     }
+
+    public ArrayList<String> getBilletes() {
+        return Main.getModelo().getBilletes();
+    }
+
 }//class Controlador

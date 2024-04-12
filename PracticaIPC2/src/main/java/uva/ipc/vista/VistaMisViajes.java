@@ -16,35 +16,37 @@ import uva.ipc.modelo.Viaje;
  * @author Carolina de las Heras Clavier
  */
 public class VistaMisViajes extends javax.swing.JFrame {
-
+    
     private ControladorMisViajes controlador;
-    private DefaultListModel<Viaje> viajesListModel = new DefaultListModel<>();
-    private boolean darkTheme = false;
+    private DefaultListModel<String> billetesListModel = new DefaultListModel<>();
 
     /**
      * Creates new form MainFrame
      */
     public VistaMisViajes() {
         FlatLaf.setup(new FlatArcOrangeIJTheme());
-
+        
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
         initComponents();
         this.setLocationRelativeTo(null);//Para que no aparezca a arriba a la izquierda
         this.controlador = new ControladorMisViajes(this);
         setMinimumSize(new Dimension(650, 700));
-
+        
         styleButtons();
         Notifications.getInstance().setJFrame(this);
         Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.BOTTOM_RIGHT, "Tururú");
         Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Tururú");
         Notifications.getInstance().show(Notifications.Type.WARNING, Notifications.Location.BOTTOM_RIGHT, "Tururú");
+        billetesList.setModel(billetesListModel);
+        billetesListModel.addAll(controlador.getBilletes());
     }
 
     /**
      * Aplica un estilo específico a una serie de botones.
      */
     public void styleButtons() {
-        //styleButton(comprarBilleteButton);
+        styleButton(devolverButton);
+        styleButton(editarButton);
     }
 
     /**
@@ -54,12 +56,8 @@ public class VistaMisViajes extends javax.swing.JFrame {
      */
     public void styleButton(JButton button) {
         button.setBackground(UIManager.getColor("Component.accentColor"));
-        if (darkTheme) {
-            button.setForeground(UIManager.getColor("Label.foreground"));
-        } else {
-            button.setForeground(UIManager.getColor("Label.background"));
-        }
-
+        button.setForeground(UIManager.getColor("Label.background"));
+        
     }
 
     /**
@@ -78,6 +76,10 @@ public class VistaMisViajes extends javax.swing.JFrame {
         inicioButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         volverButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        billetesList = new org.jdesktop.swingx.JXList();
+        devolverButton = new javax.swing.JButton();
+        editarButton = new javax.swing.JButton();
         paso2Panel = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         seleccioneEstacionLabel1 = new javax.swing.JLabel();
@@ -147,10 +149,54 @@ public class VistaMisViajes extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(248, 30, 26, 301);
+        gridBagConstraints.insets = new java.awt.Insets(63, 37, 29, 0);
         jPanel5.add(volverButton, gridBagConstraints);
+
+        billetesList.setMinimumSize(new java.awt.Dimension(300, 100));
+        jScrollPane3.setViewportView(billetesList);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 242;
+        gridBagConstraints.ipady = 114;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(15, 51, 0, 185);
+        jPanel5.add(jScrollPane3, gridBagConstraints);
+
+        devolverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        devolverButton.setText("Devolver");
+        devolverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolverButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(83, 51, 0, 0);
+        jPanel5.add(devolverButton, gridBagConstraints);
+
+        editarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        editarButton.setText("Editar");
+        editarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(83, 109, 0, 185);
+        jPanel5.add(editarButton, gridBagConstraints);
 
         paso1Panel.add(jPanel5);
 
@@ -318,9 +364,20 @@ public class VistaMisViajes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mascotaCheckBoxActionPerformed
 
+    private void devolverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_devolverButtonActionPerformed
+
+    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editarButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox bicicletaCheckBox;
+    private org.jdesktop.swingx.JXList billetesList;
     private javax.swing.JButton continuarPaso2Button;
+    private javax.swing.JButton devolverButton;
+    private javax.swing.JButton editarButton;
     private javax.swing.JLabel imagenBiciLabel;
     private javax.swing.JLabel imagenMascotaLabel;
     private javax.swing.JButton inicioButton;
@@ -333,6 +390,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JCheckBox mascotaCheckBox;
     private javax.swing.JLabel paso1Label;
     private javax.swing.JLabel paso1Label1;
