@@ -10,7 +10,7 @@ import java.time.LocalTime;
  * @author Daniel Garcia Solla
  * @author Carolina de las Heras Clavier
  */
-public class Viaje {
+public class Viaje implements Comparable<Viaje> {
 
     private String idRuta;
     private String estacionOrigen;
@@ -93,5 +93,10 @@ public class Viaje {
      */
     public double getPrecio() {
         return precio;
+    }
+
+    @Override
+    public int compareTo(Viaje otroViaje) {
+        return this.getHorario().compareTo(otroViaje.getHorario());
     }
 }//class Viaje

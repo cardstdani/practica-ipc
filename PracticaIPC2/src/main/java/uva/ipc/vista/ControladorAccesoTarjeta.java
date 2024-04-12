@@ -20,6 +20,7 @@ public class ControladorAccesoTarjeta {
         this.vista = vista;
         this.modelo = Main.getModelo();
         this.vista.actualizarSaldo(modelo.getSaldo());
+        this.vista.actualizarViajes(modelo.getNumeroViajes());
     }
 
     public void tarjetaCylStart() {

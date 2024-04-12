@@ -7,38 +7,41 @@ package uva.ipc.vista;
 import com.formdev.flatlaf.*;
 import com.formdev.flatlaf.intellijthemes.*;
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import raven.toast.Notifications;
-import uva.ipc.modelo.Viaje;
+import uva.ipc.modelo.*;
 
 /**
  * @author Daniel Garcia Solla
  * @author Carolina de las Heras Clavier
  */
 public class VistaMisViajes extends javax.swing.JFrame {
-    
+
     private ControladorMisViajes controlador;
-    private DefaultListModel<String> billetesListModel = new DefaultListModel<>();
+    private DefaultListModel<Billete> billetesListModel = new DefaultListModel<>();
+    private DefaultListModel<Viaje> viajesListModel = new DefaultListModel<>();
 
     /**
      * Creates new form MainFrame
      */
     public VistaMisViajes() {
         FlatLaf.setup(new FlatArcOrangeIJTheme());
-        
+
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
         initComponents();
         this.setLocationRelativeTo(null);//Para que no aparezca a arriba a la izquierda
         this.controlador = new ControladorMisViajes(this);
         setMinimumSize(new Dimension(650, 700));
-        
+
         styleButtons();
         Notifications.getInstance().setJFrame(this);
-        Notifications.getInstance().show(Notifications.Type.INFO, Notifications.Location.BOTTOM_RIGHT, "Tururú");
-        Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Tururú");
-        Notifications.getInstance().show(Notifications.Type.WARNING, Notifications.Location.BOTTOM_RIGHT, "Tururú");
+        rutasList.setModel(viajesListModel);
+        rutasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         billetesList.setModel(billetesListModel);
-        billetesListModel.addAll(controlador.getBilletes());
+        billetesList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        actualizarBilletes();
+        activarVistaMisBilletes();
     }
 
     /**
@@ -47,6 +50,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
     public void styleButtons() {
         styleButton(devolverButton);
         styleButton(editarButton);
+        styleButton(confirmarButton);
     }
 
     /**
@@ -57,7 +61,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
     public void styleButton(JButton button) {
         button.setBackground(UIManager.getColor("Component.accentColor"));
         button.setForeground(UIManager.getColor("Label.background"));
-        
+
     }
 
     /**
@@ -70,7 +74,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        paso1Panel = new javax.swing.JPanel();
+        misBilletesPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         paso1Label = new javax.swing.JLabel();
         inicioButton = new javax.swing.JButton();
@@ -80,7 +84,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         billetesList = new org.jdesktop.swingx.JXList();
         devolverButton = new javax.swing.JButton();
         editarButton = new javax.swing.JButton();
-        paso2Panel = new javax.swing.JPanel();
+        editarBilletePanel = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         seleccioneEstacionLabel1 = new javax.swing.JLabel();
         inicioButton1 = new javax.swing.JButton();
@@ -95,18 +99,18 @@ public class VistaMisViajes extends javax.swing.JFrame {
         imagenMascotaLabel = new javax.swing.JLabel();
         imagenBiciLabel = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        volver2Button = new javax.swing.JButton();
-        continuarPaso2Button = new javax.swing.JButton();
+        cancelarButton = new javax.swing.JButton();
+        confirmarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tren Castilla y León");
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        paso1Panel.setEnabled(false);
-        paso1Panel.setMaximumSize(new java.awt.Dimension(700, 700));
-        paso1Panel.setMinimumSize(new java.awt.Dimension(600, 600));
-        paso1Panel.setPreferredSize(new java.awt.Dimension(600, 600));
-        paso1Panel.setLayout(new javax.swing.BoxLayout(paso1Panel, javax.swing.BoxLayout.PAGE_AXIS));
+        misBilletesPanel.setEnabled(false);
+        misBilletesPanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        misBilletesPanel.setMinimumSize(new java.awt.Dimension(600, 600));
+        misBilletesPanel.setPreferredSize(new java.awt.Dimension(600, 600));
+        misBilletesPanel.setLayout(new javax.swing.BoxLayout(misBilletesPanel, javax.swing.BoxLayout.PAGE_AXIS));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel2.setLayout(new java.awt.GridBagLayout());
@@ -136,7 +140,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(17, 21, 0, 0);
         jPanel2.add(inicioButton, gridBagConstraints);
 
-        paso1Panel.add(jPanel2);
+        misBilletesPanel.add(jPanel2);
 
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
@@ -151,23 +155,23 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(63, 37, 29, 0);
+        gridBagConstraints.insets = new java.awt.Insets(128, 37, 29, 0);
         jPanel5.add(volverButton, gridBagConstraints);
 
         billetesList.setMinimumSize(new java.awt.Dimension(300, 100));
         jScrollPane3.setViewportView(billetesList);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 242;
-        gridBagConstraints.ipady = 114;
+        gridBagConstraints.ipadx = 462;
+        gridBagConstraints.ipady = 186;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 51, 0, 185);
+        gridBagConstraints.insets = new java.awt.Insets(15, 70, 0, 54);
         jPanel5.add(jScrollPane3, gridBagConstraints);
 
         devolverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -181,7 +185,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(83, 51, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 100, 0, 0);
         jPanel5.add(devolverButton, gridBagConstraints);
 
         editarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -195,23 +199,23 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(83, 109, 0, 185);
+        gridBagConstraints.insets = new java.awt.Insets(18, 32, 0, 0);
         jPanel5.add(editarButton, gridBagConstraints);
 
-        paso1Panel.add(jPanel5);
+        misBilletesPanel.add(jPanel5);
 
-        getContentPane().add(paso1Panel, "card2");
+        getContentPane().add(misBilletesPanel, "card2");
 
-        paso2Panel.setEnabled(false);
-        paso2Panel.setMaximumSize(new java.awt.Dimension(700, 700));
-        paso2Panel.setMinimumSize(new java.awt.Dimension(600, 600));
-        paso2Panel.setPreferredSize(new java.awt.Dimension(600, 600));
-        paso2Panel.setLayout(new java.awt.GridLayout(4, 1));
+        editarBilletePanel.setEnabled(false);
+        editarBilletePanel.setMaximumSize(new java.awt.Dimension(700, 700));
+        editarBilletePanel.setMinimumSize(new java.awt.Dimension(600, 600));
+        editarBilletePanel.setPreferredSize(new java.awt.Dimension(600, 600));
+        editarBilletePanel.setLayout(new java.awt.GridLayout(4, 1));
 
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         seleccioneEstacionLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        seleccioneEstacionLabel1.setText("Ahora usté mofifica su billete");
+        seleccioneEstacionLabel1.setText("Ahora usté modifica su billete");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -245,7 +249,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(17, 163, 0, 0);
         jPanel6.add(paso1Label1, gridBagConstraints);
 
-        paso2Panel.add(jPanel6);
+        editarBilletePanel.add(jPanel6);
 
         rutasList.setMinimumSize(new java.awt.Dimension(300, 100));
         DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -254,7 +258,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
 
         jPanel7.add(jScrollPane2);
 
-        paso2Panel.add(jPanel7);
+        editarBilletePanel.add(jPanel7);
 
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
@@ -314,32 +318,42 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(39, 256, 29, 220);
         jPanel8.add(jPanel13, gridBagConstraints);
 
-        paso2Panel.add(jPanel8);
+        editarBilletePanel.add(jPanel8);
 
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        volver2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        volver2Button.setText("Volver");
+        cancelarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cancelarButton.setText("Cancelar");
+        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(77, 48, 47, 0);
-        jPanel9.add(volver2Button, gridBagConstraints);
+        jPanel9.add(cancelarButton, gridBagConstraints);
 
-        continuarPaso2Button.setBackground(UIManager.getColor("Component.accentColor"));
-        continuarPaso2Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        continuarPaso2Button.setText("Continuar");
+        confirmarButton.setBackground(UIManager.getColor("Component.accentColor"));
+        confirmarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        confirmarButton.setText("Confirmar");
+        confirmarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(77, 363, 47, 31);
-        jPanel9.add(continuarPaso2Button, gridBagConstraints);
+        jPanel9.add(confirmarButton, gridBagConstraints);
 
-        paso2Panel.add(jPanel9);
+        editarBilletePanel.add(jPanel9);
 
-        getContentPane().add(paso2Panel, "card3");
+        getContentPane().add(editarBilletePanel, "card3");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -365,18 +379,28 @@ public class VistaMisViajes extends javax.swing.JFrame {
     }//GEN-LAST:event_mascotaCheckBoxActionPerformed
 
     private void devolverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverButtonActionPerformed
-        // TODO add your handling code here:
+        controlador.devolverBillete();
     }//GEN-LAST:event_devolverButtonActionPerformed
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
-        // TODO add your handling code here:
+        controlador.editarBillete();
     }//GEN-LAST:event_editarButtonActionPerformed
+
+    private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
+        controlador.cancelarEdicion();
+    }//GEN-LAST:event_cancelarButtonActionPerformed
+
+    private void confirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarButtonActionPerformed
+        controlador.confirmarEdicion();
+    }//GEN-LAST:event_confirmarButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox bicicletaCheckBox;
     private org.jdesktop.swingx.JXList billetesList;
-    private javax.swing.JButton continuarPaso2Button;
+    private javax.swing.JButton cancelarButton;
+    private javax.swing.JButton confirmarButton;
     private javax.swing.JButton devolverButton;
+    private javax.swing.JPanel editarBilletePanel;
     private javax.swing.JButton editarButton;
     private javax.swing.JLabel imagenBiciLabel;
     private javax.swing.JLabel imagenMascotaLabel;
@@ -392,14 +416,57 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JCheckBox mascotaCheckBox;
+    private javax.swing.JPanel misBilletesPanel;
     private javax.swing.JLabel paso1Label;
     private javax.swing.JLabel paso1Label1;
-    private javax.swing.JPanel paso1Panel;
-    private javax.swing.JPanel paso2Panel;
     private org.jdesktop.swingx.JXList rutasList;
     private javax.swing.JLabel seleccioneEstacionLabel1;
-    private javax.swing.JButton volver2Button;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 
+    public void actualizarBilletes() {
+        billetesListModel.clear();
+        billetesListModel.addAll(controlador.getBilletes());
+    }
+
+    public void notificarBilleteDevuelto() {
+        Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Billete devuelto con éxito!");
+    }
+    
+    public void notificarBilleteEditado() {
+        Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Billete editado con éxito!");
+    }
+
+    public Billete getSelectedBillete() {
+        return (Billete) billetesList.getSelectedValue();
+    }
+
+    public void activarVistaEditarBillete() {
+        misBilletesPanel.setVisible(false);
+        editarBilletePanel.setVisible(true);
+    }
+
+    public void activarVistaMisBilletes() {
+        misBilletesPanel.setVisible(true);
+        editarBilletePanel.setVisible(false);
+    }
+
+    public void actualizarVistaEditarBillete(ArrayList<Viaje> viajes) {
+        viajesListModel.clear();
+        viajesListModel.addAll(viajes);
+        mascotaCheckBox.setSelected(getSelectedBillete().getMascota());
+        bicicletaCheckBox.setSelected(getSelectedBillete().getBicicleta());
+    }
+
+    public Viaje getNewSelectedViaje() {
+        return (Viaje) rutasList.getSelectedValue();
+    }
+
+    public boolean getBicicleta() {
+        return bicicletaCheckBox.isSelected();
+    }
+
+    public boolean getMascota() {
+        return mascotaCheckBox.isSelected();
+    }
 }//class Vista

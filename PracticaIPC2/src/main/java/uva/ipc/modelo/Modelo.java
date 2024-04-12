@@ -34,7 +34,8 @@ public class Modelo {
     private ControladorRecargarTarjeta controladorRecargaTarjeta = null;
     private double saldoTarjetaCYL = 20;
     private boolean tarjetaCylValida = false;
-    private String politicaPrivacidad = "";
+    private String politicaPrivacidad = "", pinTarjetaValido = "1234";
+    private Billete selectedBillete;
 
     public Modelo() {
         String csvFile = "src/main/resources/estaciones.csv";
@@ -49,6 +50,7 @@ public class Modelo {
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }
+        Collections.sort(estaciones);
 
         //Procesar rutas
         //idRuta;estacionOrigen;estacionDestino;tiempo;precio;horariosSemana;horariosFinDeSemana
@@ -136,6 +138,7 @@ public class Modelo {
                 out.add(viaje);
             }
         }
+        Collections.sort(out);
         return out;
     }
     //Seleccion del usuario
@@ -207,7 +210,7 @@ public class Modelo {
      * @return True o False si el pin es valido o no
      */
     public boolean validarPin(String pinTarjeta) {
-        return pinTarjeta.equals("1234");
+        return pinTarjeta.equals(pinTarjetaValido);
     }
 
     /**
@@ -305,11 +308,13 @@ public class Modelo {
      */
     public void pagarConTarjetaCyl() {
         saldoTarjetaCYL -= viaje.getPrecio();
+        saldoTarjetaCYL = Math.round(saldoTarjetaCYL * 100.0) / 100.0;
         addBillete();
     }
 
     public void recargarTarjetaCyl(double cantidadRecarga) {
         saldoTarjetaCYL += cantidadRecarga;
+        saldoTarjetaCYL = Math.round(saldoTarjetaCYL * 100.0) / 100.0;
     }
 
     private void addBillete() {
@@ -324,20 +329,99 @@ public class Modelo {
         }
     }
 
-    public ArrayList<String> getBilletes() {
-        ArrayList<String> out = new ArrayList<>();
+    public ArrayList<Billete> getBilletes() {
+        ArrayList<Billete> out = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/billetes.csv"))) {
             String line = br.readLine();
             while ((line = br.readLine()) != null) {
-                out.add(line);
+                String[] chunkos = line.split(";");
+                out.add(new Billete(chunkos[0], chunkos[1], chunkos[2], chunkos[3], chunkos[4], chunkos[5], chunkos[6], chunkos[7], chunkos[8]));
             }
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }
+        out.sort((p1, p2) -> p1.compareTo(p2));
         return out;
     }
 
     public void pagarConTarjetaCredito() {
         addBillete();
+    }
+
+    public void devolverBillete(Billete selectedValue) {
+        ArrayList<Billete> tmp = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/billetes.csv"))) {
+            String line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] chunkos = line.split(";");
+                Billete billete = new Billete(chunkos[0], chunkos[1], chunkos[2], chunkos[3], chunkos[4], chunkos[5], chunkos[6], chunkos[7], chunkos[8]);
+                if (!billete.equals(selectedValue)) {
+                    tmp.add(billete);
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
+        reescribirDatosBilletes(tmp);
+    }
+
+    private void reescribirDatosBilletes(ArrayList<Billete> tmp) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/billetes.csv"))) {
+            bw.write("fecha;hora;id;estacionOrigen;estacionDestino;tiempo;precio;bicicleta;mascota");
+            bw.newLine();
+            for (Billete billete : tmp) {
+                bw.write(billete.toStringCSV());
+                bw.newLine();
+            }
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
+    }
+
+    public int getNumeroViajes() {
+        try {
+            return (int) (Files.lines(Paths.get("src/main/resources/billetes.csv")).count() - 1);
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
+        return 0;
+    }
+
+    public void setSelectedBilleteEdicion(Billete selectedBillete) {
+        this.selectedBillete = selectedBillete;
+        this.fecha = selectedBillete.getFecha().atTime(LocalTime.NOON);
+        this.estacionOrigen = selectedBillete.getEstacionOrigen();
+        this.estacionDestino = selectedBillete.getEstacionDestino();
+    }
+
+    public void actualizarBillete(Viaje newSelectedViaje) {
+        ArrayList<Billete> tmp = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/billetes.csv"))) {
+            String line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] chunkos = line.split(";");
+                Billete billete = new Billete(chunkos[0], chunkos[1], chunkos[2], chunkos[3], chunkos[4], chunkos[5], chunkos[6], chunkos[7], chunkos[8]);
+                if (!billete.equals(selectedBillete)) {
+                    tmp.add(billete);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
+        reescribirDatosBilletes(tmp);
+
+        //Añadir billete actualizado
+        try {
+            selectedBillete.setHora(newSelectedViaje.getHorario());
+            selectedBillete.setId(newSelectedViaje.getIdRuta());
+            selectedBillete.setTiempo(newSelectedViaje.getTiempo());
+            selectedBillete.setMascota(mascota);
+            selectedBillete.setBicicleta(bicicleta);
+            Files.write(Paths.get("src/main/resources/billetes.csv"), Collections.singleton(selectedBillete.toStringCSV()),
+                    StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+        }
     }
 }//class Modelo

@@ -17,6 +17,7 @@ uva\ipc\vista\VistaMisViajes$6.class
 raven\toast\Notifications$NotificationAnimation$1.class
 uva\ipc\vista\VistaCompraBillete$17.class
 uva\ipc\vista\VistaRecargarTarjeta$2.class
+uva\ipc\vista\VistaMisViajes$9.class
 uva\ipc\vista\VistaRecargarTarjeta$10.class
 raven\toast\ui\DropShadowBorder.class
 uva\ipc\vista\VistaAccesoTarjeta.class
@@ -29,6 +30,7 @@ raven\toast\Notifications$1.class
 uva\ipc\vista\VistaMenu$1.class
 raven\toast\util\NotificationHolder.class
 uva\ipc\vista\VistaMisViajes$1.class
+uva\ipc\vista\VistaMisViajes$8.class
 raven\toast\ui\ToastPanelUI.class
 uva\ipc\vista\VistaCompraBillete$21.class
 uva\ipc\vista\VistaCompraBillete$15.class
@@ -78,6 +80,7 @@ uva\ipc\vista\ControladorRecargarTarjeta.class
 uva\ipc\vista\ControladorMisViajes.class
 uva\ipc\vista\VistaMenu.class
 uva\ipc\vista\VistaCompraBillete$4.class
+uva\ipc\modelo\Billete.class
 uva\ipc\vista\VistaAccesoTarjeta$5.class
 uva\ipc\vista\VistaCompraBillete$12.class
 uva\ipc\vista\VistaMisViajes$4.class

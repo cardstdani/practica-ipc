@@ -6,6 +6,7 @@ package uva.ipc.vista;
 
 import java.util.*;
 import uva.ipc.app.Main;
+import uva.ipc.modelo.Billete;
 import uva.ipc.modelo.Modelo;
 
 /**
@@ -30,8 +31,44 @@ public class ControladorMisViajes {
         Main.getGestorVistas().mostrarVistaAccesoTarjeta();
     }
 
-    public ArrayList<String> getBilletes() {
+    public ArrayList<Billete> getBilletes() {
         return Main.getModelo().getBilletes();
     }
 
+    public void devolverBillete() {
+        if (vista.getSelectedBillete() == null) {
+            Utiles.dialogoError("Por favor, seleccione usted un billete");
+        } else {
+            Main.getModelo().devolverBillete(vista.getSelectedBillete());
+            vista.actualizarBilletes();
+            vista.notificarBilleteDevuelto();
+        }
+    }
+
+    public void editarBillete() {
+        if (vista.getSelectedBillete() == null) {
+            Utiles.dialogoError("Por favor, seleccione usted un billete");
+        } else {
+            Main.getModelo().setSelectedBilleteEdicion(vista.getSelectedBillete());
+            vista.actualizarVistaEditarBillete(Main.getModelo().getViajesPaso2());
+            vista.activarVistaEditarBillete();
+        }
+    }
+
+    public void cancelarEdicion() {
+        vista.activarVistaMisBilletes();
+    }
+
+    public void confirmarEdicion() {
+        if (vista.getNewSelectedViaje() == null) {
+            Utiles.dialogoError("Por favor, seleccione usted un viaje");
+        } else {
+            Main.getModelo().setBicicleta(vista.getBicicleta());
+            Main.getModelo().setMascota(vista.getMascota());
+            Main.getModelo().actualizarBillete(vista.getNewSelectedViaje());
+            vista.actualizarBilletes();
+            vista.activarVistaMisBilletes();
+            vista.notificarBilleteEditado();
+        }
+    }
 }//class Controlador

@@ -943,9 +943,15 @@ public class VistaCompraBillete extends javax.swing.JFrame {
      */
     private void volver2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver2ButtonActionPerformed
         controlador.volverPaso2();
+        mascotaCheckBox.setSelected(false);
+        bicicletaCheckBox.setSelected(false);
+        pinTarjetaField.setText("");
+        mensajePaso3TarjetaCredito("Mantenga usted la tarjeta 2 segundos", Utiles.codigoMensaje.NORMAL);
+        erroresLabel4.setText("Mantenga usted la tarjeta 2 segundos");
+        desactivarPinTarjeta();
     }//GEN-LAST:event_volver2ButtonActionPerformed
 
-   /**
+    /**
      * Maneja el evento de acción del checkbox relacionado con la opción de
      * bicicleta
      *
@@ -1372,8 +1378,9 @@ public class VistaCompraBillete extends javax.swing.JFrame {
     private void actualizarSeleccionEstacionDestino() {
         estacionDestinoSelector.removeAllItems();
         ArrayList<String> estacionesDestinoPosibles = controlador.getPosiblesEstacionesDestino(getEstacionOrigen());
+        Collections.sort(estacionesDestinoPosibles);
         for (String estacion : estacionesDestinoPosibles) {
             estacionDestinoSelector.addItem(estacion);
         }
-    }        
+    }
 }//class Vista

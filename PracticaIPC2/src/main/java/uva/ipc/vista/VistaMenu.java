@@ -90,12 +90,12 @@ public class VistaMenu extends javax.swing.JFrame {
 
         paso1Label.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso1Label.setText("Título");
+        paso1Label.setText("Tren CYL");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(17, 165, 21, 176);
+        gridBagConstraints.insets = new java.awt.Insets(52, 223, 60, 220);
         jPanel2.add(paso1Label, gridBagConstraints);
 
         paso1Panel.add(jPanel2);
