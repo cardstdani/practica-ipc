@@ -14,6 +14,9 @@ public class GestorVistas {
 
     private JFrame vistaActual;
 
+    /**
+     * Muesta la vista para comprar un billete y gestiona la vista que hay actualemente
+     */
     public void mostrarVistaComprarBillete() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -22,7 +25,10 @@ public class GestorVistas {
         vistaActual = new VistaCompraBillete();
         vistaActual.setVisible(true);
     }
-
+    
+    /**
+     * Muesta la vista del menu inicial y gestiona la vista que hay actualemente
+     */
     public void mostrarVistaMenu() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -31,7 +37,10 @@ public class GestorVistas {
         vistaActual = new VistaMenu();
         vistaActual.setVisible(true);
     }
-
+    
+    /**
+     * Muesta la vista de acceso con tarjeta y gestiona la vista que hay actualemente
+     */
     public void mostrarVistaAccesoTarjeta() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -40,7 +49,10 @@ public class GestorVistas {
         vistaActual = new VistaAccesoTarjeta();
         vistaActual.setVisible(true);
     }
-
+    
+    /**
+     * Muesta la vista de recargar con tarjeta y gestiona la vista que hay actualemente
+     */
     public void mostrarVistaRecargarTarjeta() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -49,7 +61,10 @@ public class GestorVistas {
         vistaActual = new VistaRecargarTarjeta();
         vistaActual.setVisible(true);
     }
-
+    
+    /**
+     * Muesta la vista donde el usuario puede ver los viajes que tiene y gestiona la vista que hay actualemente
+     */
     public void mostrarVistaMisViajes() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -58,4 +73,4 @@ public class GestorVistas {
         vistaActual = new VistaMisViajes();
         vistaActual.setVisible(true);
     }
-}
+}// class GestorVistas

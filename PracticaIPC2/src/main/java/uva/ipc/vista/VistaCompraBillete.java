@@ -30,7 +30,8 @@ public class VistaCompraBillete extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
-    public VistaCompraBillete() {
+    public VistaCompraBillete() {      
+        UIManager.put("Panel.background", new Color(249,255,255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
@@ -231,12 +232,14 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         setTitle("Tren Castilla y León");
         getContentPane().setLayout(new java.awt.CardLayout());
 
+        paso1Panel.setBackground(new java.awt.Color(249, 255, 255));
         paso1Panel.setEnabled(false);
         paso1Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso1Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso1Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso1Panel.setLayout(new javax.swing.BoxLayout(paso1Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
+        jPanel2.setBackground(new java.awt.Color(249, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -277,6 +280,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         paso1Panel.add(jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(249, 255, 255));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         estacionOrigenSelector.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -369,6 +373,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         paso1Panel.add(jPanel3);
 
+        jPanel5.setBackground(new java.awt.Color(249, 255, 255));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         continuarPaso1Button.setBackground(UIManager.getColor("Component.accentColor"));
@@ -390,6 +395,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         getContentPane().add(paso1Panel, "card2");
 
+        paso2Panel.setBackground(new java.awt.Color(249, 255, 255));
         paso2Panel.setEnabled(false);
         paso2Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso2Panel.setMinimumSize(new java.awt.Dimension(600, 600));
@@ -538,6 +544,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         getContentPane().add(paso2Panel, "card3");
 
+        paso4Panel.setBackground(new java.awt.Color(249, 255, 255));
         paso4Panel.setEnabled(false);
         paso4Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso4Panel.setMinimumSize(new java.awt.Dimension(600, 600));
@@ -611,12 +618,14 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         getContentPane().add(paso4Panel, "card4");
 
+        paso3Panel.setBackground(new java.awt.Color(249, 255, 255));
         paso3Panel.setEnabled(false);
         paso3Panel.setMaximumSize(new java.awt.Dimension(700, 700));
         paso3Panel.setMinimumSize(new java.awt.Dimension(600, 600));
         paso3Panel.setPreferredSize(new java.awt.Dimension(600, 600));
         paso3Panel.setLayout(new javax.swing.BoxLayout(paso3Panel, javax.swing.BoxLayout.PAGE_AXIS));
 
+        jPanel10.setBackground(new java.awt.Color(249, 255, 255));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
         paso1Label2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -688,9 +697,13 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         paso3Panel.add(jPanel10);
 
+        opcionesPanel.setBackground(new java.awt.Color(249, 255, 255));
         opcionesPanel.setLayout(new java.awt.CardLayout());
 
+        tarjetaCreditoPanel.setBackground(new java.awt.Color(249, 255, 255));
         tarjetaCreditoPanel.setLayout(new java.awt.GridBagLayout());
+
+        pinTarjetaCreditoPanel.setBackground(new java.awt.Color(249, 255, 255));
 
         seleccioneEstacionLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         seleccioneEstacionLabel3.setText("PIN:");
@@ -738,6 +751,8 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(18, 132, 27, 101);
         tarjetaCreditoPanel.add(pinTarjetaCreditoPanel, gridBagConstraints);
 
+        jPanel1.setBackground(new java.awt.Color(249, 255, 255));
+
         tarjetaCreditoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tarjetaCreditoButtonActionPerformed(evt);
@@ -769,6 +784,8 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(26, 132, 0, 101);
         tarjetaCreditoPanel.add(jPanel1, gridBagConstraints);
 
+        jPanel4.setBackground(new java.awt.Color(249, 255, 255));
+
         erroresLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         erroresLabel3.setText("Mantenga usted la tarjeta 2 segundos");
         erroresLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -799,7 +816,10 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         opcionesPanel.add(tarjetaCreditoPanel, "card2");
 
+        tarjetaCylPanel.setBackground(new java.awt.Color(249, 255, 255));
         tarjetaCylPanel.setLayout(new java.awt.CardLayout());
+
+        tarjetaCylPanelSinAutenticar.setBackground(new java.awt.Color(249, 255, 255));
 
         tarjetaCylButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visa.png"))); // NOI18N
         tarjetaCylButton.addActionListener(new java.awt.event.ActionListener() {
@@ -841,6 +861,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         tarjetaCylPanel.add(tarjetaCylPanelSinAutenticar, "card2");
 
+        tarjetaCylPanelAutenticado.setBackground(new java.awt.Color(249, 255, 255));
         tarjetaCylPanelAutenticado.setLayout(new java.awt.GridBagLayout());
 
         comprarBilleteTarjetaCyl.setBackground(UIManager.getColor("Component.accentColor"));
@@ -865,6 +886,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
         paso3Panel.add(opcionesPanel);
 
+        jPanel11.setBackground(new java.awt.Color(249, 255, 255));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
         volver3Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1057,23 +1079,49 @@ public class VistaCompraBillete extends javax.swing.JFrame {
             fechaDatePicker.setDate(new Date());
         }
     }//GEN-LAST:event_fechaDatePickerActionPerformed
-
+    
+    /**
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio1
+     * Se vuelve al menu de incio
+     * @param evt el evento de accion que desencadeno este metodo
+     */
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButtonActionPerformed
-
+    
+    /**
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio1
+     * Se vuelve al menu de incio
+     * @param evt el evento de accion que desencadeno este metodo
+     */
     private void inicioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton1ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton1ActionPerformed
-
+    
+    /**
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio3
+     * Se vuelve al menu de incio
+     * @param evt el evento de accion que desencadeno este metodo
+     */
     private void inicioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton3ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton3ActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de menu
+    * Se vuelve al menu principal de la aplicacion
+    *
+    * @param evt el evento de accion que desencadeno este metodo
+    */
     private void menuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_menuButtonActionPerformed
-
+    
+    /**
+     * Gestiona el evento cuando se hace click en el boton de comprar billete con tarjeta CYL
+     * Se inicia el proceso de compra con la tarjeta de CYL
+     * @param evt el evento que desencadeno este metodo
+     */
     private void comprarBilleteTarjetaCylActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarBilleteTarjetaCylActionPerformed
         controlador.comprarBilleteTarjetaCyl();
     }//GEN-LAST:event_comprarBilleteTarjetaCylActionPerformed

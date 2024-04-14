@@ -23,34 +23,60 @@ public class ControladorAccesoTarjeta {
         this.vista.actualizarViajes(modelo.getNumeroViajes());
     }
 
+    /**
+    * Inicia el proceso de pago con tarjeta CYL    
+    */
     public void tarjetaCylStart() {
         modelo.tarjetaCylStart(this);
     }
-
+    
+    /**
+    * Detiene el proceso de pago con tarjeta CYL    
+    */
     public void tarjetaCylStop() {
         modelo.tarjetaCylStart(this);
     }
-
+    
+    /**
+     * Establece que la tarjeta CYL ha sido validada
+     */
     public void tarjetaCylValida() {
         vista.tarjetaValida();
     }
-
+    
+    /**
+     * Permite volver a la vista menu inicial
+     */
     public void volverMenu() {
         Main.getGestorVistas().mostrarVistaMenu();
     }
-
+    
+    /**
+    * Verifica si la tarjeta CYL es valida
+    * @return true si la tarjeta es válida, false en caso contrario.
+    */
     public boolean isTarjetaValida() {
         return modelo.isTarjetaCylValida();
     }
-
+    
+    /**
+     * Obtiene la politica de privacidad
+     * @return la politica de privacidad
+     */
     public String getPoliticaPrivacidad() {
         return modelo.getPoliticaPrivacidad();
     }
-
+    
+    /**
+     * Permite mostrar la vista de Recargar la tarjeta
+     */
     public void recargarTarjeta() {
         Main.getGestorVistas().mostrarVistaRecargarTarjeta();
     }
 
+    /**
+    * Muestra la vista que lista los viajes realizados por el usuario
+    */
     public void misViajes() {
         Main.getGestorVistas().mostrarVistaMisViajes();
     }

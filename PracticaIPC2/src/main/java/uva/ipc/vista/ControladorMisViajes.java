@@ -22,19 +22,32 @@ public class ControladorMisViajes {
         this.vista = vista;
         this.modelo = Main.getModelo();
     }
-
+    
+    /**
+     * Permite volver a la vista del menu inicial
+     */
     public void volverMenu() {
         Main.getGestorVistas().mostrarVistaMenu();
     }
-
+    
+    /**
+     * Permite volver a la vista de acceso con tarjeta
+     */
     public void volver() {
         Main.getGestorVistas().mostrarVistaAccesoTarjeta();
     }
-
+    
+    /**
+    * Obtiene una lista de billetes almacenados en el sistema
+    * @return lista con los billetes almacenados en el sistema.
+    */
     public ArrayList<Billete> getBilletes() {
         return Main.getModelo().getBilletes();
     }
-
+    
+    /**
+     * Permite devolver un billete
+     */
     public void devolverBillete() {
         if (vista.getSelectedBillete() == null) {
             Utiles.dialogoError("Por favor, seleccione usted un billete");
@@ -44,7 +57,10 @@ public class ControladorMisViajes {
             vista.notificarBilleteDevuelto();
         }
     }
-
+    
+    /**
+     * Permite editar un billete
+     */
     public void editarBillete() {
         if (vista.getSelectedBillete() == null) {
             Utiles.dialogoError("Por favor, seleccione usted un billete");
@@ -54,11 +70,17 @@ public class ControladorMisViajes {
             vista.activarVistaEditarBillete();
         }
     }
-
+    
+    /**
+     * Muestra la vista de Billetes del usuario cuando se decide cancelar la edicion de un billete
+     */
     public void cancelarEdicion() {
         vista.activarVistaMisBilletes();
     }
-
+    
+    /**
+     * Confirma la realizacion de la edicion de un billete
+     */
     public void confirmarEdicion() {
         if (vista.getNewSelectedViaje() == null) {
             Utiles.dialogoError("Por favor, seleccione usted un viaje");

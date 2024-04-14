@@ -26,6 +26,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public VistaMisViajes() {
+        UIManager.put("Panel.background", new Color(249,255,255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
@@ -51,6 +52,8 @@ public class VistaMisViajes extends javax.swing.JFrame {
         styleButton(devolverButton);
         styleButton(editarButton);
         styleButton(confirmarButton);
+        Utiles.setObjectIcon(imagenBiciLabel,"src/main/resources/Bicicleta.png");
+        Utiles.setObjectIcon(imagenMascotaLabel,"src/main/resources/Mascota.png");
     }
 
     /**
@@ -450,22 +453,38 @@ public class VistaMisViajes extends javax.swing.JFrame {
         misBilletesPanel.setVisible(true);
         editarBilletePanel.setVisible(false);
     }
-
+    
+    /**
+    * Actualiza la vista de edicion de billetes con la informacion proporcionada
+    * @param viajes La lista de viajes disponibles para editar el billete
+    */
     public void actualizarVistaEditarBillete(ArrayList<Viaje> viajes) {
         viajesListModel.clear();
         viajesListModel.addAll(viajes);
         mascotaCheckBox.setSelected(getSelectedBillete().getMascota());
         bicicletaCheckBox.setSelected(getSelectedBillete().getBicicleta());
     }
-
+    
+    /**
+    * Obtiene el viaje seleccionado actualmente en la lista de rutas
+    * @return el objeto Viaje seleccionado en la lista de rutas
+    */
     public Viaje getNewSelectedViaje() {
         return (Viaje) rutasList.getSelectedValue();
     }
-
+    
+    /**
+     * Obtiene el estado de la casilla de si el usuario ha elegido bicicleta
+     * @return true si la casilla de verificación de bicicleta está seleccionada, false en el caso contrario
+     */
     public boolean getBicicleta() {
         return bicicletaCheckBox.isSelected();
     }
-
+    
+    /**
+     * Obtiene el estado de la casilla de si el usuario ha elegido mascota
+     * @return true si la casilla de verificacion de mascota esta seleccionada, false en el caso contrario
+     */
     public boolean getMascota() {
         return mascotaCheckBox.isSelected();
     }

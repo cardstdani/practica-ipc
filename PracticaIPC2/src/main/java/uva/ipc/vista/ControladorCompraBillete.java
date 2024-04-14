@@ -179,11 +179,18 @@ public class ControladorCompraBillete {
     public ArrayList<String> getEstaciones() {
         return modelo.getEstaciones();
     }
-
+    
+    /**
+     * Muestrar la vista del menu inicial
+     */
     public void volverMenu() {
         Main.getGestorVistas().mostrarVistaMenu();
     }
-
+    
+    /**
+    * Verifica si la tarjeta CYL se ha autentificado
+    * @return true si la tarjeta está autenticada, false en el caso contrario.
+    */
     public boolean tarjetaCylAutenticada() {
         return modelo.isTarjetaCylValida();
     }

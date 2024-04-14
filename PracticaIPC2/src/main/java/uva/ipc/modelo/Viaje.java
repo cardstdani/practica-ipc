@@ -95,6 +95,12 @@ public class Viaje implements Comparable<Viaje> {
         return precio;
     }
 
+    /**
+    * Compara un viaje con otro 
+    * @param otroViaje El viaje con el que se quiere comparar
+    * @return Un valor entero negativo si este viaje es anterior al otro viaje, 
+    *  cero si son iguales, o un valor entero positivo si este viaje es posterior al otro viaje
+    */
     @Override
     public int compareTo(Viaje otroViaje) {
         return this.getHorario().compareTo(otroViaje.getHorario());

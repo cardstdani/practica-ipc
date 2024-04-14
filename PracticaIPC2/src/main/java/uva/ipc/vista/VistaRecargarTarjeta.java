@@ -28,6 +28,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public VistaRecargarTarjeta() {
+        UIManager.put("Panel.background", new Color(249,255,255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());

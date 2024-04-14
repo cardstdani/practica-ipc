@@ -311,12 +311,19 @@ public class Modelo {
         saldoTarjetaCYL = Math.round(saldoTarjetaCYL * 100.0) / 100.0;
         addBillete();
     }
-
+    
+    /**
+     * Aumenta el saldo de la tarjeta CYL
+     * @param cantidadRecarga cantidad con la que se incrementa el saldo de la tarjeta CYL
+     */
     public void recargarTarjetaCyl(double cantidadRecarga) {
         saldoTarjetaCYL += cantidadRecarga;
         saldoTarjetaCYL = Math.round(saldoTarjetaCYL * 100.0) / 100.0;
     }
 
+    /**
+    * Agrega un nuevo billete al archivo CSV de billetes
+    */
     private void addBillete() {
         String content = String.join(";", fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                 viaje.getHorario().toString(), viaje.getIdRuta(), viaje.getEstacionOrigen(),
@@ -328,7 +335,11 @@ public class Modelo {
             e.printStackTrace(System.err);
         }
     }
-
+    
+    /**
+    * Obtiene una lista de tipo Billete a partir de un archivo CSV de billetes
+    * @return Una lista de tipo Billete que representa los billetes almacenados en el archivo CSV
+    */
     public ArrayList<Billete> getBilletes() {
         ArrayList<Billete> out = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/billetes.csv"))) {
@@ -343,11 +354,18 @@ public class Modelo {
         out.sort((p1, p2) -> p1.compareTo(p2));
         return out;
     }
-
+    
+    /**
+    * Agrega el billete al archivo CSV de billetes.
+    */
     public void pagarConTarjetaCredito() {
         addBillete();
     }
-
+    
+    /**
+    * Devuelve un billete, eliminandolo del registro de billetes almacenado en un archivo CSV
+    * @param selectedValue El billete que se va a devolver
+    */
     public void devolverBillete(Billete selectedValue) {
         ArrayList<Billete> tmp = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/billetes.csv"))) {
@@ -365,7 +383,12 @@ public class Modelo {
         }
         reescribirDatosBilletes(tmp);
     }
-
+    
+    /**
+    * Reescribe los datos de los billetes en el archivo CSV de billetes.
+    * @param tmp La lista de billetes actualizada que se va a escribir en el archivo CSV.
+    */
+    
     private void reescribirDatosBilletes(ArrayList<Billete> tmp) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/billetes.csv"))) {
             bw.write("fecha;hora;id;estacionOrigen;estacionDestino;tiempo;precio;bicicleta;mascota");
@@ -378,7 +401,11 @@ public class Modelo {
             e.printStackTrace(System.err);
         }
     }
-
+    
+    /**
+    * Obtiene el número total de viajes registrados en el archivo CSV de billetes
+    * @return El número total de viajes registrados
+    */
     public int getNumeroViajes() {
         try {
             return (int) (Files.lines(Paths.get("src/main/resources/billetes.csv")).count() - 1);
@@ -387,7 +414,11 @@ public class Modelo {
         }
         return 0;
     }
-
+    
+    /**
+    * Establece los valores del billete seleccionado para modificar
+    * @param selectedBillete El billete seleccionado para editar.
+    */
     public void setSelectedBilleteEdicion(Billete selectedBillete) {
         this.selectedBillete = selectedBillete;
         this.fecha = selectedBillete.getFecha().atTime(LocalTime.NOON);
@@ -395,6 +426,10 @@ public class Modelo {
         this.estacionDestino = selectedBillete.getEstacionDestino();
     }
 
+    /**
+    * Actualiza un billete con la información proporcionada de un nuevo viaje y guarda los cambios en el archivo CSV de billetes
+    * @param newSelectedViaje El nuevo viaje 
+    */
     public void actualizarBillete(Viaje newSelectedViaje) {
         ArrayList<Billete> tmp = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/billetes.csv"))) {

@@ -21,10 +21,16 @@ public class ControladorMenu {
         this.modelo = Main.getModelo();
     }
 
+    /**
+     * Muestra la vista de comprar un billete
+     */
     public void comprarBillete() {
         Main.getGestorVistas().mostrarVistaComprarBillete();
     }
 
+    /**
+     * Muestra la vista de acceso con tarjeta
+     */
     public void accesoTarjeta() {
         Main.getGestorVistas().mostrarVistaAccesoTarjeta();
     }

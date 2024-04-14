@@ -24,6 +24,7 @@ public class VistaMenu extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public VistaMenu() {
+        UIManager.put("Panel.background", new Color(249,255,255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
@@ -143,14 +144,17 @@ public class VistaMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * Maneja el evento de acción del botón para pasar del paso 1 al 2
-     *
-     * @param evt
+     * Maneja el evento de acción cuando se quiere comprar un billete
+     * @param evt el evento de accion que desencadeno este metodo
      */
     private void comprarBilleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarBilleteButtonActionPerformed
         controlador.comprarBillete();
     }//GEN-LAST:event_comprarBilleteButtonActionPerformed
 
+    /**
+     * Maneja el evento de accion del boton cuando se quiere acceder con tarjeta
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void accesoTarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accesoTarjetaButtonActionPerformed
         controlador.accesoTarjeta();
     }//GEN-LAST:event_accesoTarjetaButtonActionPerformed
