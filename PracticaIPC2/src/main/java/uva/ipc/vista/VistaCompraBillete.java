@@ -250,7 +250,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 150, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(9, 156, 0, 0);
         jPanel2.add(paso1Label, gridBagConstraints);
 
         seleccioneEstacionLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -260,7 +260,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 130, 38, 213);
+        gridBagConstraints.insets = new java.awt.Insets(6, 136, 44, 226);
         jPanel2.add(seleccioneEstacionLabel, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
@@ -275,7 +275,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(24, 26, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(15, 7, 0, 0);
         jPanel2.add(inicioButton, gridBagConstraints);
 
         paso1Panel.add(jPanel2);

@@ -160,9 +160,10 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         paso1Label3.setText("Recargar tarjeta");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 8, 28, 83);
+        gridBagConstraints.insets = new java.awt.Insets(41, 85, 1, 150);
         jPanel7.add(paso1Label3, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
@@ -177,7 +178,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(7, 15, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 17, 0, 0);
         jPanel7.add(inicioButton, gridBagConstraints);
 
         recargarPanel.add(jPanel7);
@@ -523,27 +524,63 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+    * Maneja el evento de acción cuando se hace clic en el boton de recargar 10$
+    * Se incia el proceso de recarga 
+    *
+    * @param evt El evento de accion que desencadeno este metodo
+    */
     private void recargar10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar10ButtonActionPerformed
         controlador.recargar10();
     }//GEN-LAST:event_recargar10ButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de acción cuando se hace clic en el boton de inicio
+    * Permite volver al menu inicial 
+    *
+    * @param evt El evento de accion que desencadeno este metodo
+    */
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de acción cuando se hace clic en el boton de recargar 20$
+    * Se incia el proceso de recarga 
+    *
+    * @param evt El evento de accion que desencadeno este metodo
+    */
     private void recargar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar20ButtonActionPerformed
         controlador.recargar20();
     }//GEN-LAST:event_recargar20ButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de acción cuando se hace clic en el boton de recargar 50$
+    * Se incia el proceso de recarga 
+    *
+    * @param evt El evento de accion que desencadeno este metodo
+    */
     private void recargar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar50ButtonActionPerformed
         controlador.recargar50();
     }//GEN-LAST:event_recargar50ButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de inicio
+    * Permite volver al menu inicial 
+    *
+    * @param evt El evento de accion que desencadeno este metodo
+    */
     private void inicioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton3ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton3ActionPerformed
-
+    
+    /**
+    * Maneja el evento de acción cuando se hace clic en el boton de aceptar
+    * Procesa el pago con tarjeta de credito
+    *
+    * @param evt El evento de accion que desencadeno este metodo
+    */
     private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
         controlador.aceptarPagoTarjetaCredito();
     }//GEN-LAST:event_aceptarButtonActionPerformed
@@ -551,19 +588,40 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     private void tarjetaCreditoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCreditoButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tarjetaCreditoButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de volver para regresar a la vista de tarjeta de credito
+    * @param evt El evento de accion que desencadenó este metodo
+    */
     private void volverTarjetaCreditoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverTarjetaCreditoButtonActionPerformed
         controlador.volverTarjetaCredito();
     }//GEN-LAST:event_volverTarjetaCreditoButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de volver para recargar la tarjeta
+    * Vuelve al acceso con tarjeta desde la vista de recarga
+    * @param evt El evento de accion que desencadenó este método
+    */
     private void volverRecargarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverRecargarButtonActionPerformed
         controlador.volverAccesoTarjeta();
     }//GEN-LAST:event_volverRecargarButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de acceso a la tarjeta
+    * Vuelve al acceso con tarjeta
+    *
+    * @param evt El evento de accion que desencadenó este método
+    */
     private void accesoTarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accesoTarjetaButtonActionPerformed
         controlador.volverAccesoTarjeta();
     }//GEN-LAST:event_accesoTarjetaButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de menu
+    * Vuelve al menu inicial 
+    *
+    * @param evt El evento de acción que desencadenó este método
+    */
     private void menuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButton1ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_menuButton1ActionPerformed
@@ -604,40 +662,69 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     private javax.swing.JButton volverRecargarButton;
     private javax.swing.JButton volverTarjetaCreditoButton;
     // End of variables declaration//GEN-END:variables
-
+    
+    /**
+     * Actualiza y muestra el saldo de la tarjeta de credito
+     * @param saldo el nuevo saldo de la tarjeta de credito
+     */
     public void actualizarSaldo(double saldo) {
         saldoLabel.setText("Saldo: " + saldo + "$");
     }
-
+    
+    /**
+     * Desactiva los paneles de tarjeta de credito, recarga y felicidades
+     */
     private void desactivarPaneles() {
         tarjetaPanel.setVisible(false);
         recargarPanel.setVisible(false);
         felicidadesPanel.setVisible(false);
     }
-
+    
+    /**
+     * Muestra el panel de recarga de tarjeta de credito
+     */
     public void mostrarRecargaTarjeta() {
         desactivarPaneles();
         recargarPanel.setVisible(true);
     }
-
+    
+    /**
+     * Muestra el panel donde se ve la tarjeta de credito
+     */
     public void mostrarTarjetaCredito() {
         desactivarPaneles();
         tarjetaPanel.setVisible(true);
     }
-
+    
+    /**
+     * Muestra el panel donde se introduce el pin de la tarjeta de credito
+     */
     public void mostrarPinTarjetaPanel() {
         pinTarjetaCreditoPanel.setVisible(true);
     }
-
+    
+    /**
+     * Muestra el panel de felicidades
+     */
     public void mostrarFelicidadesPanel() {
         desactivarPaneles();
         felicidadesPanel.setVisible(true);
     }
-
+    /**
+     * Obtiene el pin de la tarjeta introducido 
+     * @return el pin de la tarjeta introducido 
+     */
     public String getPinTarjeta() {
         return pinTarjetaField.getText();
     }
-
+    
+    /**
+    * Muestra mensaje de error en el paso 3 de comprar un billete
+    * Actualiza el texto de la etiqueta de errores y ajusta su color según el tipo de mensaje
+    *
+    * @param mensaje       el mensaje a mostrar
+    * @param codigoMensaje el codigo del mensaje que indica su tipo: normal o de error
+    */
     public void mensajePaso3TarjetaCredito(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel3.setText(mensaje);
         switch (codigoMensaje) {

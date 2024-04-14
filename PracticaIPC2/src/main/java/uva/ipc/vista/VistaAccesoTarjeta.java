@@ -142,10 +142,11 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         paso1Label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label3.setText("Bienvenido mister marshall!");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(38, 23, 55, 96);
+        gridBagConstraints.insets = new java.awt.Insets(39, 75, 1, 53);
         jPanel7.add(paso1Label3, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
@@ -160,7 +161,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 21, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 7, 0, 0);
         jPanel7.add(inicioButton, gridBagConstraints);
 
         tarjetaValidaPanel.add(jPanel7);
@@ -276,7 +277,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 86, 20, 225);
+        gridBagConstraints.insets = new java.awt.Insets(36, 134, 120, 226);
         jPanel2.add(paso1Label, gridBagConstraints);
 
         inicioButton1.setBackground(UIManager.getColor("Component.accentColor"));
@@ -291,7 +292,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(56, 52, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(22, 7, 0, 0);
         jPanel2.add(inicioButton1, gridBagConstraints);
 
         meterTarjetaPanel.add(jPanel2);

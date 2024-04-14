@@ -360,15 +360,33 @@ public class VistaMisViajes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de inicio
+    * Permite volver al menu incial
+    *
+    * @param evt El evento de accion que desencadeno este metodo
+    */
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de volver
+    * Permite volver a la vista anterior
+    *
+    * @param evt El evento de acción que desencadenó este método
+    */
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
         controlador.volver();
     }//GEN-LAST:event_volverButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de inicio
+    * Permite volver al menu inicial
+    *
+    * @param evt El evento de acción que desencadenó este método
+    */
     private void inicioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton1ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton1ActionPerformed
@@ -380,19 +398,39 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private void mascotaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mascotaCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mascotaCheckBoxActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de devolucion
+    * Devuelve el billete seleccionado
+    *
+    * @param evt El evento de acción que desencadeno este metodo
+    */
     private void devolverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverButtonActionPerformed
         controlador.devolverBillete();
     }//GEN-LAST:event_devolverButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de edicion
+    * Edita el billete seleccionado
+    * @param evt El evento de acción que desencadenó este método
+    */
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         controlador.editarBillete();
     }//GEN-LAST:event_editarButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de cancelacion
+    * Cancela la edicion actual
+    * @param evt El evento de acción que desencadenó este método
+    */
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         controlador.cancelarEdicion();
     }//GEN-LAST:event_cancelarButtonActionPerformed
-
+    
+    /**
+    * Maneja el evento de accion cuando se hace clic en el boton de confirmacion
+    * @param evt el evento de accion que desencadeno este método
+    */
     private void confirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarButtonActionPerformed
         controlador.confirmarEdicion();
     }//GEN-LAST:event_confirmarButtonActionPerformed
@@ -426,29 +464,48 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private javax.swing.JLabel seleccioneEstacionLabel1;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
-
+    
+    /**
+    * Actualiza la lista de billetes en la vista 
+    */
     public void actualizarBilletes() {
         billetesListModel.clear();
         billetesListModel.addAll(controlador.getBilletes());
     }
-
+    
+    /**
+     * Devuelve una notificacion al usuario de que su billete ha sido devuelto con exito
+     */
     public void notificarBilleteDevuelto() {
         Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Billete devuelto con éxito!");
     }
     
+    /**
+     * Devuelve una notificacion al usuario de que su billete ha sido editado con exito
+     */
     public void notificarBilleteEditado() {
         Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Billete editado con éxito!");
     }
-
+    
+    /**
+    * Obtiene el billete seleccionado actualmente en la lista de billetes
+    * @return El objeto Billete seleccionado en la lista de billetes
+    */
     public Billete getSelectedBillete() {
         return (Billete) billetesList.getSelectedValue();
     }
-
+        
+    /**
+     * Hace visible la vista de editar el billete que el usuario ha seleccionado
+     */
     public void activarVistaEditarBillete() {
         misBilletesPanel.setVisible(false);
         editarBilletePanel.setVisible(true);
     }
-
+    
+    /**
+     * Hace visible la vista de los billetes que tiene el usuario
+     */
     public void activarVistaMisBilletes() {
         misBilletesPanel.setVisible(true);
         editarBilletePanel.setVisible(false);

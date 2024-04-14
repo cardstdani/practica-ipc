@@ -7,8 +7,8 @@ package uva.ipc.vista;
 import javax.swing.JFrame;
 
 /**
- *
- * @author mcorrales
+ * @author Daniel Garcia Solla
+ * @author Carolina de las Heras Clavier
  */
 public class GestorVistas {
 
