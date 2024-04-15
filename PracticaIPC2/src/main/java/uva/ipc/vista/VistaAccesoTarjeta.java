@@ -26,7 +26,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public VistaAccesoTarjeta() {
-        UIManager.put("Panel.background", new Color(249,255,255));
+        UIManager.put("Panel.background", new Color(249, 255, 255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
@@ -79,6 +79,8 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
     public void styleButtons() {
         styleButton(recargarTarjetaButton);
         styleButton(misViajesButton);
+        styleButton(inicioButton);
+        styleButton(inicioButton1);
     }
 
     /**
@@ -150,8 +152,8 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         jPanel7.add(paso1Label3, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton.setText("INICIO");
+        inicioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton.setText("Menu");
         inicioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButtonActionPerformed(evt);
@@ -281,8 +283,8 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         jPanel2.add(paso1Label, gridBagConstraints);
 
         inicioButton1.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton1.setText("INICIO");
+        inicioButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton1.setText("Menu");
         inicioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButton1ActionPerformed(evt);
@@ -338,21 +340,21 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * Maneja el evento de accion cuando se hace clic en el botón recargar tarjeta
-     * Se muestra la vista de recargar la tarjeta
+     * Maneja el evento de accion cuando se hace clic en el botón recargar
+     * tarjeta Se muestra la vista de recargar la tarjeta
      *
      * @param evt El evento de acción que desencadenó este método
      */
     private void recargarTarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargarTarjetaButtonActionPerformed
         controlador.recargarTarjeta();
     }//GEN-LAST:event_recargarTarjetaButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de mis viajes
-    * Muestra la vista de los viajes realizados por el usuario
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de mis viajes
+     * Muestra la vista de los viajes realizados por el usuario
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void misViajesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_misViajesButtonActionPerformed
         controlador.misViajes();
     }//GEN-LAST:event_misViajesButtonActionPerformed
@@ -364,29 +366,29 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
     /**
      * Gestiona el evento de accion cuando se hace click en el boton de inicio
      * Se vuelve al menu de inicio
-     * 
+     *
      * @param evt El evento de acción que desencadenó este metodo
      */
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButtonActionPerformed
-    
+
     /**
-    * Gestiona el evento de accion cuando se hace clic en el boton de inicio
-    * Se vuelve al menu principal de la aplicacion
-    *
-    * @param evt El evento de acción que desencadenó este metodo
-    */
+     * Gestiona el evento de accion cuando se hace clic en el boton de inicio Se
+     * vuelve al menu principal de la aplicacion
+     *
+     * @param evt El evento de acción que desencadenó este metodo
+     */
     private void inicioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton1ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton1ActionPerformed
-    
+
     /**
-    * Gestiona el evento cuando se hace clic en la tarjeta de decoracion
-    * Muestra un cuadro de dialogo informativo con la política de privacidad 
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Gestiona el evento cuando se hace clic en la tarjeta de decoracion
+     * Muestra un cuadro de dialogo informativo con la política de privacidad
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void tarjetaDecorativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaDecorativaActionPerformed
         Utiles.dialogoInformativo(controlador.getPoliticaPrivacidad());
     }//GEN-LAST:event_tarjetaDecorativaActionPerformed
@@ -411,28 +413,33 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
     private javax.swing.JPanel tarjetaValidaPanel;
     private javax.swing.JLabel viajesLabel;
     // End of variables declaration//GEN-END:variables
-    
+
     /**
-    * Muestra el panel que indica que la tarjeta es valida
-    * Oculta el panel de inserción de tarjeta y muestra el panel de tarjeta valida
-    */
+     * Muestra el panel que indica que la tarjeta es valida Oculta el panel de
+     * inserción de tarjeta y muestra el panel de tarjeta valida
+     */
     public void tarjetaValida() {
         meterTarjetaPanel.setVisible(false);
         tarjetaValidaPanel.setVisible(true);
     }
-    
+
     /**
-     * Actualiza el saldo que tiene la tarjeta del usuario y asi este lo puede ver
-     * @param saldo el nuevo saldo de la tarjeta 
+     * Actualiza el saldo que tiene la tarjeta del usuario y asi este lo puede
+     * ver
+     *
+     * @param saldo el nuevo saldo de la tarjeta
      */
     public void actualizarSaldo(double saldo) {
         saldoLabel.setText("Saldo: " + saldo + "$");
     }
-    
+
     /**
-    * Actualiza el numero de viajes que el usuario tiene y que este lo pueda ver
-    * @param numeroViajes El nuevo numero de viajes a mostrar que tiene el usuario
-    */
+     * Actualiza el numero de viajes que el usuario tiene y que este lo pueda
+     * ver
+     *
+     * @param numeroViajes El nuevo numero de viajes a mostrar que tiene el
+     * usuario
+     */
     public void actualizarViajes(int numeroViajes) {
         viajesLabel.setText("Viajes: " + numeroViajes);
     }

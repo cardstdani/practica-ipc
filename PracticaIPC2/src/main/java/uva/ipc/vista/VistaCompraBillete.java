@@ -132,6 +132,9 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         styleButton(aceptarButton);
         styleButton(menuButton);
         styleButton(comprarBilleteTarjetaCyl);
+        styleButton(inicioButton);
+        styleButton(inicioButton1);
+        styleButton(inicioButton3);
     }
 
     /**
@@ -250,7 +253,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(9, 156, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(9, 151, 0, 0);
         jPanel2.add(paso1Label, gridBagConstraints);
 
         seleccioneEstacionLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -260,12 +263,12 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 136, 44, 226);
+        gridBagConstraints.insets = new java.awt.Insets(6, 131, 43, 227);
         jPanel2.add(seleccioneEstacionLabel, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton.setText("INICIO");
+        inicioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton.setText("Menu");
         inicioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButtonActionPerformed(evt);
@@ -275,7 +278,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 7, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 8, 0, 0);
         jPanel2.add(inicioButton, gridBagConstraints);
 
         paso1Panel.add(jPanel2);
@@ -410,12 +413,12 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 165, 36, 245);
+        gridBagConstraints.insets = new java.awt.Insets(6, 155, 36, 248);
         jPanel6.add(seleccioneEstacionLabel1, gridBagConstraints);
 
         inicioButton1.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton1.setText("INICIO");
+        inicioButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton1.setText("Menu");
         inicioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButton1ActionPerformed(evt);
@@ -425,7 +428,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 19, 0, 0);
         jPanel6.add(inicioButton1, gridBagConstraints);
 
         paso1Label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -435,7 +438,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(17, 163, 0, 245);
+        gridBagConstraints.insets = new java.awt.Insets(12, 153, 0, 248);
         jPanel6.add(paso1Label1, gridBagConstraints);
 
         paso2Panel.add(jPanel6);
@@ -636,7 +639,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(25, 162, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(25, 152, 0, 0);
         jPanel10.add(paso1Label2, gridBagConstraints);
 
         seleccioneEstacionLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -646,7 +649,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 123, 0, 208);
+        gridBagConstraints.insets = new java.awt.Insets(6, 113, 0, 211);
         jPanel10.add(seleccioneEstacionLabel2, gridBagConstraints);
 
         tarjetaCylRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -661,7 +664,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 155, 15, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 145, 15, 0);
         jPanel10.add(tarjetaCylRadioButton, gridBagConstraints);
 
         tarjetaCreditoRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -677,12 +680,12 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 155, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 145, 0, 0);
         jPanel10.add(tarjetaCreditoRadioButton, gridBagConstraints);
 
         inicioButton3.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton3.setText("INICIO");
+        inicioButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton3.setText("Menu");
         inicioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButton3ActionPerformed(evt);
@@ -692,7 +695,7 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(15, 19, 0, 0);
         jPanel10.add(inicioButton3, gridBagConstraints);
 
         paso3Panel.add(jPanel10);

@@ -26,7 +26,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public VistaMisViajes() {
-        UIManager.put("Panel.background", new Color(249,255,255));
+        UIManager.put("Panel.background", new Color(249, 255, 255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
@@ -52,8 +52,10 @@ public class VistaMisViajes extends javax.swing.JFrame {
         styleButton(devolverButton);
         styleButton(editarButton);
         styleButton(confirmarButton);
-        Utiles.setObjectIcon(imagenBiciLabel,"src/main/resources/Bicicleta.png");
-        Utiles.setObjectIcon(imagenMascotaLabel,"src/main/resources/Mascota.png");
+        styleButton(inicioButton);
+        styleButton(inicioButton1);
+        Utiles.setObjectIcon(imagenBiciLabel, "src/main/resources/Bicicleta.png");
+        Utiles.setObjectIcon(imagenMascotaLabel, "src/main/resources/Mascota.png");
     }
 
     /**
@@ -83,6 +85,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         inicioButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         volverButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         billetesList = new org.jdesktop.swingx.JXList();
         devolverButton = new javax.swing.JButton();
@@ -125,12 +128,12 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 155, 63, 258);
+        gridBagConstraints.insets = new java.awt.Insets(6, 141, 64, 259);
         jPanel2.add(paso1Label, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton.setText("INICIO");
+        inicioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton.setText("Menu");
         inicioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButtonActionPerformed(evt);
@@ -140,7 +143,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(17, 21, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(18, 41, 0, 0);
         jPanel2.add(inicioButton, gridBagConstraints);
 
         misBilletesPanel.add(jPanel2);
@@ -156,26 +159,13 @@ public class VistaMisViajes extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(128, 37, 29, 0);
+        gridBagConstraints.insets = new java.awt.Insets(128, 37, 17, 0);
         jPanel5.add(volverButton, gridBagConstraints);
 
         billetesList.setMinimumSize(new java.awt.Dimension(300, 100));
         jScrollPane3.setViewportView(billetesList);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 462;
-        gridBagConstraints.ipady = 186;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 70, 0, 54);
-        jPanel5.add(jScrollPane3, gridBagConstraints);
 
         devolverButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         devolverButton.setText("Devolver");
@@ -184,12 +174,6 @@ public class VistaMisViajes extends javax.swing.JFrame {
                 devolverButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 100, 0, 0);
-        jPanel5.add(devolverButton, gridBagConstraints);
 
         editarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         editarButton.setText("Editar");
@@ -198,12 +182,41 @@ public class VistaMisViajes extends javax.swing.JFrame {
                 editarButtonActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(devolverButton)
+                        .addGap(32, 32, 32)
+                        .addComponent(editarButton)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(devolverButton)
+                    .addComponent(editarButton))
+                .addContainerGap())
+        );
+
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 32, 0, 0);
-        jPanel5.add(editarButton, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(15, 58, 0, 54);
+        jPanel5.add(jPanel1, gridBagConstraints);
 
         misBilletesPanel.add(jPanel5);
 
@@ -224,12 +237,12 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 120, 36, 215);
+        gridBagConstraints.insets = new java.awt.Insets(6, 115, 36, 216);
         jPanel6.add(seleccioneEstacionLabel1, gridBagConstraints);
 
         inicioButton1.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton1.setText("INICIO");
+        inicioButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton1.setText("Menu");
         inicioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButton1ActionPerformed(evt);
@@ -239,7 +252,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(17, 17, 0, 0);
         jPanel6.add(inicioButton1, gridBagConstraints);
 
         paso1Label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -249,7 +262,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(17, 163, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 158, 0, 0);
         jPanel6.add(paso1Label1, gridBagConstraints);
 
         editarBilletePanel.add(jPanel6);
@@ -360,33 +373,33 @@ public class VistaMisViajes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de inicio
-    * Permite volver al menu incial
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio
+     * Permite volver al menu incial
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de volver
-    * Permite volver a la vista anterior
-    *
-    * @param evt El evento de acción que desencadenó este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de volver
+     * Permite volver a la vista anterior
+     *
+     * @param evt El evento de acción que desencadenó este método
+     */
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
         controlador.volver();
     }//GEN-LAST:event_volverButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de inicio
-    * Permite volver al menu inicial
-    *
-    * @param evt El evento de acción que desencadenó este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio
+     * Permite volver al menu inicial
+     *
+     * @param evt El evento de acción que desencadenó este método
+     */
     private void inicioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton1ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton1ActionPerformed
@@ -398,39 +411,43 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private void mascotaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mascotaCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mascotaCheckBoxActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de devolucion
-    * Devuelve el billete seleccionado
-    *
-    * @param evt El evento de acción que desencadeno este metodo
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de devolucion
+     * Devuelve el billete seleccionado
+     *
+     * @param evt El evento de acción que desencadeno este metodo
+     */
     private void devolverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolverButtonActionPerformed
         controlador.devolverBillete();
     }//GEN-LAST:event_devolverButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de edicion
-    * Edita el billete seleccionado
-    * @param evt El evento de acción que desencadenó este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de edicion
+     * Edita el billete seleccionado
+     *
+     * @param evt El evento de acción que desencadenó este método
+     */
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         controlador.editarBillete();
     }//GEN-LAST:event_editarButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de cancelacion
-    * Cancela la edicion actual
-    * @param evt El evento de acción que desencadenó este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de cancelacion
+     * Cancela la edicion actual
+     *
+     * @param evt El evento de acción que desencadenó este método
+     */
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         controlador.cancelarEdicion();
     }//GEN-LAST:event_cancelarButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de confirmacion
-    * @param evt el evento de accion que desencadeno este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de
+     * confirmacion
+     *
+     * @param evt el evento de accion que desencadeno este método
+     */
     private void confirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarButtonActionPerformed
         controlador.confirmarEdicion();
     }//GEN-LAST:event_confirmarButtonActionPerformed
@@ -447,6 +464,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private javax.swing.JLabel imagenMascotaLabel;
     private javax.swing.JButton inicioButton;
     private javax.swing.JButton inicioButton1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
@@ -464,37 +482,40 @@ public class VistaMisViajes extends javax.swing.JFrame {
     private javax.swing.JLabel seleccioneEstacionLabel1;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
-    
+
     /**
-    * Actualiza la lista de billetes en la vista 
-    */
+     * Actualiza la lista de billetes en la vista
+     */
     public void actualizarBilletes() {
         billetesListModel.clear();
         billetesListModel.addAll(controlador.getBilletes());
     }
-    
+
     /**
-     * Devuelve una notificacion al usuario de que su billete ha sido devuelto con exito
+     * Devuelve una notificacion al usuario de que su billete ha sido devuelto
+     * con exito
      */
     public void notificarBilleteDevuelto() {
         Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Billete devuelto con éxito!");
     }
-    
+
     /**
-     * Devuelve una notificacion al usuario de que su billete ha sido editado con exito
+     * Devuelve una notificacion al usuario de que su billete ha sido editado
+     * con exito
      */
     public void notificarBilleteEditado() {
         Notifications.getInstance().show(Notifications.Type.SUCCESS, Notifications.Location.BOTTOM_RIGHT, "Billete editado con éxito!");
     }
-    
+
     /**
-    * Obtiene el billete seleccionado actualmente en la lista de billetes
-    * @return El objeto Billete seleccionado en la lista de billetes
-    */
+     * Obtiene el billete seleccionado actualmente en la lista de billetes
+     *
+     * @return El objeto Billete seleccionado en la lista de billetes
+     */
     public Billete getSelectedBillete() {
         return (Billete) billetesList.getSelectedValue();
     }
-        
+
     /**
      * Hace visible la vista de editar el billete que el usuario ha seleccionado
      */
@@ -502,7 +523,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         misBilletesPanel.setVisible(false);
         editarBilletePanel.setVisible(true);
     }
-    
+
     /**
      * Hace visible la vista de los billetes que tiene el usuario
      */
@@ -510,37 +531,49 @@ public class VistaMisViajes extends javax.swing.JFrame {
         misBilletesPanel.setVisible(true);
         editarBilletePanel.setVisible(false);
     }
-    
+
     /**
-    * Actualiza la vista de edicion de billetes con la informacion proporcionada
-    * @param viajes La lista de viajes disponibles para editar el billete
-    */
-    public void actualizarVistaEditarBillete(ArrayList<Viaje> viajes) {
+     * Actualiza la vista de edicion de billetes con la informacion
+     * proporcionada
+     *
+     * @param viajes La lista de viajes disponibles para editar el billete
+     */
+    public void actualizarVistaEditarBillete(ArrayList<Viaje> viajes, Billete billeteSeleccionado) {
         viajesListModel.clear();
-        viajesListModel.addAll(viajes);
-        mascotaCheckBox.setSelected(getSelectedBillete().getMascota());
-        bicicletaCheckBox.setSelected(getSelectedBillete().getBicicleta());
+        for (Viaje viaje : viajes) {
+            viajesListModel.addElement(viaje);
+            if (rutasList.getSelectedValue() == null && viaje.getHorario().equals(billeteSeleccionado.getHora())) {
+                rutasList.setSelectedValue(viaje, true);
+            }
+        }
+        mascotaCheckBox.setSelected(billeteSeleccionado.getMascota());
+        bicicletaCheckBox.setSelected(billeteSeleccionado.getBicicleta());
     }
-    
+
     /**
-    * Obtiene el viaje seleccionado actualmente en la lista de rutas
-    * @return el objeto Viaje seleccionado en la lista de rutas
-    */
+     * Obtiene el viaje seleccionado actualmente en la lista de rutas
+     *
+     * @return el objeto Viaje seleccionado en la lista de rutas
+     */
     public Viaje getNewSelectedViaje() {
         return (Viaje) rutasList.getSelectedValue();
     }
-    
+
     /**
      * Obtiene el estado de la casilla de si el usuario ha elegido bicicleta
-     * @return true si la casilla de verificación de bicicleta está seleccionada, false en el caso contrario
+     *
+     * @return true si la casilla de verificación de bicicleta está
+     * seleccionada, false en el caso contrario
      */
     public boolean getBicicleta() {
         return bicicletaCheckBox.isSelected();
     }
-    
+
     /**
      * Obtiene el estado de la casilla de si el usuario ha elegido mascota
-     * @return true si la casilla de verificacion de mascota esta seleccionada, false en el caso contrario
+     *
+     * @return true si la casilla de verificacion de mascota esta seleccionada,
+     * false en el caso contrario
      */
     public boolean getMascota() {
         return mascotaCheckBox.isSelected();
