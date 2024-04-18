@@ -28,7 +28,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public VistaRecargarTarjeta() {
-        UIManager.put("Panel.background", new Color(249,255,255));
+        UIManager.put("Panel.background", new Color(249, 255, 255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
@@ -80,6 +80,9 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         styleButton(aceptarButton);
         styleButton(menuButton1);
         styleButton(accesoTarjetaButton);
+        styleButton(comprarBilleteButton);
+        styleButton(inicioButton);
+        styleButton(inicioButton3);
     }
 
     /**
@@ -128,10 +131,10 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         seleccioneEstacionLabel5 = new javax.swing.JLabel();
         pinTarjetaField = new javax.swing.JPasswordField();
         aceptarButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        tarjetaCreditoButton = new org.jdesktop.swingx.JXButton();
         jPanel4 = new javax.swing.JPanel();
         erroresLabel3 = new org.jdesktop.swingx.JXLabel();
+        jPanel2 = new javax.swing.JPanel();
+        tarjetaCreditoButton = new org.jdesktop.swingx.JXButton();
         jPanel13 = new javax.swing.JPanel();
         volverTarjetaCreditoButton = new javax.swing.JButton();
         felicidadesPanel = new javax.swing.JPanel();
@@ -141,6 +144,8 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         accesoTarjetaButton = new javax.swing.JButton();
         menuButton1 = new javax.swing.JButton();
+        comprarBilleteButton = new javax.swing.JButton();
+        nuevoSaldoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tren Castilla y León");
@@ -163,12 +168,12 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(41, 85, 1, 150);
+        gridBagConstraints.insets = new java.awt.Insets(37, 76, 7, 160);
         jPanel7.add(paso1Label3, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton.setText("INICIO");
+        inicioButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton.setText("Menu");
         inicioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButtonActionPerformed(evt);
@@ -178,7 +183,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 17, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(19, 18, 0, 0);
         jPanel7.add(inicioButton, gridBagConstraints);
 
         recargarPanel.add(jPanel7);
@@ -186,8 +191,8 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
         recargar10Button.setBackground(UIManager.getColor("Component.accentColor"));
-        recargar10Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        recargar10Button.setText("10$");
+        recargar10Button.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recargar10Button.setText("10€");
         recargar10Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recargar10ButtonActionPerformed(evt);
@@ -199,23 +204,23 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 35;
         gridBagConstraints.ipady = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 52, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 27, 0, 0);
         jPanel8.add(recargar10Button, gridBagConstraints);
 
-        saldoLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        saldoLabel.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         saldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         saldoLabel.setText("Saldo: 78");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(90, 3, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(81, 93, 0, 0);
         jPanel8.add(saldoLabel, gridBagConstraints);
 
         recargar20Button.setBackground(UIManager.getColor("Component.accentColor"));
-        recargar20Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        recargar20Button.setText("20$");
+        recargar20Button.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recargar20Button.setText("20€");
         recargar20Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recargar20ButtonActionPerformed(evt);
@@ -232,20 +237,21 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         jPanel8.add(recargar20Button, gridBagConstraints);
 
         recargar50Button.setBackground(UIManager.getColor("Component.accentColor"));
-        recargar50Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        recargar50Button.setText("50$");
+        recargar50Button.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        recargar50Button.setText("50€");
         recargar50Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recargar50ButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.ipadx = 35;
         gridBagConstraints.ipady = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 4, 0, 166);
+        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 166);
         jPanel8.add(recargar50Button, gridBagConstraints);
 
         label.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -256,7 +262,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(61, 52, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(82, 27, 0, 0);
         jPanel8.add(label, gridBagConstraints);
 
         volverRecargarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -270,7 +276,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(179, 24, 18, 0);
+        gridBagConstraints.insets = new java.awt.Insets(178, 49, 17, 0);
         jPanel8.add(volverRecargarButton, gridBagConstraints);
 
         recargarPanel.add(jPanel8);
@@ -287,28 +293,28 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
         paso1Label5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso1Label5.setText("A pagar");
+        paso1Label5.setText("Pago");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(37, 142, 0, 235);
+        gridBagConstraints.insets = new java.awt.Insets(36, 158, 0, 0);
         jPanel12.add(paso1Label5, gridBagConstraints);
 
         seleccioneEstacionLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        seleccioneEstacionLabel4.setText("Pague usted");
+        seleccioneEstacionLabel4.setText("Pague usted su recarga");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 168, 13, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 130, 20, 282);
         jPanel12.add(seleccioneEstacionLabel4, gridBagConstraints);
 
         inicioButton3.setBackground(UIManager.getColor("Component.accentColor"));
-        inicioButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        inicioButton3.setText("INICIO");
+        inicioButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inicioButton3.setText("Menu");
         inicioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioButton3ActionPerformed(evt);
@@ -318,7 +324,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 16, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(20, 41, 0, 0);
         jPanel12.add(inicioButton3, gridBagConstraints);
 
         tarjetaPanel.add(jPanel12);
@@ -343,13 +349,13 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         pinTarjetaCreditoPanelLayout.setHorizontalGroup(
             pinTarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pinTarjetaCreditoPanelLayout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(seleccioneEstacionLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pinTarjetaField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(aceptarButton)
-                .addGap(29, 29, 29))
+                .addGap(34, 34, 34))
         );
         pinTarjetaCreditoPanelLayout.setVerticalGroup(
             pinTarjetaCreditoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,41 +372,10 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 80;
+        gridBagConstraints.ipadx = 58;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 132, 27, 101);
+        gridBagConstraints.insets = new java.awt.Insets(12, 64, 35, 60);
         tarjetaCreditoPanel.add(pinTarjetaCreditoPanel, gridBagConstraints);
-
-        tarjetaCreditoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tarjetaCreditoButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tarjetaCreditoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tarjetaCreditoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 132, 0, 101);
-        tarjetaCreditoPanel.add(jPanel1, gridBagConstraints);
 
         erroresLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         erroresLabel3.setText("Mantenga usted la tarjeta 2 segundos");
@@ -427,8 +402,39 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 167, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 113, 0, 0);
         tarjetaCreditoPanel.add(jPanel4, gridBagConstraints);
+
+        tarjetaCreditoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tarjetaCreditoButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tarjetaCreditoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tarjetaCreditoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(9, 64, 0, 60);
+        tarjetaCreditoPanel.add(jPanel2, gridBagConstraints);
 
         tarjetaPanel.add(tarjetaCreditoPanel);
 
@@ -494,11 +500,11 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 13;
         gridBagConstraints.ipady = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 227, 224, 245);
+        gridBagConstraints.insets = new java.awt.Insets(6, 250, 0, 0);
         panel.add(accesoTarjetaButton, gridBagConstraints);
 
         menuButton1.setBackground(UIManager.getColor("Component.accentColor"));
@@ -511,12 +517,40 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 36;
         gridBagConstraints.ipady = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(59, 227, 0, 245);
+        gridBagConstraints.insets = new java.awt.Insets(18, 250, 0, 0);
         panel.add(menuButton1, gridBagConstraints);
+
+        comprarBilleteButton.setBackground(UIManager.getColor("Component.accentColor"));
+        comprarBilleteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comprarBilleteButton.setText("Comprar Billete");
+        comprarBilleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprarBilleteButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 4;
+        gridBagConstraints.ipady = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 250, 327, 0);
+        panel.add(comprarBilleteButton, gridBagConstraints);
+
+        nuevoSaldoLabel.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        nuevoSaldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nuevoSaldoLabel.setText("Nuevo saldo: 78");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(31, 175, 0, 166);
+        panel.add(nuevoSaldoLabel, gridBagConstraints);
 
         felicidadesPanel.add(panel);
 
@@ -524,63 +558,63 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /**
-    * Maneja el evento de acción cuando se hace clic en el boton de recargar 10$
-    * Se incia el proceso de recarga 
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de acción cuando se hace clic en el boton de recargar
+     * 10$ Se incia el proceso de recarga
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void recargar10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar10ButtonActionPerformed
         controlador.recargar10();
     }//GEN-LAST:event_recargar10ButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de acción cuando se hace clic en el boton de inicio
-    * Permite volver al menu inicial 
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de acción cuando se hace clic en el boton de inicio
+     * Permite volver al menu inicial
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de acción cuando se hace clic en el boton de recargar 20$
-    * Se incia el proceso de recarga 
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de acción cuando se hace clic en el boton de recargar
+     * 20$ Se incia el proceso de recarga
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void recargar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar20ButtonActionPerformed
         controlador.recargar20();
     }//GEN-LAST:event_recargar20ButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de acción cuando se hace clic en el boton de recargar 50$
-    * Se incia el proceso de recarga 
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de acción cuando se hace clic en el boton de recargar
+     * 50$ Se incia el proceso de recarga
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void recargar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recargar50ButtonActionPerformed
         controlador.recargar50();
     }//GEN-LAST:event_recargar50ButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de inicio
-    * Permite volver al menu inicial 
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio
+     * Permite volver al menu inicial
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void inicioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton3ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton3ActionPerformed
-    
+
     /**
-    * Maneja el evento de acción cuando se hace clic en el boton de aceptar
-    * Procesa el pago con tarjeta de credito
-    *
-    * @param evt El evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de acción cuando se hace clic en el boton de aceptar
+     * Procesa el pago con tarjeta de credito
+     *
+     * @param evt El evento de accion que desencadeno este metodo
+     */
     private void aceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarButtonActionPerformed
         controlador.aceptarPagoTarjetaCredito();
     }//GEN-LAST:event_aceptarButtonActionPerformed
@@ -588,60 +622,70 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     private void tarjetaCreditoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarjetaCreditoButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tarjetaCreditoButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de volver para regresar a la vista de tarjeta de credito
-    * @param evt El evento de accion que desencadenó este metodo
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de volver para
+     * regresar a la vista de tarjeta de credito
+     *
+     * @param evt El evento de accion que desencadenó este metodo
+     */
     private void volverTarjetaCreditoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverTarjetaCreditoButtonActionPerformed
         controlador.volverTarjetaCredito();
     }//GEN-LAST:event_volverTarjetaCreditoButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de volver para recargar la tarjeta
-    * Vuelve al acceso con tarjeta desde la vista de recarga
-    * @param evt El evento de accion que desencadenó este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de volver para
+     * recargar la tarjeta Vuelve al acceso con tarjeta desde la vista de
+     * recarga
+     *
+     * @param evt El evento de accion que desencadenó este método
+     */
     private void volverRecargarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverRecargarButtonActionPerformed
         controlador.volverAccesoTarjeta();
     }//GEN-LAST:event_volverRecargarButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de acceso a la tarjeta
-    * Vuelve al acceso con tarjeta
-    *
-    * @param evt El evento de accion que desencadenó este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de acceso a la
+     * tarjeta Vuelve al acceso con tarjeta
+     *
+     * @param evt El evento de accion que desencadenó este método
+     */
     private void accesoTarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accesoTarjetaButtonActionPerformed
         controlador.volverAccesoTarjeta();
     }//GEN-LAST:event_accesoTarjetaButtonActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de menu
-    * Vuelve al menu inicial 
-    *
-    * @param evt El evento de acción que desencadenó este método
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de menu Vuelve
+     * al menu inicial
+     *
+     * @param evt El evento de acción que desencadenó este método
+     */
     private void menuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButton1ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_menuButton1ActionPerformed
 
+    private void comprarBilleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarBilleteButtonActionPerformed
+        controlador.comprarBillete();
+    }//GEN-LAST:event_comprarBilleteButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton accesoTarjetaButton;
     private javax.swing.JButton aceptarButton;
+    private javax.swing.JButton comprarBilleteButton;
     private org.jdesktop.swingx.JXLabel erroresLabel3;
     private javax.swing.JPanel felicidadesPanel;
     private javax.swing.JButton inicioButton;
     private javax.swing.JButton inicioButton3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel label;
     private javax.swing.JButton menuButton1;
+    private javax.swing.JLabel nuevoSaldoLabel;
     private javax.swing.JPanel panel;
     private javax.swing.JLabel paso1Label3;
     private javax.swing.JLabel paso1Label5;
@@ -662,15 +706,16 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
     private javax.swing.JButton volverRecargarButton;
     private javax.swing.JButton volverTarjetaCreditoButton;
     // End of variables declaration//GEN-END:variables
-    
+
     /**
      * Actualiza y muestra el saldo de la tarjeta de credito
+     *
      * @param saldo el nuevo saldo de la tarjeta de credito
      */
     public void actualizarSaldo(double saldo) {
         saldoLabel.setText("Saldo: " + saldo + "$");
     }
-    
+
     /**
      * Desactiva los paneles de tarjeta de credito, recarga y felicidades
      */
@@ -679,7 +724,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         recargarPanel.setVisible(false);
         felicidadesPanel.setVisible(false);
     }
-    
+
     /**
      * Muestra el panel de recarga de tarjeta de credito
      */
@@ -687,7 +732,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         desactivarPaneles();
         recargarPanel.setVisible(true);
     }
-    
+
     /**
      * Muestra el panel donde se ve la tarjeta de credito
      */
@@ -695,14 +740,14 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         desactivarPaneles();
         tarjetaPanel.setVisible(true);
     }
-    
+
     /**
      * Muestra el panel donde se introduce el pin de la tarjeta de credito
      */
     public void mostrarPinTarjetaPanel() {
         pinTarjetaCreditoPanel.setVisible(true);
     }
-    
+
     /**
      * Muestra el panel de felicidades
      */
@@ -710,21 +755,25 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         desactivarPaneles();
         felicidadesPanel.setVisible(true);
     }
+
     /**
-     * Obtiene el pin de la tarjeta introducido 
-     * @return el pin de la tarjeta introducido 
+     * Obtiene el pin de la tarjeta introducido
+     *
+     * @return el pin de la tarjeta introducido
      */
     public String getPinTarjeta() {
         return pinTarjetaField.getText();
     }
-    
+
     /**
-    * Muestra mensaje de error en el paso 3 de comprar un billete
-    * Actualiza el texto de la etiqueta de errores y ajusta su color según el tipo de mensaje
-    *
-    * @param mensaje       el mensaje a mostrar
-    * @param codigoMensaje el codigo del mensaje que indica su tipo: normal o de error
-    */
+     * Muestra mensaje de error en el paso 3 de comprar un billete Actualiza el
+     * texto de la etiqueta de errores y ajusta su color según el tipo de
+     * mensaje
+     *
+     * @param mensaje el mensaje a mostrar
+     * @param codigoMensaje el codigo del mensaje que indica su tipo: normal o
+     * de error
+     */
     public void mensajePaso3TarjetaCredito(String mensaje, Utiles.codigoMensaje codigoMensaje) {
         erroresLabel3.setText(mensaje);
         switch (codigoMensaje) {
@@ -736,5 +785,9 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
                 erroresLabel3.setForeground(Color.black);
                 break;
         }
+    }
+
+    public void actualizarNuevoSaldo(double saldo) {
+        nuevoSaldoLabel.setText("Nuevo saldo: " + saldo + "€");
     }
 }//class Vista

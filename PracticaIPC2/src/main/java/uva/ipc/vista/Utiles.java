@@ -7,8 +7,6 @@ package uva.ipc.vista;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -19,6 +17,11 @@ import javax.swing.*;
  * @author Carolina de las Heras Clavier
  */
 public class Utiles {
+
+    public static boolean confirmar(String mensaje) {
+        int confirm = JOptionPane.showConfirmDialog(null, mensaje, "Confirmación", JOptionPane.YES_NO_OPTION);
+        return confirm == JOptionPane.YES_OPTION;
+    }
 
     public enum codigoMensaje {
         ERROR, NORMAL

@@ -53,7 +53,7 @@ public class ControladorMisViajes {
     public void devolverBillete() {
         if (vista.getSelectedBillete() == null) {
             Utiles.dialogoError("Por favor, seleccione usted un billete");
-        } else {
+        } else if (Utiles.confirmar("¿Quiere usted devolver el billete?")) {
             Main.getModelo().devolverBillete(vista.getSelectedBillete());
             vista.actualizarBilletes();
             vista.notificarBilleteDevuelto();

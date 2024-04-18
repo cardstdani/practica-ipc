@@ -161,7 +161,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(128, 37, 17, 0);
+        gridBagConstraints.insets = new java.awt.Insets(105, 14, 23, 0);
         jPanel5.add(volverButton, gridBagConstraints);
 
         billetesList.setMinimumSize(new java.awt.Dimension(300, 100));
@@ -235,9 +235,8 @@ public class VistaMisViajes extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 115, 36, 216);
+        gridBagConstraints.insets = new java.awt.Insets(6, 116, 24, 0);
         jPanel6.add(seleccioneEstacionLabel1, gridBagConstraints);
 
         inicioButton1.setBackground(UIManager.getColor("Component.accentColor"));
@@ -257,12 +256,13 @@ public class VistaMisViajes extends javax.swing.JFrame {
 
         paso1Label1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso1Label1.setText("?????");
+        paso1Label1.setText("Editar billete");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 158, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 110, 0, 193);
         jPanel6.add(paso1Label1, gridBagConstraints);
 
         editarBilletePanel.add(jPanel6);

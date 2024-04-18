@@ -142,13 +142,12 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
 
         paso1Label3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         paso1Label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso1Label3.setText("Bienvenido mister marshall!");
+        paso1Label3.setText("Sea usted bienvenido");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(39, 75, 1, 53);
+        gridBagConstraints.insets = new java.awt.Insets(34, 57, 7, 108);
         jPanel7.add(paso1Label3, gridBagConstraints);
 
         inicioButton.setBackground(UIManager.getColor("Component.accentColor"));
@@ -163,7 +162,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 7, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(22, 8, 0, 0);
         jPanel7.add(inicioButton, gridBagConstraints);
 
         tarjetaValidaPanel.add(jPanel7);

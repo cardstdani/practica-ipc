@@ -1,1 +1,5 @@
 fecha;hora;id;estacionOrigen;estacionDestino;tiempo;precio;bicicleta;mascota
+26/04/2023;14:00;CYL4;Zamora - Zamora;Aranda de Duero - Burgos;100;11.45;true;true
+18/04/2024;19:00;CYL7;Valladolid - Valladolid;Aguilar de Campoo - Palencia;80;9.1;false;false
+18/04/2024;22:00;CYL2;Ciudad Rodrigo - Salamanca;Burgos - Burgos;110;22.2;false;false
+18/04/2024;17:10;CYL6;Medina de Rioseco - Valladolid;Astorga - León;50;8.95;false;false

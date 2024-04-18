@@ -52,6 +52,7 @@ public class ControladorRecargarTarjeta {
             //continuarPaso3();
             modelo.recargarTarjetaCyl(cantidadRecarga);
             Utiles.sonidoAmigable();
+            vista.actualizarNuevoSaldo(modelo.getSaldo());
             vista.mostrarFelicidadesPanel();
         } else {
             vista.mensajePaso3TarjetaCredito("Su PIN es incorrecto", Utiles.codigoMensaje.ERROR);
@@ -101,5 +102,9 @@ public class ControladorRecargarTarjeta {
      */
     public void tarjetaCreditoValida() {
         vista.mostrarPinTarjetaPanel();
+    }
+
+    public void comprarBillete() {
+        Main.getGestorVistas().mostrarVistaComprarBillete();
     }
 }//class Controlador

@@ -57,6 +57,7 @@ uva\ipc\vista\VistaRecargarTarjeta.class
 raven\toast\Notifications.class
 uva\ipc\vista\ControladorCompraBillete.class
 uva\ipc\vista\VistaCompraBillete$13.class
+uva\ipc\vista\VistaRecargarTarjeta$14.class
 raven\toast\Notifications$NotificationAnimation.class
 raven\toast\util\UIUtils.class
 uva\ipc\vista\VistaRecargarTarjeta$9.class
