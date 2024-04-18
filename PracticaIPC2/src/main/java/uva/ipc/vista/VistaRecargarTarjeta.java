@@ -466,7 +466,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
-        paso1Label6.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        paso1Label6.setFont(new java.awt.Font("Arial", 1, 38)); // NOI18N
         paso1Label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso1Label6.setText("Felicidades!");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -541,7 +541,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 250, 327, 0);
         panel.add(comprarBilleteButton, gridBagConstraints);
 
-        nuevoSaldoLabel.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        nuevoSaldoLabel.setFont(new java.awt.Font("Arial", 1, 34)); // NOI18N
         nuevoSaldoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nuevoSaldoLabel.setText("Nuevo saldo: 78");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -561,7 +561,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
     /**
      * Maneja el evento de acción cuando se hace clic en el boton de recargar
-     * 10$ Se incia el proceso de recarga
+     * 10 euros Se incia el proceso de recarga
      *
      * @param evt El evento de accion que desencadeno este metodo
      */
@@ -581,7 +581,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
     /**
      * Maneja el evento de acción cuando se hace clic en el boton de recargar
-     * 20$ Se incia el proceso de recarga
+     * 20 euros Se incia el proceso de recarga
      *
      * @param evt El evento de accion que desencadeno este metodo
      */
@@ -591,7 +591,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
 
     /**
      * Maneja el evento de acción cuando se hace clic en el boton de recargar
-     * 50$ Se incia el proceso de recarga
+     * 50 euros Se incia el proceso de recarga
      *
      * @param evt El evento de accion que desencadeno este metodo
      */
@@ -713,7 +713,7 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
      * @param saldo el nuevo saldo de la tarjeta de credito
      */
     public void actualizarSaldo(double saldo) {
-        saldoLabel.setText("Saldo: " + saldo + "$");
+        saldoLabel.setText("Saldo: " + saldo + "€");
     }
 
     /**
@@ -786,7 +786,12 @@ public class VistaRecargarTarjeta extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
+    /**
+    * Actualiza el label del saldo para que el usario pueda ver su saldo disponible
+    * 
+    * @param saldo el nuevo saldo que tiene el usuario
+    */
     public void actualizarNuevoSaldo(double saldo) {
         nuevoSaldoLabel.setText("Nuevo saldo: " + saldo + "€");
     }

@@ -231,7 +231,7 @@ public class VistaMisViajes extends javax.swing.JFrame {
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         seleccioneEstacionLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        seleccioneEstacionLabel1.setText("Ahora usté modifica su billete");
+        seleccioneEstacionLabel1.setText("Ahora modifique usted su billete");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;

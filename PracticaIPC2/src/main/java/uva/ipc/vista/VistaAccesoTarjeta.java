@@ -327,9 +327,9 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tarjetaCylPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tarjetaCylButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(57, 57, 57)
                 .addComponent(erroresLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         meterTarjetaPanel.add(tarjetaCylPanel);
@@ -429,7 +429,7 @@ public class VistaAccesoTarjeta extends javax.swing.JFrame {
      * @param saldo el nuevo saldo de la tarjeta
      */
     public void actualizarSaldo(double saldo) {
-        saldoLabel.setText("Saldo: " + saldo + "$");
+        saldoLabel.setText("Saldo: " + saldo + "€");
     }
 
     /**

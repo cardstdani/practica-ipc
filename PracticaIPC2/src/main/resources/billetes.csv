@@ -1,5 +1,14 @@
 fecha;hora;id;estacionOrigen;estacionDestino;tiempo;precio;bicicleta;mascota
 26/04/2023;14:00;CYL4;Zamora - Zamora;Aranda de Duero - Burgos;100;11.45;true;true
-18/04/2024;19:00;CYL7;Valladolid - Valladolid;Aguilar de Campoo - Palencia;80;9.1;false;false
-18/04/2024;22:00;CYL2;Ciudad Rodrigo - Salamanca;Burgos - Burgos;110;22.2;false;false
 18/04/2024;17:10;CYL6;Medina de Rioseco - Valladolid;Astorga - León;50;8.95;false;false
+18/04/2024;19:00;CYL7;Valladolid - Valladolid;Aguilar de Campoo - Palencia;80;9.1;false;true
+20/04/2024;19:20;CYL1;Burgos - Burgos;Salamanca - Salamanca;80;16.2;false;false
+18/04/2024;19:30;CYL3;Soria - Soria;Aranda de Duero - Burgos;50;8.65;false;false
+18/04/2024;17:30;CYL3;El Burgo de Osma - Soria;Aranda de Duero - Burgos;20;3.15;false;false
+18/04/2024;17:50;CYL7;Palencia - Palencia;Aguilar de Campoo - Palencia;30;3.0;false;false
+18/04/2024;20:00;CYL4;Zamora - Zamora;Aranda de Duero - Burgos;100;11.45;false;false
+18/04/2024;22:30;CYL4;Toro - Zamora;Aranda de Duero - Burgos;70;8.95;false;false
+18/04/2024;20:00;CYL7;Ávila - Ávila;Aguilar de Campoo - Palencia;140;18.85;false;false
+18/04/2024;18:25;CYL5;Astorga - León;Cuéllar - Segovia;95;14.95;false;false
+18/04/2024;18:30;CYL7;Venta de Baños - Palencia;Aguilar de Campoo - Palencia;50;6.6;false;false
+18/04/2024;18:00;CYL2;Ciudad Rodrigo - Salamanca;Burgos - Burgos;110;22.2;false;false

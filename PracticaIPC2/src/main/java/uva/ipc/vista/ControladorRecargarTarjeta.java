@@ -74,7 +74,7 @@ public class ControladorRecargarTarjeta {
     }
 
     /**
-     * Establece el precio de la recarga en 10$
+     * Establece el precio de la recarga en 10 euros
      */
     public void recargar10() {
         vista.mostrarTarjetaCredito();
@@ -82,7 +82,7 @@ public class ControladorRecargarTarjeta {
     }
     
     /**
-     * Establece el precio de la recarga en 20$
+     * Establece el precio de la recarga en 20 euros
      */
     public void recargar20() {
         vista.mostrarTarjetaCredito();
@@ -90,7 +90,7 @@ public class ControladorRecargarTarjeta {
     }
     
     /**
-     * Establece el precio de la recarga en 50$
+     * Establece el precio de la recarga en 50 euros
      */
     public void recargar50() {
         vista.mostrarTarjetaCredito();
@@ -103,7 +103,10 @@ public class ControladorRecargarTarjeta {
     public void tarjetaCreditoValida() {
         vista.mostrarPinTarjetaPanel();
     }
-
+    
+    /**
+    * Muestra la vista para que el usuario pueda comprar un billete
+    */
     public void comprarBillete() {
         Main.getGestorVistas().mostrarVistaComprarBillete();
     }
