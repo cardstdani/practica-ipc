@@ -26,12 +26,14 @@ public class VistaCompraBillete extends javax.swing.JFrame {
 
     private ControladorCompraBillete controlador;
     private DefaultListModel<Viaje> viajesListModel = new DefaultListModel<>();
+    private WebView webView;
+    private Scene scene;
 
     /**
      * Creates new form MainFrame
      */
-    public VistaCompraBillete() {      
-        UIManager.put("Panel.background", new Color(249,255,255));
+    public VistaCompraBillete() {
+        UIManager.put("Panel.background", new Color(249, 255, 255));
         FlatLaf.setup(new FlatArcOrangeIJTheme());
 
         this.setIconImage(new ImageIcon("src/main/resources/Tarjetacyl.png").getImage());
@@ -109,9 +111,9 @@ public class VistaCompraBillete extends javax.swing.JFrame {
         JFXPanel jfxPanel = new JFXPanel();
 
         Platform.runLater(() -> {
-            WebView webView = new WebView();
+            webView = new WebView();
             webView.getEngine().load("https://dinorunner.com/"); //https://offline-dino-game.firebaseapp.com/
-            Scene scene = new Scene(webView);
+            scene = new Scene(webView);
             jfxPanel.setScene(scene);
             webView.requestFocus();
         });
@@ -1082,47 +1084,51 @@ public class VistaCompraBillete extends javax.swing.JFrame {
             fechaDatePicker.setDate(new Date());
         }
     }//GEN-LAST:event_fechaDatePickerActionPerformed
-    
+
     /**
-     * Maneja el evento de accion cuando se hace clic en el boton de inicio1
-     * Se vuelve al menu de incio
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio1 Se
+     * vuelve al menu de incio
+     *
      * @param evt el evento de accion que desencadeno este metodo
      */
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButtonActionPerformed
-    
+
     /**
-     * Maneja el evento de accion cuando se hace clic en el boton de inicio1
-     * Se vuelve al menu de incio
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio1 Se
+     * vuelve al menu de incio
+     *
      * @param evt el evento de accion que desencadeno este metodo
      */
     private void inicioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton1ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton1ActionPerformed
-    
+
     /**
-     * Maneja el evento de accion cuando se hace clic en el boton de inicio3
-     * Se vuelve al menu de incio
+     * Maneja el evento de accion cuando se hace clic en el boton de inicio3 Se
+     * vuelve al menu de incio
+     *
      * @param evt el evento de accion que desencadeno este metodo
      */
     private void inicioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButton3ActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_inicioButton3ActionPerformed
-    
+
     /**
-    * Maneja el evento de accion cuando se hace clic en el boton de menu
-    * Se vuelve al menu principal de la aplicacion
-    *
-    * @param evt el evento de accion que desencadeno este metodo
-    */
+     * Maneja el evento de accion cuando se hace clic en el boton de menu Se
+     * vuelve al menu principal de la aplicacion
+     *
+     * @param evt el evento de accion que desencadeno este metodo
+     */
     private void menuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonActionPerformed
         controlador.volverMenu();
     }//GEN-LAST:event_menuButtonActionPerformed
-    
+
     /**
-     * Gestiona el evento cuando se hace click en el boton de comprar billete con tarjeta CYL
-     * Se inicia el proceso de compra con la tarjeta de CYL
+     * Gestiona el evento cuando se hace click en el boton de comprar billete
+     * con tarjeta CYL Se inicia el proceso de compra con la tarjeta de CYL
+     *
      * @param evt el evento que desencadeno este metodo
      */
     private void comprarBilleteTarjetaCylActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarBilleteTarjetaCylActionPerformed
